@@ -386,7 +386,7 @@ module Schema
                 if (aSchemaElementNodes.empty?)
                     hSchemaElementKindNode[:leaf] = true;
                 else
-                    hSchemaElementKindNode[:Version]  = aSchemaElementNodes.length;
+                    hSchemaElementKindNode[:Version]  = "Num: #{aSchemaElementNodes.length}";
                     hSchemaElementKindNode[:children] = aSchemaElementNodes;
                     hSchemaElementKindNode[:expanded] = true;
                 end
@@ -460,7 +460,7 @@ module Schema
             if (aSchemaComponentNodes.empty?)
                 hSchemaComponentNode[:leaf] = true;
             else
-                hSchemaComponentNode[:Version]  = aSchemaComponentNodes.length;
+                hSchemaComponentNode[:Version]  = "Num: #{aSchemaComponentNodes.length}";
                 hSchemaComponentNode[:children] = aSchemaComponentNodes;
                 hSchemaComponentNode[:expanded] = true;
             end
@@ -482,6 +482,7 @@ module Schema
                 aComponentVersionNodes = select_component_versions(
                     hSchemaComponentNode[:Id], _sSchemaVersionId);
 
+                hSchemaComponentNode[:Version] = hSchemaComponentNode[:Doc];
                 if (aComponentVersionNodes.empty?)
                     hSchemaComponentNode[:leaf] = true;
                 else
@@ -502,6 +503,7 @@ module Schema
                 hComponentVersionNode[:SchemaVersionId] = _sSchemaVersionId;
                 hComponentVersionNode[:Kind]     = 'Comp';
                 hComponentVersionNode[:KindName] = 'Component';
+                hComponentVersionNode[:Version]  = hComponentVersionNode[:Doc];
                 hComponentVersionNode[:leaf]     = true;
                 hComponentVersionNode;
             }
@@ -515,6 +517,8 @@ module Schema
             case sQuery
                 when 'SchemaElementsBySchemaVersionId' then return respond_schema_elements_by_schema_version_id;
                 when 'RenderSchemaVersion' then return respond_render_schema_version;
+                when 'Versions' then return respond_versions;
+                when 'NetVis' then return respond_net_vis;
                 else return error("No implementation for query '#{sQuery}'");
             end
         end
@@ -524,7 +528,9 @@ module Schema
             @oDb = SQLite3::Database.new(@sDbFile);
 
             if (@hParams['Kind'] == 'Comp')
-                return respond_schema_components_by_schema_versionId;
+                return success(
+                    get_schema_components_by_schema_versionId(
+                        @hParams['SchemaVersionId']));
             end
 
             aSchemaElementNodes = [];
@@ -548,31 +554,40 @@ module Schema
             return success(aSchemaElementNodes);
         end
 
-        def respond_schema_components_by_schema_versionId
-            nSchemaVersionId  = @hParams['SchemaVersionId']
-            aSchemaComponents = []; # auxiliar array variable
-            sQuery = Component.select_where({
-                SchemaVersionId: nSchemaVersionId,
-            });
+        def get_schema_components_by_schema_versionId(_nSchemaVersionId);
+            sQuery = Component.select_where({SchemaVersionId: _nSchemaVersionId});
             puts("@ Component: #{sQuery}");
-            @oDb.execute(sQuery).each { |aRow|
-                aSchemaComponents << Component.format_row(aRow);
+            aSchemaComponents = @oDb.execute(sQuery).collect { |aRow|
+                Component.format_row(aRow);
             }
 
             aSchemaComponentNodes = []; # result variable
             aSchemaComponents.each { |hSchemaComponent|
                 nSchemaComponentId = hSchemaComponent[:Id];
-                aComponentVersions = select_component_versions(nSchemaComponentId, nSchemaVersionId);
+                aComponentVersions = select_component_versions(
+                    nSchemaComponentId, _nSchemaVersionId);
                 aComponentVersions.each { |hComponentVersion|
                     sName = "#{hSchemaComponent[:Class]}/#{hComponentVersion[:Name]}";
-                    aSchemaComponentNodes << {
-                        Name: sName,
-                        Value: sName,
-                    };
+                    aSchemaComponentNodes << { Name: sName, Value: sName, };
                 }
             }
 
-            return success(aSchemaComponentNodes);
+            # attach the components of the referred schemas
+            sQuery = SchemaElement.select_where({
+                SchemaVersionId: _nSchemaVersionId,
+                Kind:            'Schema',
+            });
+            puts("@ SchemaElement: #{sQuery}");
+            aSchemaSchemas = @oDb.execute(sQuery).collect { |aRow|
+                SchemaElement.format_row(aRow);
+            }
+            aSchemaSchemas.each { |hSchema|
+                aSchemaComponentNodes.concat(
+                    get_schema_components_by_schema_versionId(
+                        hSchema[:SetElementVersionId]));
+            }
+
+            return aSchemaComponentNodes;
         end
 
         def respond_render_schema_version
@@ -601,9 +616,6 @@ module Schema
                 @oDb.execute(sQuery).each { |aRow|
                     aSchemaElements << SchemaElement.format_row(aRow);
                 }
-
-                next if aSchemaElements.empty?; # do not add empty schema element arrays
-
                 aSchemaRows << "a#{sFullKindName}s:";
                 aSchemaElements.each { |hSchemaElement|
                     aSchemaRows << "#{@sNs}#{sFullKindName}";
@@ -643,28 +655,24 @@ module Schema
                     aSchemaRows << "  sAuthorz: #{hSchemaComponentVersion[:Auth]}";
 
                     # component primitives *************************************
-                    aSchemaRows << "  aPrimitives:";
+                    aSchemaRows << '  aPrimitives:';
                     sQuery = Primitive.select_where({ParentId: hSchemaComponentVersion[:Id]});
                     puts("@ Primitive: #{sQuery}")
                     aPrimitives = @oDb.execute(sQuery).collect { |aRow|
-                        Primitive.format_row(aRow);
+                        hPrimitive = Primitive.format_row(aRow);
+                        aSchemaRows << "  #{@sNs}Primitive";
+                        aSchemaRows << "    sClass: #{hPrimitive[:Class]}";
+                        aSchemaRows << "    sVersion: #{hPrimitive[:Version]}";
+                        aSchemaRows << "    sName: #{hPrimitive[:Name]}";
+                        aSchemaRows << "    sDoc: #{hPrimitive[:Doc]}";
+                        aSchemaRows << "    bNullable: #{hPrimitive[:Nullable] == 1}";
+                        aSchemaRows << "    sValidation: #{hPrimitive[:Valid]}";
+                        aSchemaRows << "    sUnit: #{hPrimitive[:Unit]}";
+                        aSchemaRows << "    sEnumeration: #{hPrimitive[:Enum]}";
                     }
-                    unless (aPrimitives.empty?)
-                        aPrimitives.each { |hPrimitive|
-                            aSchemaRows << "  #{@sNs}Primitive";
-                            aSchemaRows << "    sClass: #{hPrimitive[:Class]}";
-                            aSchemaRows << "    sVersion: #{hPrimitive[:Version]}";
-                            aSchemaRows << "    sName: #{hPrimitive[:Name]}";
-                            aSchemaRows << "    sDoc: #{hPrimitive[:Doc]}";
-                            aSchemaRows << "    bNullable: #{hPrimitive[:Nullable] == 1}";
-                            aSchemaRows << "    sValidation: #{hPrimitive[:Valid]}";
-                            aSchemaRows << "    sUnit: #{hPrimitive[:Unit]}";
-                            aSchemaRows << "    sEnumeration: #{hPrimitive[:Enum]}";
-                        }
-                    end
 
                     # component children ***************************************
-                    aSchemaRows << "  aChildren:";
+                    aSchemaRows << '  aChildren:';
                     sQuery = Child.select_where({ParentId: hSchemaComponentVersion[:Id]});
                     puts("@ Child: #{sQuery}")
                     aChildren = @oDb.execute(sQuery).collect { |aRow|
@@ -678,6 +686,74 @@ module Schema
             }
 
             return success(aSchemaRows.join("\n"));
+        end
+
+        def respond_versions
+            @oDb = SQLite3::Database.new(@sDbFile);
+            aVersions = [];
+            [SetVersion, SetElementVersion, ComponentVersion].each { |oClass|
+                sQuery =  oClass.select;
+                @oDb.execute(oClass.select).each { |aRow|
+                    hObj = oClass.format_row(aRow);
+                    aVersions << {
+                        Type: oClass.to_s,
+                        Id: hObj[:Id],
+                        Name: hObj[:Name],
+                    };
+                }
+            }
+
+            return success(aVersions);
+        end
+
+        def respond_net_vis
+            sType = @hParams['Type'];
+            case sType
+                when 'SetVersion' then return respond_set_version_net_vis;
+                when 'SchemaVersion' then return respond_schema_version_net_vis;
+                else return error("No implementation for net vis '#{sType}'");
+            end
+        end
+
+        def respond_set_version_net_vis
+            nSetVersionId = @hParams['SetVersionId'];
+
+            aNodes = [];
+            aEdges = [];
+            hNodes = {};
+
+            @oDb = SQLite3::Database.new(@sDbFile);
+
+            @@hSetElementKinds.each { |sSetElementKind, sFullKindName|
+                hNodes[sSetElementKind] = [];
+                sQuery = SetElement.select_where({
+                    SetVersionId: nSetVersionId,
+                    Kind:         sSetElementKind,
+                });
+                puts("@ SetElement: #{sQuery}");
+                aSetElements = @oDb.execute(sQuery).collect { |aRow|
+                    SetElement.format_row(aRow);
+                }
+                aSetElements.each { |hSetElement|
+                    hNodes[sSetElementKind] << hSetElement[:Id];
+                    aNodes << {
+                        id: hSetElement[:Id],
+                        label: hSetElement[:Name],
+                        title: hSetElement[:Doc],
+                        group: sSetElementKind,
+                        shape: 'image',
+                        image: "./images/icons/#{sSetElementKind}.png",
+                    };
+                }
+            }
+
+            hNodes.each { |sKind, aNodes|
+                (aNodes.length - 1).times { |nIdx|
+                    aEdges << {from: aNodes[nIdx], to: aNodes[nIdx + 1]};
+                }
+            }
+
+            return success({nodes: aNodes, edges: aEdges});
         end
 
     end # class SchemaHandler

@@ -42,6 +42,7 @@ Ext.application({
                 id: 'pnlSchemaElements',
                 region: 'east',
                 split: true,
+                collapsible: true,
                 minWidth: 400,
                 width: 400,
             })],
@@ -69,4 +70,3 @@ Ext.application({
         });
     }
 });
-

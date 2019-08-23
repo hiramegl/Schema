@@ -1,8 +1,15 @@
 --- !ruby/object:Aspicere::Schema
-sClass: Author
-sDoc: Schema for author
-sVersion: Aldo
-sVersionDoc: Basic Author schema
+sClass: Group
+sDoc: Schema for group
+sVersion: Abigail
+sVersionDoc: First implementation
+aSchemas:
+- !ruby/object:Aspicere::Schema
+  sClass: Author
+  sDoc: Schema for author
+  sVersion: Aldo
+  sVersionDoc: Basic Author schema
+  sConfig: 
 aAuthorizations:
 - !ruby/object:Aspicere::Authorization
   sClass: Group
@@ -12,22 +19,10 @@ aAuthorizations:
   sConfig: 
 aValidations:
 - !ruby/object:Aspicere::Validation
-  sClass: Alias
-  sDoc: Author aliases
-  sVersion: Alba
-  sVersionDoc: Alphanum aliases
-  sConfig: 
-- !ruby/object:Aspicere::Validation
   sClass: Name
-  sDoc: Author names
+  sDoc: Author and group names
   sVersion: Alice
   sVersionDoc: Alpha and spaces in names
-  sConfig: 
-- !ruby/object:Aspicere::Validation
-  sClass: Password
-  sDoc: Login password
-  sVersion: Atena
-  sVersionDoc: Secure password
   sConfig: 
 - !ruby/object:Aspicere::Validation
   sClass: Url
@@ -41,43 +36,58 @@ aValidations:
   sVersion: Ava
   sVersionDoc: Alphanum, commas and spaces
   sConfig: 
-aUnits:
-- !ruby/object:Aspicere::Unit
-  sClass: Hour
-  sDoc: Unit for time spans
-  sVersion: Alex
-  sVersionDoc: Hour time unit
+- !ruby/object:Aspicere::Validation
+  sClass: Email
+  sDoc: Email of authors or groups
+  sVersion: Annabelle
+  sVersionDoc: Basic email validation
   sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Telephone
+  sDoc: Telephone validation
+  sVersion: Abbie
+  sVersionDoc: Number starts with country code +(xx), followed by 6 to 10 digits
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Address
+  sDoc: Geographical location address
+  sVersion: Alexandra
+  sVersionDoc: Basic address validation
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Position
+  sDoc: Geographical position (GPS coordinates)
+  sVersion: Alexis
+  sVersionDoc: Latitude & longitude with decimals
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: PostalCode
+  sDoc: Postal code of addresses
+  sVersion: Alisha
+  sVersionDoc: Basic postal code validation
+  sConfig: 
+aUnits:
 aEnumerations:
 - !ruby/object:Aspicere::Enumeration
   sClass: Status
-  sDoc: Author status in the system
+  sDoc: Author and group status in the system
   sVersion: Ambar
   sVersionDoc: First version
   sConfig: Active: "Can use system", Inactive: "Cannot use system temporarily", Deleted: "Not available anymore"
 aComponents:
 - !ruby/object:Aspicere::Component
-  sClass: Author
-  sName: Auhor
-  sDoc: Author component
-  sVersion: Arthur
-  sVersionDoc: 1st version
+  sClass: Group
+  sName: Group
+  sDoc: Set of groups and users
+  sVersion: Aiden
+  sVersionDoc: With groups, contacts and users
   sAuthorz: Group/Archie
   aPrimitives:
   - !ruby/object:Aspicere::Primitive
     sClass: string
     sVersion: v_1.0
-    sName: Alias
-    sDoc: Alias for login
-    bNullable: false
-    sValidation: Alias/Alba
-    sUnit: 
-    sEnumeration: 
-  - !ruby/object:Aspicere::Primitive
-    sClass: string
-    sVersion: v_1.0
     sName: Name
-    sDoc: Name and surname
+    sDoc: Group name, can include spaces
     bNullable: false
     sValidation: Name/Alice
     sUnit: 
@@ -85,17 +95,8 @@ aComponents:
   - !ruby/object:Aspicere::Primitive
     sClass: string
     sVersion: v_1.0
-    sName: Password
-    sDoc: Uncrypted psswd
-    bNullable: false
-    sValidation: Password/Atena
-    sUnit: 
-    sEnumeration: 
-  - !ruby/object:Aspicere::Primitive
-    sClass: string
-    sVersion: v_1.0
-    sName: Image
-    sDoc: Url user image
+    sName: Logo
+    sDoc: Url to the logotype image
     bNullable: true
     sValidation: Url/Andrew
     sUnit: 
@@ -104,7 +105,7 @@ aComponents:
     sClass: string
     sVersion: v_1.0
     sName: Status
-    sDoc: Author status
+    sDoc: Status of the group in the system
     bNullable: false
     sValidation: 
     sUnit: 
@@ -113,13 +114,132 @@ aComponents:
     sClass: string
     sVersion: v_1.0
     sName: Tags
-    sDoc: Search tags
+    sDoc: Doc
     bNullable: true
     sValidation: Tags/Ava
     sUnit: 
     sEnumeration: 
   aChildren:
   - !ruby/object:Aspicere::Child
+    sClassId: Group/Aiden
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Contact/Annie
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Location/Aidan
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: Contact
+  sName: Contact
+  sDoc: Contact information of a group
+  sVersion: Annie
+  sVersionDoc: Email, telephone & mobile
+  sAuthorz: Group/Archie
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Email
+    sDoc: Email of the group
+    bNullable: true
+    sValidation: Email/Annabelle
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Telephone
+    sDoc: Telephone to contact group responsible
+    bNullable: true
+    sValidation: Telephone/Abbie
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Mobile
+    sDoc: Mobile of group responsible
+    bNullable: true
+    sValidation: Telephone/Abbie
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+- !ruby/object:Aspicere::Component
+  sClass: Location
+  sName: Location
+  sDoc: Author or group geographical location
+  sVersion: Aidan
+  sVersionDoc: Geographical location information
+  sAuthorz: Group/Archie
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Address
+    sDoc: Street and number, eventually apartment number
+    bNullable: false
+    sValidation: Address/Alexandra
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: PostalCode
+    sDoc: Address postal code
+    bNullable: true
+    sValidation: PostalCode/Alisha
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: City
+    sDoc: City or region
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Position
+    sDoc: Geographical coordinates Lat, Lon
+    bNullable: true
+    sValidation: Position/Alexis
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+- !ruby/object:Aspicere::Component
+  sClass: User
+  sName: User
+  sDoc: User with permissions, contact and location
+  sVersion: Amelia
+  sVersionDoc: User with designation, contact info and location
+  sAuthorz: Group/Archie
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Title
+    sDoc: Title, alphanumeric and spaces
+    bNullable: false
+    sValidation: Name/Alice
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+  - !ruby/object:Aspicere::Child
     sClassId: Author/Arthur
     bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: Contact/Annie
+    bArray: true
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: Location/Aidan
+    bArray: true
     bNullable: true

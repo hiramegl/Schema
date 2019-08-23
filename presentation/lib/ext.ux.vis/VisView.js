@@ -13,7 +13,10 @@ Ext.define('Ext.ux.VisView', {
             return;
         }
 
-        this.load([{id: 1, label: this.ClearLabel}], []);
+        this.load(
+            [{id: 1, label: this.ClearLabel, shape: 'box'}],
+            []
+        );
     },
 
     load: function (_aNodes, _aEdges) {
