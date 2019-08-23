@@ -1,0 +1,125 @@
+--- !ruby/object:Aspicere::Schema
+sClass: Author
+sDoc: Schema for author
+sVersion: Aldo
+sVersionDoc: Basic Author schema
+aAuthorizations:
+- !ruby/object:Aspicere::Authorization
+  sClass: Group
+  sDoc: Group authorization
+  sVersion: Archie
+  sVersionDoc: Authors in same group
+  sConfig: 
+aValidations:
+- !ruby/object:Aspicere::Validation
+  sClass: Alias
+  sDoc: Author aliases
+  sVersion: Alba
+  sVersionDoc: Alphanum aliases
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Name
+  sDoc: Author names
+  sVersion: Alice
+  sVersionDoc: Alpha and spaces in names
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Password
+  sDoc: Login password
+  sVersion: Atena
+  sVersionDoc: Secure password
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Url
+  sDoc: Images url
+  sVersion: Andrew
+  sVersionDoc: Simple url
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Tags
+  sDoc: Tags
+  sVersion: Ava
+  sVersionDoc: Alphanum, commas and spaces
+  sConfig: 
+aUnits:
+- !ruby/object:Aspicere::Unit
+  sClass: Hour
+  sDoc: Unit for time spans
+  sVersion: Alex
+  sVersionDoc: Hour time unit
+  sConfig: 
+aEnumerations:
+- !ruby/object:Aspicere::Enumeration
+  sClass: Status
+  sDoc: Author status in the system
+  sVersion: Ambar
+  sVersionDoc: First version
+  sConfig: Active: "Can use system", Inactive: "Cannot use system temporarily", Deleted: "Not available anymore"
+aComponents:
+- !ruby/object:Aspicere::Component
+  sClass: Author
+  sName: Auhor
+  sDoc: Author component
+  sVersion: Arthur
+  sVersionDoc: 1st version
+  sAuthorz: Group/Archie
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Alias
+    sDoc: Alias for login
+    bNullable: false
+    sValidation: Alias/Alba
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Name
+    sDoc: Name and surname
+    bNullable: false
+    sValidation: Name/Alice
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Password
+    sDoc: Uncrypted psswd
+    bNullable: false
+    sValidation: Password/Atena
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Image
+    sDoc: Url user image
+    bNullable: true
+    sValidation: Url/Andrew
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Status
+    sDoc: Author status
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: Status/Ambar
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Tags
+    sDoc: Search tags
+    bNullable: true
+    sValidation: Tags/Ava
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Author/Arthur
+    bArray: false
+    bNullable: true

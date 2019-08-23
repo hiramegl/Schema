@@ -123,39 +123,59 @@ Ext.define('Schema.View.SetElementsPanel', {
             }
 
             var sSetElementVersionId = _oRecord.data.Id;
+            var aItems = [{
+                text: 'Edit ' + sKindName + ' version',
+                iconCls: 'x-fa fa-edit',
+                Config: {
+                    Type: 'SetElementVersion',
+                    SetElementVersionId: sSetElementVersionId,
+                    Cmd: 'update',
+                    RecordBuilder: function (_oData) { return _oData; },
+                },
+                handler: operateObjectHandler,
+            },{
+                text: 'Delete ' + sKindName + ' version',
+                iconCls: 'x-fa fa-minus-square',
+                Config: { Type: 'SetElementVersion' },
+                handler: deleteObjectHandler
+            },{
+                text: 'Upgrade ' + sKindName + ' version',
+                iconCls: 'x-fa fa-caret-up',
+                Config: {
+                    Type: 'SetElementVersion',
+                    SetElementVersionId: sSetElementVersionId,
+                    Cmd: 'upgrade',
+                    RecordBuilder: function (_oData) { return _oData; },
+                },
+                handler: operateObjectHandler,
+            }];
+
+            if (sKindName == 'Schema') {
+                aItems.push({
+                    text: 'Render Schema version',
+                    iconCls: 'x-fa fa-eye',
+                    Config: {
+                        Type: 'SetElementVersion',
+                        WindowType: 'SchemaVersionRenderWindow',
+                        SetElementVersionId: sSetElementVersionId,
+                        Cmd: 'render',
+                        RecordBuilder: function (_oData) { return _oData; },
+                    },
+                    handler: operateObjectHandler,
+                });
+            }
+
+            aItems.push('-');
+            aItems.push({
+                text: (oTree.State == 1) ? 'Collapse' : 'Expand',
+                iconCls: (oTree.State == 1) ? 'x-fa fa-folder' : 'x-fa fa-folder-open',
+                handler: collapseExpandTree
+            });
+
             new Ext.menu.Menu({
                 floating: true,
                 Config: { Record: _oRecord, Cont: oTree },
-                items: [{
-                    text: 'Edit ' + sKindName + ' version',
-                    iconCls: 'x-fa fa-edit',
-                    Config: {
-                        Type: 'SetElementVersion',
-                        SetElementVersionId: sSetElementVersionId,
-                        Cmd: 'update',
-                        RecordBuilder: function (_oData) { return _oData; },
-                    },
-                    handler: operateObjectHandler,
-                },{
-                    text: 'Delete ' + sKindName + ' version',
-                    iconCls: 'x-fa fa-minus-square',
-                    Config: { Type: 'SetElementVersion' },
-                    handler: deleteObjectHandler
-                },{
-                    text: 'Upgrade ' + sKindName + ' version',
-                    iconCls: 'x-fa fa-caret-up',
-                    Config: {
-                        Type: 'SetElementVersion',
-                        SetElementVersionId: sSetElementVersionId,
-                        Cmd: 'upgrade',
-                        RecordBuilder: function (_oData) { return _oData; },
-                    },
-                    handler: operateObjectHandler,
-                }, '-', {
-                    text: (oTree.State == 1) ? 'Collapse' : 'Expand',
-                    iconCls: (oTree.State == 1) ? 'x-fa fa-folder' : 'x-fa fa-folder-open',
-                    handler: collapseExpandTree
-                }],
+                items: aItems,
             }).showAt(_oEvent.getXY());
         },
         containercontextmenu: function(_oView, _oEvent, _oOptions) {

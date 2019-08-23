@@ -11,6 +11,9 @@ function operateObjectHandler(_oMenuItem) {
     var fBuilder = _oMenuItem.Config.RecordBuilder;
     var sType    = 'Schema.View.' + _oMenuItem.Config.Type + 'Window';
 
+    if (_oMenuItem.Config.WindowType != undefined)
+        sType = 'Schema.View.' + _oMenuItem.Config.WindowType;
+
     Ext.create(sType, {
         Cmd:  sCmd,
         Config: _oMenuItem.Config,

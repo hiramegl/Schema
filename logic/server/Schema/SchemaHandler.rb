@@ -190,39 +190,33 @@ module Schema
 
         # returns a json array object on success or a json failure object on error
         def respond_list(_sQuery)
-            aObjs = [];
             begin
                 oDb = SQLite3::Database.new(@sDbFile);
                 puts("@ #{_sQuery}");
-                oDb.execute(_sQuery).each { |aRow|
-                    aObjs << @oType.format_row(aRow);
+                aObjs = oDb.execute(_sQuery).collect { |aRow|
+                    @oType.format_row(aRow);
                 }
+                return success(aObjs);
             rescue SQLite3::Exception => oException
                 return error("respond_list: #{oException.to_s}");
             ensure
                 oDb.close if oDb;
             end
-
-            return success(aObjs);
         end
 
         # returns a json array object on success or a json failure object on error
         def respond_obj(_sQuery)
-            hObj = nil;
             begin
                 oDb = SQLite3::Database.new(@sDbFile);
                 puts("@ #{_sQuery}");
                 oDb.execute(_sQuery).each { |aRow|
-                    hObj = @oType.format_row(aRow);
-                    break; # execute only the first row
+                     return success(@oType.format_row(aRow)); # return the first object
                 }
             rescue SQLite3::Exception => oException
                 return error("respond_obj: #{oException.to_s}");
             ensure
                 oDb.close if oDb;
             end
-
-            return success(hObj);
         end
 
         # returns a json tree object on success or a json failure object on error
@@ -238,27 +232,25 @@ module Schema
         end
 
         def respond_set_tree
-            aSets = [];
             begin
                 oDb = SQLite3::Database.new(@sDbFile);
 
                 sQuery = @oType.select;
                 puts("@ Type: #{sQuery}");
-                oDb.execute(sQuery).each { |aRow|
-                    aSets << @oType.format_row(aRow);
+                aSets = oDb.execute(sQuery).collect { |aRow|
+                    @oType.format_row(aRow);
                 }
 
                 # iterate through the set and find the versions
                 aSets.each { |hSet|
-                    aVersions = [];
-                    nSetId    = hSet[:Id];
-                    sQuery    = SetVersion.select_where({ SetId: nSetId });
+                    nSetId = hSet[:Id];
+                    sQuery = SetVersion.select_where({ SetId: nSetId });
 
                     puts("@ Version: #{sQuery}");
-                    oDb.execute(sQuery).each { |aRow|
+                    aVersions = oDb.execute(sQuery).collect { |aRow|
                         hSetVersion = SetVersion.format_row(aRow);
                         hSetVersion[:leaf] = true;
-                        aVersions << hSetVersion;
+                        hSetVersion;
                     }
 
                     if (aVersions.empty?)
@@ -269,13 +261,12 @@ module Schema
                     end
                 }
 
+                return success_tree(aSets);
             rescue SQLite3::Exception => oException
                 return error("respond_set_tree: #{oException.to_s}");
             ensure
                 oDb.close if oDb;
             end
-
-            return success_tree(aSets);
         end
 
         @@hSetElementKinds = {
@@ -323,16 +314,15 @@ module Schema
             _sSetElementKind,
             _sFullKindName)
 
-            aSetElementNodes = [];
             sQuery = SetElement.select_where({
                 SetVersionId: _sSetVersionId,
                 Kind:         _sSetElementKind,
             });
             puts("@ SetElement: #{sQuery}");
-            @oDb.execute(sQuery).each { |aRow|
+            aSetElementNodes = @oDb.execute(sQuery).collect { |aRow|
                 hSetElementNode            = SetElement.format_row(aRow);
                 hSetElementNode[:KindName] = _sFullKindName;
-                aSetElementNodes << hSetElementNode;
+                hSetElementNode;
             }
 
             aSetElementNodes.each { |hSetElementNode|
@@ -356,17 +346,16 @@ module Schema
             _sSetElementKind,
             _sFullKindName)
 
-            aSetElementVersionNodes = [];
             sQuery = SetElementVersion.select_where({
                 SetElementId: _sSetElementId
             });
             puts("@ SetElementVersion: #{sQuery}");
-            @oDb.execute(sQuery).each { |aRow|
+            aSetElementVersionNodes = @oDb.execute(sQuery).collect { |aRow|
                 hSetElementVersionNode = SetElementVersion.format_row(aRow);
                 hSetElementVersionNode[:Kind]     = _sSetElementKind;
                 hSetElementVersionNode[:KindName] = _sFullKindName;
                 hSetElementVersionNode[:leaf]     = true;
-                aSetElementVersionNodes << hSetElementVersionNode;
+                hSetElementVersionNode;
             }
             return aSetElementVersionNodes;
         end
@@ -418,15 +407,13 @@ module Schema
 
             # search for Schema elements that belong to the
             # Schema element kind and Schema version
-            aSchemaElementNodes = [];
             sQuery = SchemaElement.select_where({
                 SchemaVersionId: _sSchemaVersionId,
                 Kind:            _sSchemaElementKind,
             });
             puts("@ SchemaElement: #{sQuery}");
-            @oDb.execute(sQuery).each { |aRow|
-                hSchemaElementNode = SchemaElement.format_row(aRow);
-                aSchemaElementNodes << hSchemaElementNode;
+            aSchemaElementNodes = @oDb.execute(sQuery).collect { |aRow|
+                SchemaElement.format_row(aRow);
             }
 
             aSchemaElementNodes.each { |hSchemaElementNode|
@@ -444,9 +431,7 @@ module Schema
         end
 
         def get_set_element(_nSetElementId)
-            sQuery = SetElement.select_obj({
-                'Id' => _nSetElementId
-            });
+            sQuery = SetElement.select_obj({'Id' => _nSetElementId});
             puts("@ SetElement: #{sQuery}");
             @oDb.execute(sQuery).each { |aRow|
                 return SetElement.format_row(aRow); # execute only the first row
@@ -455,9 +440,7 @@ module Schema
         end
 
         def get_set_element_version(_nSetElementVersionId)
-            sQuery = SetElementVersion.select_obj({
-                'Id' => _nSetElementVersionId
-            });
+            sQuery = SetElementVersion.select_obj({'Id' => _nSetElementVersionId});
             puts("@ SetElementVersion: #{sQuery}");
             @oDb.execute(sQuery).each { |aRow|
                 return SetElementVersion.format_row(aRow); # execute only the first row
@@ -474,7 +457,6 @@ module Schema
             };
 
             aSchemaComponentNodes = select_schema_components(_sSchemaVersionId);
-
             if (aSchemaComponentNodes.empty?)
                 hSchemaComponentNode[:leaf] = true;
             else
@@ -487,16 +469,13 @@ module Schema
         end
 
         def select_schema_components(_sSchemaVersionId)
-            aSchemaComponentNodes = [];
-            sQuery = Component.select_where({
-                SchemaVersionId: _sSchemaVersionId,
-            });
+            sQuery = Component.select_where({SchemaVersionId: _sSchemaVersionId});
             puts("@ Component: #{sQuery}");
-            @oDb.execute(sQuery).each { |aRow|
+            aSchemaComponentNodes = @oDb.execute(sQuery).collect { |aRow|
                 hSchemaComponentNode            = Component.format_row(aRow);
                 hSchemaComponentNode[:Kind]     = 'Comp';
                 hSchemaComponentNode[:KindName] = 'Component';
-                aSchemaComponentNodes << hSchemaComponentNode;
+                hSchemaComponentNode;
             }
 
             aSchemaComponentNodes.each { |hSchemaComponentNode|
@@ -510,24 +489,21 @@ module Schema
                     hSchemaComponentNode[:expanded] = true;
                 end
             }
+            return aSchemaComponentNodes;
         end
 
         def select_component_versions(
             _nSchemaComponentId,
             _sSchemaVersionId)
-
-            aComponentVersionNodes = [];
-            sQuery = ComponentVersion.select_where({
-                CompId: _nSchemaComponentId
-            });
+            sQuery = ComponentVersion.select_where({CompId: _nSchemaComponentId});
             puts("@ ComponentVersion: #{sQuery}");
-            @oDb.execute(sQuery).each { |aRow|
+            aComponentVersionNodes = @oDb.execute(sQuery).collect { |aRow|
                 hComponentVersionNode = ComponentVersion.format_row(aRow);
                 hComponentVersionNode[:SchemaVersionId] = _sSchemaVersionId;
-                hComponentVersionNode[:Kind]            = 'Comp';
-                hComponentVersionNode[:KindName]        = 'Component';
-                hComponentVersionNode[:leaf]            = true;
-                aComponentVersionNodes << hComponentVersionNode;
+                hComponentVersionNode[:Kind]     = 'Comp';
+                hComponentVersionNode[:KindName] = 'Component';
+                hComponentVersionNode[:leaf]     = true;
+                hComponentVersionNode;
             }
             return aComponentVersionNodes;
         end
@@ -538,6 +514,7 @@ module Schema
 
             case sQuery
                 when 'SchemaElementsBySchemaVersionId' then return respond_schema_elements_by_schema_version_id;
+                when 'RenderSchemaVersion' then return respond_render_schema_version;
                 else return error("No implementation for query '#{sQuery}'");
             end
         end
@@ -552,6 +529,7 @@ module Schema
 
             aSchemaElementNodes = [];
             sQuery = SchemaElement.select(@hParams);
+            puts("@ SchemaElement: #{sQuery}");
             @oDb.execute(sQuery).each { |aRow|
                 aSchemaElementNodes << SchemaElement.format_row(aRow);
             }
@@ -595,6 +573,111 @@ module Schema
             }
 
             return success(aSchemaComponentNodes);
+        end
+
+        def respond_render_schema_version
+            sSchemaVersionId = @hParams['SchemaVersionId'];
+            @oDb = SQLite3::Database.new(@sDbFile);
+            @sNs = "- !ruby/object:Aspicere::";
+
+            # schema header ****************************************************
+            hSchemaVersion = get_set_element_version(sSchemaVersionId);
+            hSchema        = get_set_element(hSchemaVersion[:Id]);
+
+            aSchemaRows = ["--#{@sNs}Schema"];
+            aSchemaRows << "sClass: #{hSchema[:Name]}";
+            aSchemaRows << "sDoc: #{hSchema[:Doc]}";
+            aSchemaRows << "sVersion: #{hSchemaVersion[:Name]}";
+            aSchemaRows << "sVersionDoc: #{hSchemaVersion[:Doc]}";
+
+            # schema elements **************************************************
+            @@hSetElementKinds.each { |sSchemaElementKind, sFullKindName|
+                sQuery = SchemaElement.select_where({
+                    SchemaVersionId: sSchemaVersionId,
+                    Kind:            sSchemaElementKind,
+                });
+                puts("@ SchemaElement: #{sQuery}");
+                aSchemaElements = [];
+                @oDb.execute(sQuery).each { |aRow|
+                    aSchemaElements << SchemaElement.format_row(aRow);
+                }
+
+                next if aSchemaElements.empty?; # do not add empty schema element arrays
+
+                aSchemaRows << "a#{sFullKindName}s:";
+                aSchemaElements.each { |hSchemaElement|
+                    aSchemaRows << "#{@sNs}#{sFullKindName}";
+                    hSetElement        = get_set_element(hSchemaElement[:SetElementId]);
+                    hSetElementVersion = get_set_element_version(hSchemaElement[:SetElementVersionId]);
+                    aSchemaRows << "  sClass: #{hSetElement[:Name]}";
+                    aSchemaRows << "  sDoc: #{hSetElement[:Doc]}";
+                    aSchemaRows << "  sVersion: #{hSetElementVersion[:Name]}";
+                    aSchemaRows << "  sVersionDoc: #{hSetElementVersion[:Doc]}";
+                    aSchemaRows << "  sConfig: #{hSetElementVersion[:Config]}";
+                }
+            }
+
+            # schema components ************************************************
+            sQuery = Component.select_where({SchemaVersionId: sSchemaVersionId,});
+            puts("@ Component: #{sQuery}");
+            aSchemaComponents = @oDb.execute(sQuery).collect { |aRow|
+                Component.format_row(aRow);
+            }
+            return success(aSchemaRows.join("\n")) if aSchemaComponents.empty?;
+
+            aSchemaRows << 'aComponents:';
+            aSchemaComponents.each { |hSchemaComponent|
+                # iterate through the component versions
+                sQuery = ComponentVersion.select_where({CompId: hSchemaComponent[:Id]});
+                puts("@ ComponentVersion: #{sQuery}");
+                aComponentVersions = @oDb.execute(sQuery).collect { |aRow|
+                    ComponentVersion.format_row(aRow);
+                }
+                aComponentVersions.each { |hSchemaComponentVersion|
+                    aSchemaRows << "#{@sNs}Component";
+                    aSchemaRows << "  sClass: #{hSchemaComponent[:Class]}";
+                    aSchemaRows << "  sName: #{hSchemaComponent[:Name]}";
+                    aSchemaRows << "  sDoc: #{hSchemaComponent[:Doc]}";
+                    aSchemaRows << "  sVersion: #{hSchemaComponentVersion[:Name]}";
+                    aSchemaRows << "  sVersionDoc: #{hSchemaComponentVersion[:Doc]}";
+                    aSchemaRows << "  sAuthorz: #{hSchemaComponentVersion[:Auth]}";
+
+                    # component primitives *************************************
+                    aSchemaRows << "  aPrimitives:";
+                    sQuery = Primitive.select_where({ParentId: hSchemaComponentVersion[:Id]});
+                    puts("@ Primitive: #{sQuery}")
+                    aPrimitives = @oDb.execute(sQuery).collect { |aRow|
+                        Primitive.format_row(aRow);
+                    }
+                    unless (aPrimitives.empty?)
+                        aPrimitives.each { |hPrimitive|
+                            aSchemaRows << "  #{@sNs}Primitive";
+                            aSchemaRows << "    sClass: #{hPrimitive[:Class]}";
+                            aSchemaRows << "    sVersion: #{hPrimitive[:Version]}";
+                            aSchemaRows << "    sName: #{hPrimitive[:Name]}";
+                            aSchemaRows << "    sDoc: #{hPrimitive[:Doc]}";
+                            aSchemaRows << "    bNullable: #{hPrimitive[:Nullable] == 1}";
+                            aSchemaRows << "    sValidation: #{hPrimitive[:Valid]}";
+                            aSchemaRows << "    sUnit: #{hPrimitive[:Unit]}";
+                            aSchemaRows << "    sEnumeration: #{hPrimitive[:Enum]}";
+                        }
+                    end
+
+                    # component children ***************************************
+                    aSchemaRows << "  aChildren:";
+                    sQuery = Child.select_where({ParentId: hSchemaComponentVersion[:Id]});
+                    puts("@ Child: #{sQuery}")
+                    aChildren = @oDb.execute(sQuery).collect { |aRow|
+                        hChild = Child.format_row(aRow);
+                        aSchemaRows << "  #{@sNs}Child";
+                        aSchemaRows << "    sClassId: #{hChild[:Comp]}";
+                        aSchemaRows << "    bArray: #{hChild[:Array] == 1}";
+                        aSchemaRows << "    bNullable: #{hChild[:Nullable] == 1}";
+                    }
+                }
+            }
+
+            return success(aSchemaRows.join("\n"));
         end
 
     end # class SchemaHandler

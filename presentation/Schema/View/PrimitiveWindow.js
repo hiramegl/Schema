@@ -7,7 +7,7 @@ Ext.define('Schema.View.PrimitiveWindow', {
     bodyPadding: 5,
     layout: {
         type: 'vbox',
-        align: 'stretch'
+        align: 'stretch',
     },
     bind: 'Primitive: {Record.Name}', // title of the window
     items: [{
@@ -22,19 +22,19 @@ Ext.define('Schema.View.PrimitiveWindow', {
         items: [{
             xtype: 'hiddenfield',
             name: 'Type',
-            bind: 'Primitive'
+            bind: 'Primitive',
         }, {
             xtype: 'textfield',
             name: 'Id',
             fieldLabel: 'Id',
             readOnly: true,
-            bind: '{Record.Id}'
+            bind: '{Record.Id}',
         }, {
             xtype: 'textfield',
             name: 'ParentId',
             fieldLabel: 'ParentId',
             readOnly: true,
-            bind: '{Record.ParentId}'
+            bind: '{Record.ParentId}',
         }, {
             xtype: 'combobox',
             name: 'Class',
@@ -51,7 +51,7 @@ Ext.define('Schema.View.PrimitiveWindow', {
                 data : [
                     {'Name':'string'},
                     {'Name':'number'},
-                    {'Name':'bool'}
+                    {'Name':'bool'},
                 ],
             }),
             listeners: {
@@ -84,8 +84,8 @@ Ext.define('Schema.View.PrimitiveWindow', {
             name: 'Nullable',
             fieldLabel: 'Nullable',
             bind: '{Record.Nullable}',
-            inputValue: '1',
-            uncheckedValue: '0',
+            inputValue: 1,
+            uncheckedValue: 0,
         }, {
             xtype: 'combobox',
             name: 'Valid',
@@ -134,10 +134,10 @@ Ext.define('Schema.View.PrimitiveWindow', {
         }],
         buttons: [{
             text: 'Save',
-            listeners: { click: saveButtonClickHandler }
+            listeners: { click: saveButtonClickHandler },
         }, {
             text: 'Cancel',
-            listeners: { click: cancelButtonClickHandler }
+            listeners: { click: cancelButtonClickHandler },
         }],
     }],
 });
