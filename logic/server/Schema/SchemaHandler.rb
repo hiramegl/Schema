@@ -597,7 +597,7 @@ module Schema
 
             # schema header ****************************************************
             hSchemaVersion = get_set_element_version(sSchemaVersionId);
-            hSchema        = get_set_element(hSchemaVersion[:Id]);
+            hSchema        = get_set_element(hSchemaVersion[:SetElementId]);
 
             aSchemaRows = ["--#{@sNs}Schema"];
             aSchemaRows << "sClass: #{hSchema[:Name]}";
@@ -715,8 +715,26 @@ module Schema
             end
         end
 
+        def get_set(_nSetId)
+            sQuery = Set.select_obj({'Id' => _nSetId});
+            puts("@ Set: #{sQuery}");
+            @oDb.execute(sQuery).each { |aRow|
+                return Set.format_row(aRow); # execute only the first row
+            }
+            return {};
+        end
+
+        def get_set_version(_nSetVersionId)
+            sQuery = SetVersion.select_obj({'Id' => _nSetVersionId});
+            puts("@ SetVersion: #{sQuery}");
+            @oDb.execute(sQuery).each { |aRow|
+                return SetVersion.format_row(aRow); # execute only the first row
+            }
+            return {};
+        end
+
         def respond_set_version_net_vis
-            nSetVersionId = @hParams['SetVersionId'];
+            sSetVersionId = @hParams['SetVersionId'];
 
             aNodes = [];
             aEdges = [];
@@ -724,10 +742,37 @@ module Schema
 
             @oDb = SQLite3::Database.new(@sDbFile);
 
+            # root node
+            hSetVersion = get_set_version(sSetVersionId);
+            hSet        = get_set(hSetVersion[:SetId]);
+            aNodes << {
+                id: "SetVersion_#{sSetVersionId}",
+                label: "#{hSet[:Name]}/#{hSetVersion[:Name]}",
+                title: hSetVersion[:Doc],
+                group: 'set_version',
+                shape: 'image',
+                image: "./images/icons/Set.png",
+            };
+
             @@hSetElementKinds.each { |sSetElementKind, sFullKindName|
+                # set element kind node
                 hNodes[sSetElementKind] = [];
+                aNodes << {
+                    id: "#{sSetElementKind}_0",
+                    label: sFullKindName,
+                    title: sFullKindName,
+                    group: sSetElementKind,
+                    shape: 'box',
+                };
+
+                aEdges << {
+                    from: "SetVersion_#{sSetVersionId}",
+                    to:   "#{sSetElementKind}_0",
+                };
+
+                # set element nodes
                 sQuery = SetElement.select_where({
-                    SetVersionId: nSetVersionId,
+                    SetVersionId: sSetVersionId,
                     Kind:         sSetElementKind,
                 });
                 puts("@ SetElement: #{sQuery}");
@@ -737,7 +782,7 @@ module Schema
                 aSetElements.each { |hSetElement|
                     hNodes[sSetElementKind] << hSetElement[:Id];
                     aNodes << {
-                        id: hSetElement[:Id],
+                        id: "#{sSetElementKind}_#{hSetElement[:Id]}",
                         label: hSetElement[:Name],
                         title: hSetElement[:Doc],
                         group: sSetElementKind,
@@ -747,9 +792,13 @@ module Schema
                 }
             }
 
-            hNodes.each { |sKind, aNodes|
-                (aNodes.length - 1).times { |nIdx|
-                    aEdges << {from: aNodes[nIdx], to: aNodes[nIdx + 1]};
+            # edges from root node to set element nodes
+            hNodes.each { |sSetElementKind, aNodes|
+                aNodes.each { |nIdx|
+                    aEdges << {
+                        from: "#{sSetElementKind}_0",
+                        to:   "#{sSetElementKind}_#{nIdx}",
+                    };
                 }
             }
 
