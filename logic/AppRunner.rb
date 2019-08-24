@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby
 
 # ruby libraries
 require 'Filewatcher'; # gem install filewatcher
@@ -6,21 +6,31 @@ require 'Filewatcher'; # gem install filewatcher
 class AppRunner
 
     def initialize
+        @bMacOs = (RUBY_PLATFORM =~ /darwin/) != nil;
+        sCmd    = @bMacOs ? 'xterm -geometry 200x60 -iconic -e' : 'start /min cmd /c'
+        sSend   = @bMacOs ? '&' : '2>1';
+
         # app server
         @sAppSrvExe = "#{__dir__}/server/AppServer.rb";
         @sWatchDir  = "#{__dir__}/server/Schema";
-        @sAppSrvCmd = "start /min cmd /c \"#{@sAppSrvExe}\" 2>&1";
+        @sAppSrvCmd = "#{sCmd} \"ruby #{@sAppSrvExe}\" #{sSend}";
 
         # doc server
         @sDocSrvExe = "#{File.dirname(__FILE__)}/server/DocServer.rb";
-        @sDocSrvCmd = "start /min cmd /c \"#{@sDocSrvExe}\" 2>&1";
+        @sDocSrvCmd = "#{sCmd} \"ruby #{@sDocSrvExe}\" #{sSend}";
     end
 
     def run
         # navigate in chrome to the application
-        sChromeExe = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe';
-        sAppUrl    = 'http://localhost:23431/index.html';
-        sChromeCmd = "start \"\" \"#{sChromeExe}\" \"#{sAppUrl}\" --new-window"; # the empty quotations after 'start' is to prevent launching firefox instead of chrome
+        sAppUrl = 'http://localhost:23431/index.html';
+
+        if (@bMacOs)
+            sChromeExe = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe';
+            sChromeCmd = "start \"\" \"#{sChromeExe}\" \"#{sAppUrl}\" --new-window"; # the empty quotations after 'start' is to prevent launching firefox instead of chrome
+        else
+            sChromeCmd = "open -a \"Google Chrome\" #{sAppUrl}";
+        end
+
         puts(sChromeCmd);
         system(sChromeCmd);
 
@@ -50,10 +60,13 @@ class AppRunner
 
     def stop_process
         puts('-' * 100);
-        sProcessList = `wmic process where "name='cmd.exe'" get ProcessID, CommandLine`;
+        sProcessList = @bMacOs ?
+            `ps -A -o 'user args pid' | grep xterm` :
+            `wmic process where "name='cmd.exe'" get ProcessID, CommandLine`;
         sFilename = File.basename(@sAppSrvExe);
-        sProcessList =~ /#{sFilename}"\s+(\d+)/;
+        sProcessList =~ /#{sFilename}"?\s+(\d+)/;
         sPid = $1;
+
         unless sPid
             puts("Error: cannot kill process '#{sFilename}'. Process found: #{sProcessList}");
             return;
