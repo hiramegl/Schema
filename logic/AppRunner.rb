@@ -8,7 +8,7 @@ class AppRunner
     def initialize
         @bMacOs = (RUBY_PLATFORM =~ /darwin/) != nil;
         sCmd    = @bMacOs ? 'xterm -geometry 200x60 -iconic -e' : 'start /min cmd /c'
-        sSend   = @bMacOs ? '&' : '2>1';
+        sSend   = @bMacOs ? '&' : '2>&1';
 
         # app server
         @sAppSrvExe = "#{__dir__}/server/AppServer.rb";
@@ -25,10 +25,10 @@ class AppRunner
         sAppUrl = 'http://localhost:23431/index.html';
 
         if (@bMacOs)
+            sChromeCmd = "open -a \"Google Chrome\" #{sAppUrl}";
+        else
             sChromeExe = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe';
             sChromeCmd = "start \"\" \"#{sChromeExe}\" \"#{sAppUrl}\" --new-window"; # the empty quotations after 'start' is to prevent launching firefox instead of chrome
-        else
-            sChromeCmd = "open -a \"Google Chrome\" #{sAppUrl}";
         end
 
         puts(sChromeCmd);
