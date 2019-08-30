@@ -1,0 +1,559 @@
+--- !ruby/object:Aspicere::Schema
+sClass: Set
+sDoc: Set schema
+sVersion: Adam
+sVersionDoc: Basic implementation
+aSchemas:
+aAuthorizations:
+aValidations:
+- !ruby/object:Aspicere::Validation
+  sClass: Name
+  sDoc: Name validation
+  sVersion: Alba
+  sVersionDoc: Alphanum
+  sConfig: 
+- !ruby/object:Aspicere::Validation
+  sClass: Ref
+  sDoc: Reference validation
+  sVersion: Ashton
+  sVersionDoc: 1st version
+  sConfig: 
+aUnits:
+aEnumerations:
+- !ruby/object:Aspicere::Enumeration
+  sClass: Primitive
+  sDoc: Allowed primitive classes
+  sVersion: Alisha
+  sVersionDoc: 1st version
+  sConfig: string: "string primitives", number: "number primitives", bool: "boolean primitives"
+- !ruby/object:Aspicere::Enumeration
+  sClass: PrimitiveVersion
+  sDoc: Primitive version
+  sVersion: Amelia
+  sVersionDoc: 1st version
+  sConfig: Alpha: "first primitive class version"
+aComponents:
+- !ruby/object:Aspicere::Component
+  sClass: Info
+  sName: Information
+  sDoc: Basic component information
+  sVersion: Alice
+  sVersionDoc: 1st implementation
+  sAuthorz: 
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Name
+    sDoc: Component name
+    bNullable: false
+    sValidation: Name/Alba
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Doc
+    sDoc: Component documentation
+    bNullable: true
+    sValidation: 
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+- !ruby/object:Aspicere::Component
+  sClass: Ref
+  sName: Reference
+  sDoc: Component reference: name & version
+  sVersion: Atena
+  sVersionDoc: 1st implementation
+  sAuthorz: 
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Name
+    sDoc: Component name
+    bNullable: false
+    sValidation: Name/Alba
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Version
+    sDoc: Component version
+    bNullable: false
+    sValidation: Name/Alba
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+- !ruby/object:Aspicere::Component
+  sClass: Entry
+  sName: Entry
+  sDoc: Enumeration entry
+  sVersion: Andrew
+  sVersionDoc: 1st implementation
+  sAuthorz: 
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Value
+    sDoc: Entry value
+    bNullable: false
+    sValidation: Name/Alba
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Doc
+    sDoc: Entry documentation
+    bNullable: true
+    sValidation: 
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+- !ruby/object:Aspicere::Component
+  sClass: Set
+  sName: Set
+  sDoc: Schema set
+  sVersion: Ava
+  sVersionDoc: 1st implementation
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: SetVersion/Alex
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: SetVersion
+  sName: SetVersion
+  sDoc: Set version
+  sVersion: Alex
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: Schema/Ambar
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Auth/Albert
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Valid/Alyssa
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Unit/Aaliyah
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Enum/Ailsa
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: Schema
+  sName: Schema
+  sDoc: Schema entity
+  sVersion: Ambar
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: SchemaVersion/Abigail
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: SchemaVersion
+  sName: SchemaVersion
+  sDoc: Schema version
+  sVersion: Abigail
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: SchemaRef/Annabelle
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: AuthRef/Abbie
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: ValidRef/Arthur
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: UnitRef/Aiden
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: EnumRef/Annie
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Comp/Aidan
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: Comp
+  sName: Component
+  sDoc: Component
+  sVersion: Aidan
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: CompVersion/Alexandra
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: SchemaRef
+  sName: SchemaRef
+  sDoc: Schema reference
+  sVersion: Annabelle
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Ref/Atena
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: AuthRef
+  sName: AuthorizationRef
+  sDoc: Authorization reference
+  sVersion: Abbie
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Ref/Atena
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: ValidRef
+  sName: ValidationRef
+  sDoc: Validation reference
+  sVersion: Arthur
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Ref/Atena
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: UnitRef
+  sName: UnitRef
+  sDoc: Unit reference
+  sVersion: Aiden
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Ref/Atena
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: EnumRef
+  sName: EnumerationRef
+  sDoc: Enumeration reference
+  sVersion: Annie
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Ref/Atena
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: CompVersion
+  sName: ComponentVersion
+  sDoc: 1st version
+  sVersion: Alexandra
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: AuthRef
+    sDoc: Authorization reference
+    bNullable: true
+    sValidation: Ref/Ashton
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: Prim/Alexis
+    bArray: true
+    bNullable: true
+  - !ruby/object:Aspicere::Child
+    sClassId: Child/Aimee
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: Prim
+  sName: Primitive
+  sDoc: Primitive
+  sVersion: Alexis
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Class
+    sDoc: Primitive class
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: Primitive/Alisha
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: Version
+    sDoc: Primitive class version
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: PrimitiveVersion/Amelia
+  - !ruby/object:Aspicere::Primitive
+    sClass: bool
+    sVersion: v_1.0
+    sName: Nullable
+    sDoc: Is primitive nullable
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: ValidRef
+    sDoc: Validation reference
+    bNullable: true
+    sValidation: Ref/Ashton
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: UnitRef
+    sDoc: Unit reference
+    bNullable: true
+    sValidation: Ref/Ashton
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: EnumRef
+    sDoc: Enumeration reference
+    bNullable: true
+    sValidation: Ref/Ashton
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: Child
+  sName: Child
+  sDoc: Component child
+  sVersion: Aimee
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  - !ruby/object:Aspicere::Primitive
+    sClass: string
+    sVersion: v_1.0
+    sName: CompRef
+    sDoc: Component reference
+    bNullable: false
+    sValidation: Ref/Ashton
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: bool
+    sVersion: v_1.0
+    sName: Array
+    sDoc: Is component an array
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: 
+  - !ruby/object:Aspicere::Primitive
+    sClass: bool
+    sVersion: v_1.0
+    sName: Nullable
+    sDoc: Is component nullable
+    bNullable: false
+    sValidation: 
+    sUnit: 
+    sEnumeration: 
+  aChildren:
+- !ruby/object:Aspicere::Component
+  sClass: Auth
+  sName: Authorizatoin
+  sDoc: Authorization
+  sVersion: Albert
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: AuthVersion/Ali
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: AuthVersion
+  sName: AuthorizationVersion
+  sDoc: Authorization version
+  sVersion: Ali
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: Valid
+  sName: Validation
+  sDoc: Primitive validation
+  sVersion: Alyssa
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: ValidVersion/Austin
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: ValidVersion
+  sName: ValidationVersion
+  sDoc: Validation version
+  sVersion: Austin
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: Unit
+  sName: Unit
+  sDoc: Primitive unit
+  sVersion: Aaliyah
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: UnitVersion/Agnes
+    bArray: true
+    bNullable: true
+- !ruby/object:Aspicere::Component
+  sClass: UnitVersion
+  sName: UnitVersion
+  sDoc: Unit version
+  sVersion: Agnes
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: Enum
+  sName: Enumeration
+  sDoc: Primitive enumeration
+  sVersion: Ailsa
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: EnumVersin/Alana
+    bArray: false
+    bNullable: false
+- !ruby/object:Aspicere::Component
+  sClass: EnumVersin
+  sName: EnumerationVersion
+  sDoc: Enumeration version
+  sVersion: Alana
+  sVersionDoc: 1st version
+  sAuthorz: 
+  aPrimitives:
+  aChildren:
+  - !ruby/object:Aspicere::Child
+    sClassId: Info/Alice
+    bArray: false
+    bNullable: false
+  - !ruby/object:Aspicere::Child
+    sClassId: Entry/Andrew
+    bArray: true
+    bNullable: false

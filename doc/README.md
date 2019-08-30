@@ -15,6 +15,10 @@ Features:
 
 
 ## Backlog
+1. Stop using tables in backend and start using merklets (Aspicere)
+  1. Create schema-set for Schema (Done!)
+  1. Create Javascript version of Aspicere to be used in frontend of Schema webapp
+  1. Create Javascript store layer to be used by the frontend
 1. fix selection of a schema version -> display schema, references and elements
 1. forbid to add primitives and children before saving the component version
 1. fix boxes for schemas instead of circles
@@ -38,7 +42,7 @@ Features:
           - [@0] UnitRef ([1.] Ref)
           - [@0] EnumerationRef ([1.] Ref)
           - [@0] Component ([1.] Info)
-            - [@0] ComponentVersion ([1.] Info)
+            - [@0] ComponentVersion ([1.] Info, AuthRef)
                 - [@0] Primitive ([1.] Info, Class, Version, Nullable, ValidRef, UnitRef, EnumRef)
                 - [@0] Child (CompRef, Array, Nullable)
       - [@0] Authorization ([1.] Info)
