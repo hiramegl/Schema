@@ -5,7 +5,7 @@ aRequirePatterns = [/^\s*require\s+['"](\S+?)['"];\s*#\s*(gem\s+install\s+.*)?/]
 # check the necessary gems to install
 hInstalls = {};
 puts("> Reading scripts ...");
-Dir.glob('./logic/**/*.rb') { |sScriptPath|
+Dir.glob('./backend/**/*.rb') { |sScriptPath|
     puts(" - #{sScriptPath}");
     sScriptText = File.read(sScriptPath);
     aRequirePatterns.each { |reRequirePattern|
