@@ -15,13 +15,13 @@ class DocServer
         # ext js servlets ----------------------------------------
 
         @oWebServer = WEBrick::HTTPServer.new(
-            :DocumentRoot => "#{sRoot}/Doc/ext-6.2.0", # Samples docs
+            :DocumentRoot => "#{sRoot}/../../../../../libs/doc/ext-6.2.0", # Samples docs
             :Port         => PORT);
 
         @oWebServer.mount(
             '/docs',
             WEBrick::HTTPServlet::FileHandler,
-            "#{sRoot}/Doc/ext-6.2.0-docs"); # Api docs
+            "#{sRoot}/../../../../../libs/doc/ext-6.2.0-docs"); # Api docs
 
         # exit handlers ------------------------------------------
 
