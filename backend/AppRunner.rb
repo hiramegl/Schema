@@ -7,17 +7,18 @@ class AppRunner
 
     def initialize
         @bMacOs = (RUBY_PLATFORM =~ /darwin/) != nil;
-        sCmd    = @bMacOs ? 'xterm -geometry 200x60 -iconic -e' : 'start /min cmd /c'
+        sCmd    = @bMacOs ? 'xterm -geometry 200x60 -iconic -e' : 'start /min cmd /c';
+        sRuby   = @bMacOs ? 'ruby ' : '';
         sSend   = @bMacOs ? '&' : '2>&1';
 
         # app server
         @sAppSrvExe = "#{__dir__}/server/AppServer.rb";
         @sWatchDir  = "#{__dir__}/server/Schema";
-        @sAppSrvCmd = "#{sCmd} \"ruby #{@sAppSrvExe}\" #{sSend}";
+        @sAppSrvCmd = "#{sCmd} \"#{sRuby}#{@sAppSrvExe}\" #{sSend}";
 
         # doc server
-        @sDocSrvExe = "#{File.dirname(__FILE__)}/server/DocServer.rb";
-        @sDocSrvCmd = "#{sCmd} \"ruby #{@sDocSrvExe}\" #{sSend}";
+        @sDocSrvExe = "#{__dir__}/server/DocServer.rb";
+        @sDocSrvCmd = "#{sCmd} \"#{sRuby}#{@sDocSrvExe}\" #{sSend}";
     end
 
     def run
