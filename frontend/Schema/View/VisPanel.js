@@ -17,10 +17,10 @@ Ext.define('Schema.View.VisPanel', {
     ],
     listeners: {
         node_selected: function(_oEvent) {
-            alert('> Node: ' + _oEvent.node);
+            console.log('> Node: ' + _oEvent.node);
         },
         edge_selected: function(_oEvent) {
-            alert('> Edge: ' + _oEvent.edge);
+            console.log('> Edge: ' + _oEvent.edge);
         },
     },
     clear: function () {

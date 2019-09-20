@@ -45,7 +45,7 @@ aComponents:
   sName: Event # this name can change whenever is needed
   sAuthorz: CreatorAuthorGroup/Apple
   aPrimitives:
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: strng
     sVersion: v_1.0
     sDoc: Name of the event
@@ -53,7 +53,7 @@ aComponents:
     bNullable: false
     sValidation: NameValidation/Arkin
     sUnits: 
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: strng
     sVersion: v_1.0
     sDoc: Address of the event
@@ -73,7 +73,7 @@ aComponents:
   sName: Place # this name can change whenever is needed
   sAuthorz: CreatorAuthorGroup/Apple
   aPrimitives:
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: strng
     sVersion: v_1.0
     sDoc: Name of the place
@@ -81,7 +81,7 @@ aComponents:
     bNullable: true
     sValidation: NameValidation/Arkin
     sUnits: 
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: numbr
     sVersion: v_1.0
     sDoc: Time that the place will be used
@@ -89,7 +89,7 @@ aComponents:
     bNullable: true
     sValidation: TimeValidation/Aaron
     sUnits: Hours/Alfie
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: numbr
     sVersion: v_1.0
     sDoc: Area of the place
@@ -109,7 +109,7 @@ aComponents:
   sName: Item # this name can change whenever is needed
   sAuthorz: CreatorAuthorGroup/Apple
   aPrimitives:
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: strng
     sVersion: v_1.0
     sDoc: Name of the item
@@ -117,7 +117,7 @@ aComponents:
     bNullable: true
     sValidation: NameValidation/Arkin
     sUnits: 
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: strng
     sVersion: v_1.0
     sDoc: Name of the part
@@ -125,7 +125,7 @@ aComponents:
     bNullable: true
     sValidation: NameValidation/Arkin
     sUnits: 
-  - !ruby/object:Aspicere::Primitive
+  - !ruby/object:Aspicere::PrimitiveDef
     sClass: numbr
     sVersion: v_1.0
     sDoc: Amount

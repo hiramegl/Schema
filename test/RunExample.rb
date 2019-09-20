@@ -1,5 +1,4 @@
-require "#{__dir__}/../frontend/lib/Aspicere/lib/ruby/Factory.rb";
-require "#{__dir__}/../frontend/lib/Aspicere/lib/ruby/Store.rb";
+require "#{__dir__}/../frontend/lib/Aspicere/ruby/Aspicere";
 
 module Gighub
     module AuthorizationsRegister
@@ -42,7 +41,7 @@ exit unless oFactory;
 puts('*' * 100); # ******************************************************************************************
 # create the repository in the RAM of the application
 puts('>>>> A) User Bob creates the event with two places and stores it ...')
-oRepo1  = VersionControl::Repository.new('Bob', '2018-01-01T12:00:01.123', 'GUI');
+oRepo1  = Aspicere::Repository.new('Bob', '2018-01-01T12:00:01.123', 'GUI');
 sRepoId = oRepo1.to_hash;
 oRoot1  = oRepo1.oRoot;
 
