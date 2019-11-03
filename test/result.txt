@@ -1,0 +1,185 @@
+****************************************************************************************************
+>>>> A) User Bob creates the event with two places and stores it ...
+Objects tree:
+> class: Root/Alien
+  > class: Event/Allen
+    > strng;v_1.0;Name;Summerburst 2019
+    > strng;v_1.0;Address;Ullevigatan 1
+    > class: Place/Atlas
+      > strng;v_1.0;Name;Ullevi Arena
+      > numbr;v_1.0;Time;96.0
+      > numbr;v_1.0;Area;5500
+      > class: Item/Archi
+        > strng;v_1.0;Name;Perform
+        > strng;v_1.0;Part;Tiesto
+        > numbr;v_1.0;Amount;2
+      > class: Item/Archi
+        > strng;v_1.0;Name;Mount
+        > strng;v_1.0;Part;Bygg AB
+        > numbr;v_1.0;Amount;8
+    > class: Place/Atlas
+      > strng;v_1.0;Name;Gamla Ullevi
+      > numbr;v_1.0;Time;72.0
+      > numbr;v_1.0;Area;1000
+      > class: Item/Archi
+        > strng;v_1.0;Name;Perform
+        > strng;v_1.0;Part;Deadmau5
+        > numbr;v_1.0;Amount;1
+      > class: Item/Archi
+        > strng;v_1.0;Name;Perform
+        > strng;v_1.0;Part;Alok
+        > numbr;v_1.0;Amount;1
+      > class: Item/Archi
+        > strng;v_1.0;Name;Mount
+        > strng;v_1.0;Part;Bygg AB
+        > numbr;v_1.0;Amount;10
+> Creating tables in db ...
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e','strng','v_1.0','Name','Perform')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e','strng','v_1.0','Name','Perform')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('2682d1c82f78d1c9fb946b12367e31c67ca4455344d50caf1ff3d6e08cb03666','numbr','v_1.0','Amount','1')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('809628bb1aa461fc2fb062066470ae286691dd9cf793de079aaa03ec3c80f2c4','strng','v_1.0','Name','Mount')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('8842f4613b0f175b7f91e1af2b8857274db5ab911bd01732063014a41a47afdc','strng','v_1.0','Part','Bygg AB')
+****************************************************************************************************
+> User Bob modifies one item through integration and saves a new commit ...
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('efcdcbb10f94ccdf3769b288265d19ffe690bd9da1103ae6dac9f57f221882a4','strng','v_1.0','Name','Summerburst 2019')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('3e5af25f1fab494210a692ce2f4fe3344df3ff9a3a3e608b99b4458bfdba2730','strng','v_1.0','Address','Ullevigatan 1')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',0,'prim','strng','v_1.0','d5ec984bc98dbd12d2606b1c9c0dcdfcb363508d290ccc46c1035346926a3862'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',1,'prim','numbr','v_1.0','6c460a2bac2fc1b768bb19f6eccd06a09d53da4253565116f25b0974b752da8a'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',2,'prim','numbr','v_1.0','da6452e611be8b756dbfa3653836d63b3f7b87cc2649a052fe6c550992e1e148'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',3,'tree','Item','Archi','17cc1fabcf6e8850f74cd185cd0eb4415ba2d018dcbba69b9f5108fb70e84a98'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',4,'tree','Item','Archi','7de88851a30c4503741382fd3fe0af99f65ae90a935d9170471f9d9c82a96ceb')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('c800f9b1c0368fd8984e373fd70461c5a2b5582e85bda2a2a3f71e9b7df0f427','strng','v_1.0','Name','Gamla Ullevi')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('55c2f0d1778c2b4e04d5784ba187593c62ab1b1da1b5232129b166ae5a79a1d1','numbr','v_1.0','Time','72.0')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259','numbr','v_1.0','Area','1000')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2',0,'prim','strng','v_1.0','9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e'),('c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2',1,'prim','strng','v_1.0','ad448ed0f8c77e038717a6c92b64aa259e7f39057ddc23a8125c1f2800f47543'),('c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2',2,'prim','numbr','v_1.0','2682d1c82f78d1c9fb946b12367e31c67ca4455344d50caf1ff3d6e08cb03666')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4',0,'prim','strng','v_1.0','9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e'),('02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4',1,'prim','strng','v_1.0','3978d8361c9e696aa3b7b4f43e2ed0775c2ca8974ada1731bb00b117d02e6ddd'),('02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4',2,'prim','numbr','v_1.0','2682d1c82f78d1c9fb946b12367e31c67ca4455344d50caf1ff3d6e08cb03666')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('809628bb1aa461fc2fb062066470ae286691dd9cf793de079aaa03ec3c80f2c4','strng','v_1.0','Name','Mount')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('8842f4613b0f175b7f91e1af2b8857274db5ab911bd01732063014a41a47afdc','strng','v_1.0','Part','Bygg AB')
+****************************************************************************************************
+> User Bob adds a new place through GUI and saves a new commit ...
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('efcdcbb10f94ccdf3769b288265d19ffe690bd9da1103ae6dac9f57f221882a4','strng','v_1.0','Name','Summerburst 2019')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('3e5af25f1fab494210a692ce2f4fe3344df3ff9a3a3e608b99b4458bfdba2730','strng','v_1.0','Address','Ullevigatan 1')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',0,'prim','strng','v_1.0','d5ec984bc98dbd12d2606b1c9c0dcdfcb363508d290ccc46c1035346926a3862'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',1,'prim','numbr','v_1.0','6c460a2bac2fc1b768bb19f6eccd06a09d53da4253565116f25b0974b752da8a'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',2,'prim','numbr','v_1.0','da6452e611be8b756dbfa3653836d63b3f7b87cc2649a052fe6c550992e1e148'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',3,'tree','Item','Archi','17cc1fabcf6e8850f74cd185cd0eb4415ba2d018dcbba69b9f5108fb70e84a98'),('2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774',4,'tree','Item','Archi','7de88851a30c4503741382fd3fe0af99f65ae90a935d9170471f9d9c82a96ceb')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4',0,'prim','strng','v_1.0','c800f9b1c0368fd8984e373fd70461c5a2b5582e85bda2a2a3f71e9b7df0f427'),('94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4',1,'prim','numbr','v_1.0','55c2f0d1778c2b4e04d5784ba187593c62ab1b1da1b5232129b166ae5a79a1d1'),('94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4',2,'prim','numbr','v_1.0','78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259'),('94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4',3,'tree','Item','Archi','c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2'),('94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4',4,'tree','Item','Archi','02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4'),('94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4',5,'tree','Item','Archi','07ef207cc932a9417a7809d30d5174df5dd6bcda63e00fa399048d46b6b0ccd4')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259','numbr','v_1.0','Area','1000')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e','strng','v_1.0','Name','Perform')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('aaf0b5a53cee4393039513f2c0daf57590af419e70200853e3df0ac7cf32ceb7','numbr','v_1.0','Amount','2')
+****************************************************************************************************
+> User Bob creates a snapshot before inviting user Sue ...
+> Dumping tables for store 'store_01.db' ...
+> Primitives:
+ - efcdcbb10f94ccdf3769b288265d19ffe690bd9da1103ae6dac9f57f221882a4 | strng | v_1.0 | Name | Summerburst 2019
+ - 3e5af25f1fab494210a692ce2f4fe3344df3ff9a3a3e608b99b4458bfdba2730 | strng | v_1.0 | Address | Ullevigatan 1
+ - d5ec984bc98dbd12d2606b1c9c0dcdfcb363508d290ccc46c1035346926a3862 | strng | v_1.0 | Name | Ullevi Arena
+ - 6c460a2bac2fc1b768bb19f6eccd06a09d53da4253565116f25b0974b752da8a | numbr | v_1.0 | Time | 96.0
+ - da6452e611be8b756dbfa3653836d63b3f7b87cc2649a052fe6c550992e1e148 | numbr | v_1.0 | Area | 5500
+ - 9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e | strng | v_1.0 | Name | Perform
+ - d27c5a34dc51805f00683d5763f0e55c252e1777178138608ad9d9504d6d5841 | strng | v_1.0 | Part | Tiesto
+ - aaf0b5a53cee4393039513f2c0daf57590af419e70200853e3df0ac7cf32ceb7 | numbr | v_1.0 | Amount | 2
+ - 809628bb1aa461fc2fb062066470ae286691dd9cf793de079aaa03ec3c80f2c4 | strng | v_1.0 | Name | Mount
+ - 8842f4613b0f175b7f91e1af2b8857274db5ab911bd01732063014a41a47afdc | strng | v_1.0 | Part | Bygg AB
+ - bc26615b35a4549279d760623b2d3b4d0790f987df54987616c88aac4b7c209d | numbr | v_1.0 | Amount | 8
+ - c800f9b1c0368fd8984e373fd70461c5a2b5582e85bda2a2a3f71e9b7df0f427 | strng | v_1.0 | Name | Gamla Ullevi
+ - 55c2f0d1778c2b4e04d5784ba187593c62ab1b1da1b5232129b166ae5a79a1d1 | numbr | v_1.0 | Time | 72.0
+ - 78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259 | numbr | v_1.0 | Area | 1000
+ - ad448ed0f8c77e038717a6c92b64aa259e7f39057ddc23a8125c1f2800f47543 | strng | v_1.0 | Part | Deadmau5
+ - 2682d1c82f78d1c9fb946b12367e31c67ca4455344d50caf1ff3d6e08cb03666 | numbr | v_1.0 | Amount | 1
+ - 3978d8361c9e696aa3b7b4f43e2ed0775c2ca8974ada1731bb00b117d02e6ddd | strng | v_1.0 | Part | Alok
+ - f0f5bd5b5446badef720582136d292aa8d216c7914119c482e2f1619958ac666 | numbr | v_1.0 | Amount | 10
+ - 986babf184bde2e035e781f5e3e323641fd81704ed4c0febc42c52980e468c1c | numbr | v_1.0 | Amount | 8.5
+ - cc16d59121b330fe5d981ee2deace0c892ec1fc694ed2ebcd7116202bfc94095 | strng | v_1.0 | Name | Scandinavium
+ - 0a5382a5b47b690c840d070324db991923b01a4a50bcf163da5dd41cc09d2c2b | numbr | v_1.0 | Time | 48
+ - 7ca287b13173b3cdc06c9c4a51528f1246eeca822ce59554c988e526825ad238 | strng | v_1.0 | Part | Hardwell
+--------------------------------------------------
+> Merklets:
+ - 10a89cd9fe2c9c38f6ef2b14f186dd32afd02c1aeabd4407de8921f6e31ed5a1 | 0 | tree | Event | Allen | 15c28897732a276a782e7b8208683417cf132e82810a3dc5e5be90082d08b7da
+ - 15c28897732a276a782e7b8208683417cf132e82810a3dc5e5be90082d08b7da | 0 | prim | strng | v_1.0 | efcdcbb10f94ccdf3769b288265d19ffe690bd9da1103ae6dac9f57f221882a4
+ - 15c28897732a276a782e7b8208683417cf132e82810a3dc5e5be90082d08b7da | 1 | prim | strng | v_1.0 | 3e5af25f1fab494210a692ce2f4fe3344df3ff9a3a3e608b99b4458bfdba2730
+ - 15c28897732a276a782e7b8208683417cf132e82810a3dc5e5be90082d08b7da | 2 | tree | Place | Atlas | 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774
+ - 15c28897732a276a782e7b8208683417cf132e82810a3dc5e5be90082d08b7da | 3 | tree | Place | Atlas | 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991
+ - 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774 | 0 | prim | strng | v_1.0 | d5ec984bc98dbd12d2606b1c9c0dcdfcb363508d290ccc46c1035346926a3862
+ - 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774 | 1 | prim | numbr | v_1.0 | 6c460a2bac2fc1b768bb19f6eccd06a09d53da4253565116f25b0974b752da8a
+ - 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774 | 2 | prim | numbr | v_1.0 | da6452e611be8b756dbfa3653836d63b3f7b87cc2649a052fe6c550992e1e148
+ - 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774 | 3 | tree | Item | Archi | 17cc1fabcf6e8850f74cd185cd0eb4415ba2d018dcbba69b9f5108fb70e84a98
+ - 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774 | 4 | tree | Item | Archi | 7de88851a30c4503741382fd3fe0af99f65ae90a935d9170471f9d9c82a96ceb
+ - 17cc1fabcf6e8850f74cd185cd0eb4415ba2d018dcbba69b9f5108fb70e84a98 | 0 | prim | strng | v_1.0 | 9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e
+ - 17cc1fabcf6e8850f74cd185cd0eb4415ba2d018dcbba69b9f5108fb70e84a98 | 1 | prim | strng | v_1.0 | d27c5a34dc51805f00683d5763f0e55c252e1777178138608ad9d9504d6d5841
+ - 17cc1fabcf6e8850f74cd185cd0eb4415ba2d018dcbba69b9f5108fb70e84a98 | 2 | prim | numbr | v_1.0 | aaf0b5a53cee4393039513f2c0daf57590af419e70200853e3df0ac7cf32ceb7
+ - 7de88851a30c4503741382fd3fe0af99f65ae90a935d9170471f9d9c82a96ceb | 0 | prim | strng | v_1.0 | 809628bb1aa461fc2fb062066470ae286691dd9cf793de079aaa03ec3c80f2c4
+ - 7de88851a30c4503741382fd3fe0af99f65ae90a935d9170471f9d9c82a96ceb | 1 | prim | strng | v_1.0 | 8842f4613b0f175b7f91e1af2b8857274db5ab911bd01732063014a41a47afdc
+ - 7de88851a30c4503741382fd3fe0af99f65ae90a935d9170471f9d9c82a96ceb | 2 | prim | numbr | v_1.0 | bc26615b35a4549279d760623b2d3b4d0790f987df54987616c88aac4b7c209d
+ - 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991 | 0 | prim | strng | v_1.0 | c800f9b1c0368fd8984e373fd70461c5a2b5582e85bda2a2a3f71e9b7df0f427
+ - 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991 | 1 | prim | numbr | v_1.0 | 55c2f0d1778c2b4e04d5784ba187593c62ab1b1da1b5232129b166ae5a79a1d1
+ - 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991 | 2 | prim | numbr | v_1.0 | 78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259
+ - 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991 | 3 | tree | Item | Archi | c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2
+ - 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991 | 4 | tree | Item | Archi | 02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4
+ - 92d355196c26f394f15a0b4354c49e3d6b78b63881e0109d756f8574c628b991 | 5 | tree | Item | Archi | a2601fdc5aaeec91b74b4ad80250832917003efa4b3b1de6e525227a6581cb96
+ - c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2 | 0 | prim | strng | v_1.0 | 9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e
+ - c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2 | 1 | prim | strng | v_1.0 | ad448ed0f8c77e038717a6c92b64aa259e7f39057ddc23a8125c1f2800f47543
+ - c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2 | 2 | prim | numbr | v_1.0 | 2682d1c82f78d1c9fb946b12367e31c67ca4455344d50caf1ff3d6e08cb03666
+ - 02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4 | 0 | prim | strng | v_1.0 | 9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e
+ - 02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4 | 1 | prim | strng | v_1.0 | 3978d8361c9e696aa3b7b4f43e2ed0775c2ca8974ada1731bb00b117d02e6ddd
+ - 02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4 | 2 | prim | numbr | v_1.0 | 2682d1c82f78d1c9fb946b12367e31c67ca4455344d50caf1ff3d6e08cb03666
+ - a2601fdc5aaeec91b74b4ad80250832917003efa4b3b1de6e525227a6581cb96 | 0 | prim | strng | v_1.0 | 809628bb1aa461fc2fb062066470ae286691dd9cf793de079aaa03ec3c80f2c4
+ - a2601fdc5aaeec91b74b4ad80250832917003efa4b3b1de6e525227a6581cb96 | 1 | prim | strng | v_1.0 | 8842f4613b0f175b7f91e1af2b8857274db5ab911bd01732063014a41a47afdc
+ - a2601fdc5aaeec91b74b4ad80250832917003efa4b3b1de6e525227a6581cb96 | 2 | prim | numbr | v_1.0 | f0f5bd5b5446badef720582136d292aa8d216c7914119c482e2f1619958ac666
+ - 88b6386cb56f5847893f53c6a6ba091a3a42c11efb821d6a817cbeb55c540079 | 0 | tree | Event | Allen | 3ea6560a3b98d94c0e2ba8d1719fc2a8c13eaa97742fabe40aba434f68f8c767
+ - 3ea6560a3b98d94c0e2ba8d1719fc2a8c13eaa97742fabe40aba434f68f8c767 | 0 | prim | strng | v_1.0 | efcdcbb10f94ccdf3769b288265d19ffe690bd9da1103ae6dac9f57f221882a4
+ - 3ea6560a3b98d94c0e2ba8d1719fc2a8c13eaa97742fabe40aba434f68f8c767 | 1 | prim | strng | v_1.0 | 3e5af25f1fab494210a692ce2f4fe3344df3ff9a3a3e608b99b4458bfdba2730
+ - 3ea6560a3b98d94c0e2ba8d1719fc2a8c13eaa97742fabe40aba434f68f8c767 | 2 | tree | Place | Atlas | 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774
+ - 3ea6560a3b98d94c0e2ba8d1719fc2a8c13eaa97742fabe40aba434f68f8c767 | 3 | tree | Place | Atlas | 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4
+ - 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4 | 0 | prim | strng | v_1.0 | c800f9b1c0368fd8984e373fd70461c5a2b5582e85bda2a2a3f71e9b7df0f427
+ - 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4 | 1 | prim | numbr | v_1.0 | 55c2f0d1778c2b4e04d5784ba187593c62ab1b1da1b5232129b166ae5a79a1d1
+ - 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4 | 2 | prim | numbr | v_1.0 | 78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259
+ - 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4 | 3 | tree | Item | Archi | c2307f553a27ade84488f90fe925812ffc34ebad2767e23f8d83c63bc2b068b2
+ - 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4 | 4 | tree | Item | Archi | 02d4fd6a033e6f7f54c2be920bb8e94dc4de4da2daf871b45b521a15d4cf01c4
+ - 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4 | 5 | tree | Item | Archi | 07ef207cc932a9417a7809d30d5174df5dd6bcda63e00fa399048d46b6b0ccd4
+ - 07ef207cc932a9417a7809d30d5174df5dd6bcda63e00fa399048d46b6b0ccd4 | 0 | prim | strng | v_1.0 | 809628bb1aa461fc2fb062066470ae286691dd9cf793de079aaa03ec3c80f2c4
+ - 07ef207cc932a9417a7809d30d5174df5dd6bcda63e00fa399048d46b6b0ccd4 | 1 | prim | strng | v_1.0 | 8842f4613b0f175b7f91e1af2b8857274db5ab911bd01732063014a41a47afdc
+ - 07ef207cc932a9417a7809d30d5174df5dd6bcda63e00fa399048d46b6b0ccd4 | 2 | prim | numbr | v_1.0 | 986babf184bde2e035e781f5e3e323641fd81704ed4c0febc42c52980e468c1c
+ - 8e3f633f5c698fdf6579f38769a7a5b76422b3492891cf099d6e616f79dd5ec7 | 0 | tree | Event | Allen | 664a328c0441a9b8aafe29e364ef9e7fe2d36a7b93830fc3f71f2d484f9a17b5
+ - 664a328c0441a9b8aafe29e364ef9e7fe2d36a7b93830fc3f71f2d484f9a17b5 | 0 | prim | strng | v_1.0 | efcdcbb10f94ccdf3769b288265d19ffe690bd9da1103ae6dac9f57f221882a4
+ - 664a328c0441a9b8aafe29e364ef9e7fe2d36a7b93830fc3f71f2d484f9a17b5 | 1 | prim | strng | v_1.0 | 3e5af25f1fab494210a692ce2f4fe3344df3ff9a3a3e608b99b4458bfdba2730
+ - 664a328c0441a9b8aafe29e364ef9e7fe2d36a7b93830fc3f71f2d484f9a17b5 | 2 | tree | Place | Atlas | 2b3d1e23bab82dd91f2a3eb4971293d8622844cd79ba84e0d20757847707a774
+ - 664a328c0441a9b8aafe29e364ef9e7fe2d36a7b93830fc3f71f2d484f9a17b5 | 3 | tree | Place | Atlas | 94c869fe457a31c6965588d460cd1e4fe12951cfb038eea5e9d28bf57ff8a1c4
+ - 664a328c0441a9b8aafe29e364ef9e7fe2d36a7b93830fc3f71f2d484f9a17b5 | 4 | tree | Place | Atlas | 8a79a8d539a90d6d9f6f80cbbd2d4a41ac4790603cee72ee38d195a55547130c
+ - 8a79a8d539a90d6d9f6f80cbbd2d4a41ac4790603cee72ee38d195a55547130c | 0 | prim | strng | v_1.0 | cc16d59121b330fe5d981ee2deace0c892ec1fc694ed2ebcd7116202bfc94095
+ - 8a79a8d539a90d6d9f6f80cbbd2d4a41ac4790603cee72ee38d195a55547130c | 1 | prim | numbr | v_1.0 | 0a5382a5b47b690c840d070324db991923b01a4a50bcf163da5dd41cc09d2c2b
+ - 8a79a8d539a90d6d9f6f80cbbd2d4a41ac4790603cee72ee38d195a55547130c | 2 | prim | numbr | v_1.0 | 78859ca6f425a47e785407aec98dd7d6c8abd5d08050520ab92465c2bcd82259
+ - 8a79a8d539a90d6d9f6f80cbbd2d4a41ac4790603cee72ee38d195a55547130c | 3 | tree | Item | Archi | d70abe1a9179d8b3caa3d079237fc8f598501bab29bc77956d6016ca56bd423e
+ - d70abe1a9179d8b3caa3d079237fc8f598501bab29bc77956d6016ca56bd423e | 0 | prim | strng | v_1.0 | 9b63c52cd932cc1a642b5ee752c26f6bd6730b5742d76adf015097e2b22acb4e
+ - d70abe1a9179d8b3caa3d079237fc8f598501bab29bc77956d6016ca56bd423e | 1 | prim | strng | v_1.0 | 7ca287b13173b3cdc06c9c4a51528f1246eeca822ce59554c988e526825ad238
+ - d70abe1a9179d8b3caa3d079237fc8f598501bab29bc77956d6016ca56bd423e | 2 | prim | numbr | v_1.0 | aaf0b5a53cee4393039513f2c0daf57590af419e70200853e3df0ac7cf32ceb7
+--------------------------------------------------
+> Commits:
+ - c68e90675091385be5b46e2aa932736a061440aac091277447e99cf85499584c | Bob | 2019-09-20T14:26:23.415 | GUI | Creation commit |  | 10a89cd9fe2c9c38f6ef2b14f186dd32afd02c1aeabd4407de8921f6e31ed5a1
+ - efa1a690dbb21cc8ca782ac730a7afb820e9abb4e6c015efc97536ded25ab271 | Bob | 2019-09-20T14:26:23.687 | I-1 | Corrected amount | c68e90675091385be5b46e2aa932736a061440aac091277447e99cf85499584c | 88b6386cb56f5847893f53c6a6ba091a3a42c11efb821d6a817cbeb55c540079
+ - d0308b865e7b1f7d6c00156e839420f4d61ef5d9ad3190982b787da37de54177 | Bob | 2019-09-20T14:26:23.926 | GUI | Adding bedroom | efa1a690dbb21cc8ca782ac730a7afb820e9abb4e6c015efc97536ded25ab271 | 8e3f633f5c698fdf6579f38769a7a5b76422b3492891cf099d6e616f79dd5ec7
+--------------------------------------------------
+> Snapshots:
+ - adbe2f20f9a9d6e609370d2defcc20a0bd88b45bcbfb543d320bb6b64c700045 | Invitation snapshot | Bob | 2019-09-20T14:26:24.017 | GUI | Snapshot before inviting user Sue | d0308b865e7b1f7d6c00156e839420f4d61ef5d9ad3190982b787da37de54177
+--------------------------------------------------
+> Versions:
+ - c0963f94ff678067b83f3a2575af7f24190a96d24bcabb7870abc7dad6eee8a3 | master | Bob | 2019-09-20T14:26:23.510 | GUI | Master version | d0308b865e7b1f7d6c00156e839420f4d61ef5d9ad3190982b787da37de54177
+--------------------------------------------------
+> Repository:
+ - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | f63208ae2f5743935cdea7623d87962bc2c1ca232f7cb5939b53f3a3016d33ea
+--------------------------------------------------

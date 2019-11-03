@@ -1,0 +1,317 @@
+---
+- Doc:
+  - First schema for an author
+  - The validation primiitive is '/Schema/SchemaVersion/Config'
+  - These documentation nodes will never be read, but they do not cause an error
+- Schema:
+  - Name: Author
+  - Doc:
+    - Name: AuthorSchema
+    - Descr: Schema for author entities
+  - SchemaVersion:
+    - Name: Aldo
+    - Config: Aleph
+    - Doc:
+      - Name: Aldo (first version)
+      - Descr: Basic Author schema
+    - Auth:
+      - Name: Group
+      - Doc:
+        - Name: Group
+        - Descr: Group authorization
+      - AuthVersion:
+        - Name: Archie
+        - Doc:
+          - Name: First version, 2017-10-27
+          - Descr: Authors in same group
+        - Error:
+          - Name: Authorization in same group (1st version)
+          - Descr: The author does not belong to the same group 
+      - AuthVersion:
+        - Name: Balalaika
+        - Doc:
+          - Name: Second version, 2017-10-28
+          - Descr: Authors in same group
+        - Error:
+          - Name: Authorization in same group (2nd version)
+          - Descr: The author does not belong to the same group 
+    - Valid:
+      - Name: Noop
+      - Doc:
+        - Name: No operation
+        - Descr: Just to accept any value as valid, used in combination with enumeration
+      - ValidVersion:
+        - Name: Noop
+        - Doc:
+          - Name: No operation, 2017-10-20
+          - Descr: Does not check anything at all
+        - Error:
+          - Name: No operation problem
+          - Descr: This should never happen since is a no-operation check, i.e., always true!
+    - Valid:
+      - Name: Coords
+      - Doc:
+        - Name: Coordinates
+        - Descr: Coordinates format validation
+      - ValidVersion:
+        - Name: America
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: two integers separated by a comma
+        - Error:
+          - Name: Coordinates format
+          - Descr: The coordinates should be two integers separated by a comma, no spaces
+    - Valid:
+      - Name: Alias
+      - Doc:
+        - Name: Alias
+        - Descr: Author aliases
+      - ValidVersion:
+        - Name: Alba
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: Alphanum aliases
+        - Error:
+          - Name: Alias format
+          - Descr: The alias should contain alphabetic or numeric characters only
+    - Valid:
+      - Name: Name
+      - Doc:
+        - Name: Name
+        - Descr: Author and group names
+      - ValidVersion:
+        - Name: Alice
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: Alpha and spaces in names
+        - Error:
+          - Name: Name format
+          - Descr: The name should contain alphabetic characters or spaces only
+    - Valid:
+      - Name: PassAlp
+      - Doc:
+        - Name: Password Alphabetic
+      - ValidVersion:
+        - Name: Aurora
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: Basic security, checking for alphabetic characters
+        - Error:
+          - Name: Password alpha chars
+          - Descr: The password should contain at least one alphabetic character
+    - Valid:
+      - Name: PassNum
+      - Doc:
+        - Name: Password numeric
+      - ValidVersion:
+        - Name: Atena
+        - Doc:
+          - Name: First version, 2017-10-21
+          - Descr: Basic security, checking for numeric characters
+        - Error:
+          - Name: Password num chars
+          - Descr: The password should contain at least one numeric character
+    - Valid:
+      - Name: PassHyp
+      - Doc:
+        - Name: Password hyphen
+        - Descr: Validation for a 'strong' password
+      - ValidVersion:
+        - Name: Amin
+        - Doc:
+          - Name: First version, 2017-10-27
+          - Descr: Hyphen check
+        - Error:
+          - Name: Password hyphen char
+          - Descr: The password should contain at least one hyphen
+    - Valid:
+      - Name: Url
+      - Doc:
+        - Name: Url
+        - Descr: Images url
+      - ValidVersion:
+        - Name: Andrew
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: Simple url
+        - Error:
+          - Name: Url format
+          - Descr: "The url should have format 'http://<domain>:<port>/<image_name>'"
+    - Valid:
+      - Name: Tags
+      - Doc:
+        - Name: Tags
+        - Descr: Tags
+      - ValidVersion:
+        - Name: Ava
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: Alphanum and commas
+        - Error:
+          - Name: Tags format
+          - Descr: The tags should only contain alphabetic characters and commas
+    - Enum:
+      - Name: Status
+      - Doc:
+        - Name: Status
+        - Descr: Author and group status in the system
+      - EnumVersion:
+        - Name: Ambar
+        - Doc:
+          - Name: First version, 2017-10-20
+          - Descr: Only three values are possible
+        - Error:
+          - Name: Invalid status
+          - Descr: "The specified status is invalid, should be one of these: Active, Inactive or Deleted"
+        - Entry:
+          - Name: Active
+          - Descr: Can use the system
+        - Entry:
+          - Name: Inactive
+          - Descr: Cannot use the system temporarily
+        - Entry:
+          - Name: Deleted
+          - Descr: Not available anymore
+    - Unit:
+      - Name: Hour
+      - Doc:
+        - Name: Hour
+        - Descr: Unit for time spans
+      - UnitVersion:
+        - Name: Alex
+        - Doc:
+          - Name: First version, 2017-10-10
+          - Descr: Hour time unit
+        - Error:
+          - Name: Coordinates format
+          - Descr: The coordinates should be two integers separated by a comma, no spaces
+    - Component:
+      - Name: Posit
+      - Doc:
+        - Name: Position # can always change!
+        - Descr: Gps Position
+      - ComponentVersion:
+        - Name: Alacran
+        - Doc:
+          - Name: Alacran (First version)
+          - Descr: 1st version of gps postion
+        - Auth: Group/Archie
+        - Primitive:
+          - Name: Coords
+          - Doc:
+            - Name: GPS Coordinates
+            - Descr: Position coordinates
+          - Class: string
+          - Version: alpha
+          - Nullable: false
+          - Array: false
+          - Valid: Coords/America
+    - Component:
+      - Name: Desig
+      - Doc:
+        - Name: Designation # can always change!
+        - Descr: Author designation
+      - ComponentVersion:
+        - Name: Albania
+        - Doc:
+          - Name: Albania (first version)
+          - Descr: 1st version
+        - Auth: Group/Balalaika
+        - Primitive:
+          - Name: Title
+          - Doc:
+            - Name: Designation Title
+            - Descr: Author title
+          - Class: string
+          - Version: alpha
+          - Nullable: false
+          - Array: false
+          - Valid: Name/Alice
+    - Component:
+      - Name: Author # will never change
+      - Doc:
+        - Name: Author # can change
+        - Descr: Author component
+      - ComponentVersion:
+        - Name: Arthur
+        - Doc:
+          - Name: Arthur (first version)
+          - Descr: 1st version
+        - Auth: Group/Archie
+        - Primitive:
+          - Name: Alias
+          - Doc:
+            - Name: Author alias
+            - Descr: Alias for login
+          - Class: string
+          - Version: alpha
+          - Nullable: false
+          - Array: false
+          - Valid: Alias/Alba
+        - Primitive:
+          - Name: Name
+          - Doc:
+            - Name: Author name
+            - Descr: Name and surname
+          - Class: string
+          - Version: alpha
+          - Nullable: false
+          - Array: false
+          - Valid: Name/Alice
+        - Primitive:
+          - Name: Pass
+          - Doc:
+            - Name: Author password
+            - Descr: Encrypted password using salt
+          - Class: string
+          - Version: alpha
+          - Nullable: false
+          - Array: false
+          - Valid: PassAlp/Aurora, PassNum/Atena, PassHyp/Amin
+        - Primitive:
+          - Name: Image
+          - Doc:
+            - Name: Author image
+            - Descr: Url user image
+          - Class: string
+          - Version: alpha
+          - Nullable: true
+          - Array: false
+          - Valid: Url/Andrew
+        - Primitive:
+          - Name: Status
+          - Doc:
+            - Name: Author status
+            - Descr: Status in the system
+          - Class: string
+          - Version: alpha
+          - Nullable: false
+          - Enum: Status/Ambar
+          - Array: false
+          - Valid: Noop/Noop
+        - Primitive:
+          - Name: Tags
+          - Doc:
+            - Name: Author tags
+            - Descr: Tags used for categorization of the author
+          - Class: string
+          - Version: alpha
+          - Nullable: true
+          - Array: true
+          - Valid: Tags/Ava
+        - Child:
+          - Name: Locat
+          - Doc:
+            - Name: Author location
+            - Descr: Current author location
+          - Component: Posit/Alacran
+          - Nullable: false
+          - Array: false
+        - Child:
+          - Name: Denom
+          - Doc:
+            - Name: Author denomination
+            - Descr: Possible author denominations
+          - Component: Desig/Albania
+          - Nullable: true
+          - Array: true

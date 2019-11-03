@@ -70,8 +70,10 @@ oPlac2 = oFactory.add_child_to(oPlac2, oItem5);                                 
 puts('Objects tree:');
 oRoot1.dump;
 
+sFile = 'store_01.db';
+File.delete(sFile) if File.exist?(sFile);
 # connect to the persistance layer tier (e.g. the store)
-oStore = Aspicere::Store.new('store_01.db');
+oStore = Aspicere::Store.new(sFile);
 
 # init repository, add creation commit and add master version
 oMaster = oRepo1.init(oStore); exit unless oMaster;

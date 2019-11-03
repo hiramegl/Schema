@@ -1,0 +1,101 @@
+--- !ruby/object:Aspicere::SchemaConfig
+bDebug: false
+sConfigName: Aleph
+sRootType: Schema
+sSubSuffix: Version
+sPrimValidtn: Config
+sNameConstr: Name
+sChildFilterPath: Entry/Name
+sErrorPath: Error/Descr
+aConfigTypes:
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Doc
+  bVersioned: false
+  aConstraints:
+  - nullable:string:Descr # short description
+  - nullable:string:Error # description to show on validation errors
+  - nullable:string:Url   # url for detailed documentation
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Error
+  bVersioned: false
+  aConstraints:
+  - nullable:string:Descr # short error description
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Entry
+  bVersioned: false
+  aConstraints:
+  - nullable:string:Descr # enumeration entry description
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Primitive
+  aDocs:
+  - required:unique:Doc
+  bVersioned: false
+  sPrimMap: Class/Version # constraints that contain "Class" and "Version" data for a primitive
+  aConstraints:
+  - required:enum:Class:string/number/bool
+  - required:enum:Version:alpha
+  - required:valid:Nullable
+  - required:valid:Array
+  - required:filter:Valid
+  - nullable:filter:Enum
+  - nullable:filter:Format
+  - nullable:filter:Comprs
+  - nullable:filter:Encryp
+  - nullable:filter:Unit
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Child
+  aDocs:
+  - required:unique:Doc
+  bVersioned: false
+  aConstraints:
+  - required:refer:Component
+  - required:valid:Nullable
+  - required:valid:Array
+  - nullable:filter:Auth
+  - nullable:filter:Valid
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Component
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aConstraints:
+  - nullable:filter:Auth
+  - nullable:filter:Valid
+  - nullable:filter:Index
+  - nullable:filter:Publ
+  aContainers:
+  - nullable:array:Primitive
+  - nullable:array:Child
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Schema
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aConstraints:
+  - required:string:Config
+  aContainers:
+  - required:array:Component
+  aFilters:
+  - pre:Auth:proc
+  - pre:Valid:proc
+  - pre:Enum:child
+  - sto:Format:proc
+  - sto:Comprs:proc
+  - sto:Encryp:proc
+  - post:Index:proc
+  - post:Publ:proc
+  - pres:Unit:proc
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Valid
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aContainers:
+  - required:unique:Error
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Enum
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aContainers:
+  - required:array:Entry
