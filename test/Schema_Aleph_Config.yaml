@@ -39,7 +39,7 @@ aConfigTypes:
   - nullable:filter:AuthPrim
   - required:filter:ValidPrim
   - nullable:filter:Enum
-  - nullable:filter:Format
+  - nullable:filter:FormatPrim
   - nullable:filter:Compression
   - nullable:filter:Encryp
   - nullable:filter:Present
@@ -50,11 +50,12 @@ aConfigTypes:
   - required:unique:Doc
   bVersioned: false
   aConstraints:
-  - required:refer:Component
+  - required:reference:Component
   - required:verification:Nullable
   - required:verification:Array
   - nullable:filter:AuthChild
   - nullable:filter:ValidChild
+  - nullable:filter:FormatChild
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: Component
   aDocs:
@@ -85,7 +86,8 @@ aConfigTypes:
   - prestorage:ValidPrim:process
   - prestorage:ValidChild:process
   - prestorage:Enum:children
-  - storage:Format:process
+  - storage:FormatPrim:process
+  - storage:FormatChild:process
   - storage:Compression:process
   - storage:Encryp:process
   - poststorage:Index:process

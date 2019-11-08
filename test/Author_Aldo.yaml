@@ -211,12 +211,12 @@
         - Entry:
           - Name: Deleted
           - Descr: Not available anymore
-    - Format:
+    - FormatPrim:
       - Name: CoordsPad
       - Doc:
         - Name: Pad coordinates
         - Descr: Convert coordinates to decimal
-      - FormatVersion:
+      - FormatPrimVersion:
         - Name: Ali
         - Doc:
           - Name: First version, 2018-10-20
@@ -238,6 +238,45 @@
         - Error:
           - Name: Meter error
           - Descr: Should never occurr an error while presenting the units
+    - ValidChild:
+      - Name: Denom
+      - Doc:
+        - Name: Denominations duplicates
+        - Descr: Denominations duplicates detection
+      - ValidChildVersion:
+        - Name: Asia
+        - Doc:
+          - Name: First version, 2018-10-20
+          - Descr: No denomination shouuld be repeated
+        - Error:
+          - Name: Denomination duplicates
+          - Descr: There should not be duplicates in the denominations
+    - FormatChild:
+      - Name: Denom
+      - Doc:
+        - Name: Test denom formatting
+        - Descr: testing denomination formatting
+      - FormatChildVersion:
+        - Name: Anti
+        - Doc:
+          - Name: First version, 2018-10-20
+          - Descr: testing denom first version
+        - Error:
+          - Name: test denom formatting had a problem
+          - Descr: This should never happen!
+    - Publish:
+      - Name: Author
+      - Doc:
+        - Name: Author publish event
+        - Descr: author change is happening in the system
+      - PublishVersion:
+        - Name: Arpa
+        - Doc:
+          - Name: First version, 2018-10-20
+          - Descr: testing publish events
+        - Error:
+          - Name: publishing author event
+          - Descr: This should never happen!
     - Component:
       - Name: Posit
       - Doc:
@@ -260,7 +299,7 @@
           - Nullable: false
           - Array: false
           - ValidPrim: Coords/America
-          - Format: CoordsPad/Ali
+          - FormatPrim: CoordsPad/Ali
           - Unit: Meter/Alex
     - Component:
       - Name: Desig
@@ -296,6 +335,7 @@
           - Descr: 1st version
         - AuthComp: Author/Archie
         - ValidComp: Noop/Aries
+        - Publish: Author/Arpa
         - Primitive:
           - Name: Alias
           - Doc:
@@ -373,3 +413,5 @@
           - Component: Desig/Albania
           - Nullable: true
           - Array: true
+          - ValidChild: Denom/Asia 
+          - FormatChild: Denom/Anti

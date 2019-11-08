@@ -2,29 +2,30 @@ require "#{__dir__}/../frontend/lib/Aspicere/ruby/Aspicere";
 include Aspicere;
 
 hFilters = {
-    # only depend on the value of the primitive
-    'prestorage/ValidPrim/Noop/Arial'     => lambda { |oVal| true },
-    'prestorage/ValidPrim/Coords/America' => lambda { |oVal| (oVal.to_s =~ /^\d+,\d+$/) != nil; },
-    'prestorage/ValidPrim/Alias/Alba'     => lambda { |oVal| (oVal.to_s =~ /^[A-Z]\w*$/) != nil; },
-    'prestorage/ValidPrim/Name/Alice'     => lambda { |oVal| (oVal.to_s =~ /^[A-Z][a-zA-Z\s]*$/) != nil; },
-    'prestorage/ValidPrim/PassAlp/Aurora' => lambda { |oVal| (oVal.to_s =~ /[A-Za-z]/) != nil; },
-    'prestorage/ValidPrim/PassNum/Atena'  => lambda { |oVal| (oVal.to_s =~ /\d/) != nil; },
-    'prestorage/ValidPrim/PassHyp/Amin'   => lambda { |oVal| (oVal.to_s =~ /-/) != nil; },
-    'prestorage/ValidPrim/Url/Andrew'     => lambda { |oVal| (oVal.to_s =~ /^http:\/\/\w+:\d+\/\w+$/) != nil; },
-    'prestorage/ValidPrim/Tags/Ava'       => lambda { |oVal| (oVal.to_s =~ /^[\w,]+$/) != nil; },
+    'prestorage/ValidPrim/Noop/Arial'     => lambda { |hParams| true },
+    'prestorage/ValidPrim/Coords/America' => lambda { |hParams| (hParams[:sValue] =~ /^\d+,\d+$/) != nil; },
+    'prestorage/ValidPrim/Alias/Alba'     => lambda { |hParams| (hParams[:sValue] =~ /^[A-Z]\w*$/) != nil; },
+    'prestorage/ValidPrim/Name/Alice'     => lambda { |hParams| (hParams[:sValue] =~ /^[A-Z][a-zA-Z\s]*$/) != nil; },
+    'prestorage/ValidPrim/PassAlp/Aurora' => lambda { |hParams| (hParams[:sValue] =~ /[A-Za-z]/) != nil; },
+    'prestorage/ValidPrim/PassNum/Atena'  => lambda { |hParams| (hParams[:sValue] =~ /\d/) != nil; },
+    'prestorage/ValidPrim/PassHyp/Amin'   => lambda { |hParams| (hParams[:sValue] =~ /-/) != nil; },
+    'prestorage/ValidPrim/Url/Andrew'     => lambda { |hParams| (hParams[:sValue] =~ /^http:\/\/\w+:\d+\/\w+$/) != nil; },
+    'prestorage/ValidPrim/Tags/Ava'       => lambda { |hParams| (hParams[:sValue] =~ /^[\w,]+$/) != nil; },
 
-    # can depend on author permisions or the object is about to be operated
-    'prestorage/AuthComp/Author/Archie'   => lambda { |hAuth, hObj| hAuth[:bCanCreateAuthors] },
-    'prestorage/AuthComp/Author/Bali'     => lambda { |hAuth, hObj| hAuth[:bCanCreateAuthors] && hAuth[:sName] == 'root' },
-    'prestorage/AuthComp/Desig/Arnold'    => lambda { |hAuth, hObj| hAuth[:bCanAddDesignation] },
-    'prestorage/AuthComp/Posit/Arla'      => lambda { |hAuth, hObj| hAuth[:bCanAddLocation] },
+    'prestorage/AuthComp/Author/Archie'   => lambda { |hParams| hParams[:hAuth][:bCanCreateAuthors] },
+    'prestorage/AuthComp/Author/Bali'     => lambda { |hParams| hParams[:hAuth][:bCanCreateAuthors] && hParams[:hAuth][:sName] == 'root' },
+    'prestorage/AuthComp/Desig/Arnold'    => lambda { |hParams| hParams[:hAuth][:bCanAddDesignation] },
+    'prestorage/AuthComp/Posit/Arla'      => lambda { |hParams| hParams[:hAuth][:bCanAddLocation] },
 
-    # can depend on author permisions or the object is about to be operated
-    'prestorage/ValidComp/Noop/Aries'     => lambda { |hAuth, hObj| true },
+    'prestorage/ValidChild/Denom/Asia'    => lambda { |hParams| puts "about to validate denominations"; true },
+    'prestorage/ValidComp/Noop/Aries'     => lambda { |hParams| true },
 
-    'storage/Format/CoordsPad/Ali'        => lambda { |oVal| true },
+    'storage/FormatPrim/CoordsPad/Ali'    => lambda { |hParams| puts "about to format coords: " + hParams.to_yaml },
+    'storage/FormatChild/Denom/Anti'      => lambda { |hParams| puts "about to format denom: " + hParams.to_yaml },
 
-    'presentation/Unit/Meter/Alex'        => lambda { |oVal| true },
+    'poststorage/Publish/Author/Arpa'     => lambda { |hParams| puts "about to publish event for author: " + hParams.to_yaml },
+
+    'presentation/Unit/Meter/Alex'        => lambda { |hParams| true },
 };
 bDebug = true;
 
