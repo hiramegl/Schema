@@ -14,46 +14,85 @@
     - Doc:
       - Name: Aldo (first version)
       - Descr: Basic Author schema
-    - Auth:
-      - Name: Group
+    - AuthComp:
+      - Name: Author
       - Doc:
-        - Name: Group
-        - Descr: Group authorization
-      - AuthVersion:
+        - Name: Author
+        - Descr: Author authorization
+      - AuthCompVersion:
         - Name: Archie
         - Doc:
           - Name: First version, 2017-10-27
-          - Descr: Authors in same group
+          - Descr: Authors with permission to create authors
         - Error:
-          - Name: Authorization in same group (1st version)
-          - Descr: The author does not belong to the same group 
-      - AuthVersion:
-        - Name: Balalaika
+          - Name: Author permissions
+          - Descr: The author cannot create authors
+      - AuthCompVersion:
+        - Name: Bali
         - Doc:
           - Name: Second version, 2017-10-28
-          - Descr: Authors in same group
+          - Descr: Authors with permission to create authors
         - Error:
           - Name: Authorization in same group (2nd version)
-          - Descr: The author does not belong to the same group 
-    - Valid:
+          - Descr: The author cannot create authors and the name is not root
+    - AuthComp:
+      - Name: Desig
+      - Doc:
+        - Name: Designation
+        - Descr: Designation authorization
+      - AuthCompVersion:
+        - Name: Arnold
+        - Doc:
+          - Name: first version, 2017-10-28
+          - Descr: Authors with designation change permission
+        - Error:
+          - Name: Designation Authorization
+          - Descr: The author does not have permissions to change author designation
+    - AuthComp:
+      - Name: Posit
+      - Doc:
+        - Name: Position
+        - Descr: Position authorization
+      - AuthCompVersion:
+        - Name: Arla
+        - Doc:
+          - Name: First version, 2017-10-27
+          - Descr: User can add and update position
+        - Error:
+          - Name: Position authorization
+          - Descr: The author does not have permissions to change author position
+    - ValidComp:
       - Name: Noop
       - Doc:
         - Name: No operation
-        - Descr: Just to accept any value as valid, used in combination with enumeration
-      - ValidVersion:
-        - Name: Noop
+        - Descr: Just to accept any component as valid
+      - ValidCompVersion:
+        - Name: Aries
         - Doc:
           - Name: No operation, 2017-10-20
           - Descr: Does not check anything at all
         - Error:
           - Name: No operation problem
           - Descr: This should never happen since is a no-operation check, i.e., always true!
-    - Valid:
+    - ValidPrim:
+      - Name: Noop
+      - Doc:
+        - Name: No operation
+        - Descr: Just to accept any value as valid, used in combination with enumeration
+      - ValidPrimVersion:
+        - Name: Arial
+        - Doc:
+          - Name: No operation, 2017-10-20
+          - Descr: Does not check anything at all
+        - Error:
+          - Name: No operation problem
+          - Descr: This should never happen since is a no-operation check, i.e., always true!
+    - ValidPrim:
       - Name: Coords
       - Doc:
         - Name: Coordinates
         - Descr: Coordinates format validation
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: America
         - Doc:
           - Name: First version, 2017-10-20
@@ -61,12 +100,12 @@
         - Error:
           - Name: Coordinates format
           - Descr: The coordinates should be two integers separated by a comma, no spaces
-    - Valid:
+    - ValidPrim:
       - Name: Alias
       - Doc:
         - Name: Alias
         - Descr: Author aliases
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Alba
         - Doc:
           - Name: First version, 2017-10-20
@@ -74,12 +113,12 @@
         - Error:
           - Name: Alias format
           - Descr: The alias should contain alphabetic or numeric characters only
-    - Valid:
+    - ValidPrim:
       - Name: Name
       - Doc:
         - Name: Name
         - Descr: Author and group names
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Alice
         - Doc:
           - Name: First version, 2017-10-20
@@ -87,11 +126,11 @@
         - Error:
           - Name: Name format
           - Descr: The name should contain alphabetic characters or spaces only
-    - Valid:
+    - ValidPrim:
       - Name: PassAlp
       - Doc:
         - Name: Password Alphabetic
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Aurora
         - Doc:
           - Name: First version, 2017-10-20
@@ -99,11 +138,11 @@
         - Error:
           - Name: Password alpha chars
           - Descr: The password should contain at least one alphabetic character
-    - Valid:
+    - ValidPrim:
       - Name: PassNum
       - Doc:
         - Name: Password numeric
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Atena
         - Doc:
           - Name: First version, 2017-10-21
@@ -111,12 +150,12 @@
         - Error:
           - Name: Password num chars
           - Descr: The password should contain at least one numeric character
-    - Valid:
+    - ValidPrim:
       - Name: PassHyp
       - Doc:
         - Name: Password hyphen
         - Descr: Validation for a 'strong' password
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Amin
         - Doc:
           - Name: First version, 2017-10-27
@@ -124,12 +163,12 @@
         - Error:
           - Name: Password hyphen char
           - Descr: The password should contain at least one hyphen
-    - Valid:
+    - ValidPrim:
       - Name: Url
       - Doc:
         - Name: Url
         - Descr: Images url
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Andrew
         - Doc:
           - Name: First version, 2017-10-20
@@ -137,12 +176,12 @@
         - Error:
           - Name: Url format
           - Descr: "The url should have format 'http://<domain>:<port>/<image_name>'"
-    - Valid:
+    - ValidPrim:
       - Name: Tags
       - Doc:
         - Name: Tags
         - Descr: Tags
-      - ValidVersion:
+      - ValidPrimVersion:
         - Name: Ava
         - Doc:
           - Name: First version, 2017-10-20
@@ -172,19 +211,33 @@
         - Entry:
           - Name: Deleted
           - Descr: Not available anymore
-    - Unit:
-      - Name: Hour
+    - Format:
+      - Name: CoordsPad
       - Doc:
-        - Name: Hour
-        - Descr: Unit for time spans
+        - Name: Pad coordinates
+        - Descr: Convert coordinates to decimal
+      - FormatVersion:
+        - Name: Ali
+        - Doc:
+          - Name: First version, 2018-10-20
+          - Descr: Pad coordinates with zeros for four positions coordinates
+        - Error:
+          - Name: pad coordinates error
+          - Descr: This should never happen!
+    - Unit:
+      - Name: Meter
+      - Doc:
+        - Name: Meter
+        - Descr: Unit for coordinates
       - UnitVersion:
         - Name: Alex
+        - Text: m
         - Doc:
           - Name: First version, 2017-10-10
-          - Descr: Hour time unit
+          - Descr: Meter units
         - Error:
-          - Name: Coordinates format
-          - Descr: The coordinates should be two integers separated by a comma, no spaces
+          - Name: Meter error
+          - Descr: Should never occurr an error while presenting the units
     - Component:
       - Name: Posit
       - Doc:
@@ -195,7 +248,8 @@
         - Doc:
           - Name: Alacran (First version)
           - Descr: 1st version of gps postion
-        - Auth: Group/Archie
+        - AuthComp: Posit/Arla
+        - ValidComp: Noop/Aries
         - Primitive:
           - Name: Coords
           - Doc:
@@ -205,7 +259,9 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - Valid: Coords/America
+          - ValidPrim: Coords/America
+          - Format: CoordsPad/Ali
+          - Unit: Meter/Alex
     - Component:
       - Name: Desig
       - Doc:
@@ -216,7 +272,8 @@
         - Doc:
           - Name: Albania (first version)
           - Descr: 1st version
-        - Auth: Group/Balalaika
+        - AuthComp: Author/Bali
+        - ValidComp: Noop/Aries
         - Primitive:
           - Name: Title
           - Doc:
@@ -226,7 +283,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - Valid: Name/Alice
+          - ValidPrim: Name/Alice
     - Component:
       - Name: Author # will never change
       - Doc:
@@ -237,7 +294,8 @@
         - Doc:
           - Name: Arthur (first version)
           - Descr: 1st version
-        - Auth: Group/Archie
+        - AuthComp: Author/Archie
+        - ValidComp: Noop/Aries
         - Primitive:
           - Name: Alias
           - Doc:
@@ -247,7 +305,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - Valid: Alias/Alba
+          - ValidPrim: Alias/Alba
         - Primitive:
           - Name: Name
           - Doc:
@@ -257,7 +315,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - Valid: Name/Alice
+          - ValidPrim: Name/Alice
         - Primitive:
           - Name: Pass
           - Doc:
@@ -267,7 +325,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - Valid: PassAlp/Aurora, PassNum/Atena, PassHyp/Amin
+          - ValidPrim: PassAlp/Aurora, PassNum/Atena, PassHyp/Amin
         - Primitive:
           - Name: Image
           - Doc:
@@ -277,7 +335,7 @@
           - Version: alpha
           - Nullable: true
           - Array: false
-          - Valid: Url/Andrew
+          - ValidPrim: Url/Andrew
         - Primitive:
           - Name: Status
           - Doc:
@@ -288,7 +346,7 @@
           - Nullable: false
           - Enum: Status/Ambar
           - Array: false
-          - Valid: Noop/Noop
+          - ValidPrim: Noop/Arial
         - Primitive:
           - Name: Tags
           - Doc:
@@ -298,7 +356,7 @@
           - Version: alpha
           - Nullable: true
           - Array: true
-          - Valid: Tags/Ava
+          - ValidPrim: Tags/Ava
         - Child:
           - Name: Locat
           - Doc:

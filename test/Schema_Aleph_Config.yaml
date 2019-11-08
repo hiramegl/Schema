@@ -32,15 +32,17 @@ aConfigTypes:
   bVersioned: false
   sPrimMap: Class/Version # constraints that contain "Class" and "Version" data for a primitive
   aConstraints:
-  - required:enum:Class:string/number/bool
-  - required:enum:Version:alpha
-  - required:valid:Nullable
-  - required:valid:Array
-  - required:filter:Valid
+  - required:enumeration:Class:string/number/bool
+  - required:enumeration:Version:alpha
+  - required:verification:Nullable
+  - required:verification:Array
+  - nullable:filter:AuthPrim
+  - required:filter:ValidPrim
   - nullable:filter:Enum
   - nullable:filter:Format
-  - nullable:filter:Comprs
+  - nullable:filter:Compression
   - nullable:filter:Encryp
+  - nullable:filter:Present
   - nullable:filter:Unit
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: Child
@@ -49,20 +51,20 @@ aConfigTypes:
   bVersioned: false
   aConstraints:
   - required:refer:Component
-  - required:valid:Nullable
-  - required:valid:Array
-  - nullable:filter:Auth
-  - nullable:filter:Valid
+  - required:verification:Nullable
+  - required:verification:Array
+  - nullable:filter:AuthChild
+  - nullable:filter:ValidChild
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: Component
   aDocs:
   - required:unique:Doc
   bVersioned: true
   aConstraints:
-  - nullable:filter:Auth
-  - nullable:filter:Valid
+  - required:filter:AuthComp
+  - required:filter:ValidComp
   - nullable:filter:Index
-  - nullable:filter:Publ
+  - nullable:filter:Publish
   aContainers:
   - nullable:array:Primitive
   - nullable:array:Child
@@ -76,17 +78,36 @@ aConfigTypes:
   aContainers:
   - required:array:Component
   aFilters:
-  - pre:Auth:proc
-  - pre:Valid:proc
-  - pre:Enum:child
-  - sto:Format:proc
-  - sto:Comprs:proc
-  - sto:Encryp:proc
-  - post:Index:proc
-  - post:Publ:proc
-  - pres:Unit:proc
+  - prestorage:AuthComp:process
+  - prestorage:AuthPrim:process
+  - prestorage:AuthChild:process
+  - prestorage:ValidComp:process
+  - prestorage:ValidPrim:process
+  - prestorage:ValidChild:process
+  - prestorage:Enum:children
+  - storage:Format:process
+  - storage:Compression:process
+  - storage:Encryp:process
+  - poststorage:Index:process
+  - poststorage:Publish:process
+  - presentation:Present:process
+  - presentation:Unit:process
 - !ruby/object:Aspicere::SchemaConfigType
-  sTypeName: Valid
+  sTypeName: ValidComp
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aContainers:
+  - required:unique:Error
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: ValidPrim
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aContainers:
+  - required:unique:Error
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: ValidChild
   aDocs:
   - required:unique:Doc
   bVersioned: true
@@ -99,3 +120,10 @@ aConfigTypes:
   bVersioned: true
   aContainers:
   - required:array:Entry
+- !ruby/object:Aspicere::SchemaConfigType
+  sTypeName: Unit
+  aDocs:
+  - required:unique:Doc
+  bVersioned: true
+  aConstraints:
+  - required:string:Text

@@ -1,652 +1,792 @@
 ****************************************************************************************************
->>>> A) User Bob creates the event with two places and stores it ...
+> A) User Bob creates the event with two places and stores it ...
 ****************************************************************************************************
 > Compiling schema configuration ...
-- Schema: # [req,unq,child] => ()
-  - Name: # [req,string]
-  - Doc: # [req,unq,doc] => ()
-    - Name: # [req,string]
-    - Descr: # [null,string]
-    - Error: # [null,string]
-    - Url: # [null,string]
-  - SchemaVersion: # [req,arr,sub] => ()
-    - Name: # [req,string]
-    - Config: # [req,string]
-    - Doc: # [req,unq,doc] => ()
-      - Name: # [req,string]
-      - Descr: # [null,string]
-      - Error: # [null,string]
-      - Url: # [null,string]
-    - Component: # [req,arr,child] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - ComponentVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Auth: # [null,filter]
-        - Valid: # [null,filter]
-        - Index: # [null,filter]
-        - Publ: # [null,filter]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-        - Primitive: # [null,arr,child] => (Class/Version)
-          - Name: # [req,string]
-          - Class: # [req,enum,string/number/bool]
-          - Version: # [req,enum,alpha]
-          - Nullable: # [req,valid]
-          - Array: # [req,valid]
-          - Valid: # [req,filter]
-          - Enum: # [null,filter]
-          - Format: # [null,filter]
-          - Comprs: # [null,filter]
-          - Encryp: # [null,filter]
-          - Unit: # [null,filter]
-          - Doc: # [req,unq,doc] => ()
-            - Name: # [req,string]
-            - Descr: # [null,string]
-            - Error: # [null,string]
-            - Url: # [null,string]
-        - Child: # [null,arr,child] => ()
-          - Name: # [req,string]
-          - Component: # [req,refer]
-          - Nullable: # [req,valid]
-          - Array: # [req,valid]
-          - Auth: # [null,filter]
-          - Valid: # [null,filter]
-          - Doc: # [req,unq,doc] => ()
-            - Name: # [req,string]
-            - Descr: # [null,string]
-            - Error: # [null,string]
-            - Url: # [null,string]
-    - Auth: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - AuthVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-    - Valid: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - ValidVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-        - Error: # [req,unq,child] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-    - Enum: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - EnumVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-        - Entry: # [req,arr,child] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-    - Format: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - FormatVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-    - Comprs: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - ComprsVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-    - Encryp: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - EncrypVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-    - Index: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - IndexVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-    - Publ: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - PublVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
-    - Unit: # [null,arr,filter] => ()
-      - Name: # [req,string]
-      - Doc: # [req,unq,doc] => ()
-        - Name: # [req,string]
-        - Descr: # [null,string]
-        - Error: # [null,string]
-        - Url: # [null,string]
-      - UnitVersion: # [req,arr,sub] => ()
-        - Name: # [req,string]
-        - Doc: # [req,unq,doc] => ()
-          - Name: # [req,string]
-          - Descr: # [null,string]
-          - Error: # [null,string]
-          - Url: # [null,string]
+- Schema      : # [req,unq,root]
+  - Name        : # [req,string]
+  - Doc         : # [req,unq,doc]
+    - Name        : # [req,string]
+    - Descr       : # [null,string]
+    - Error       : # [null,string]
+    - Url         : # [null,string]
+  - SchemaVersion: # [req,arr,sub]
+    - Name        : # [req,string]
+    - Config      : # [req,string]
+    - Doc         : # [req,unq,doc]
+      - Name        : # [req,string]
+      - Descr       : # [null,string]
+      - Error       : # [null,string]
+      - Url         : # [null,string]
+    - Component   : # [req,arr,child]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - ComponentVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - AuthComp    : # [req,filter]
+        - ValidComp   : # [req,filter]
+        - Index       : # [null,filter]
+        - Publish     : # [null,filter]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+        - Primitive   : # [null,arr,child] => constraints for class id mapping: 'Class/Version' (only for Primitive data containers)
+          - Name        : # [req,string]
+          - Class       : # [req,enumeration,string/number/bool]
+          - Version     : # [req,enumeration,alpha]
+          - Nullable    : # [req,verification]
+          - Array       : # [req,verification]
+          - AuthPrim    : # [null,filter]
+          - ValidPrim   : # [req,filter]
+          - Enum        : # [null,filter]
+          - Format      : # [null,filter]
+          - Compression : # [null,filter]
+          - Encryp      : # [null,filter]
+          - Present     : # [null,filter]
+          - Unit        : # [null,filter]
+          - Doc         : # [req,unq,doc]
+            - Name        : # [req,string]
+            - Descr       : # [null,string]
+            - Error       : # [null,string]
+            - Url         : # [null,string]
+        - Child       : # [null,arr,child]
+          - Name        : # [req,string]
+          - Component   : # [req,refer]
+          - Nullable    : # [req,verification]
+          - Array       : # [req,verification]
+          - AuthChild   : # [null,filter]
+          - ValidChild  : # [null,filter]
+          - Doc         : # [req,unq,doc]
+            - Name        : # [req,string]
+            - Descr       : # [null,string]
+            - Error       : # [null,string]
+            - Url         : # [null,string]
+    - AuthComp    : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - AuthCompVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - AuthPrim    : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - AuthPrimVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - AuthChild   : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - AuthChildVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - ValidComp   : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - ValidCompVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+        - Error       : # [req,unq,child]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+    - ValidPrim   : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - ValidPrimVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+        - Error       : # [req,unq,child]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+    - ValidChild  : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - ValidChildVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+        - Error       : # [req,unq,child]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+    - Enum        : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - EnumVersion : # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+        - Entry       : # [req,arr,child]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+    - Format      : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - FormatVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - Compression : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - CompressionVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - Encryp      : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - EncrypVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - Index       : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - IndexVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - Publish     : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - PublishVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - Present     : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - PresentVersion: # [req,arr,sub]
+        - Name        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
+    - Unit        : # [null,arr,filter]
+      - Name        : # [req,string]
+      - Doc         : # [req,unq,doc]
+        - Name        : # [req,string]
+        - Descr       : # [null,string]
+        - Error       : # [null,string]
+        - Url         : # [null,string]
+      - UnitVersion : # [req,arr,sub]
+        - Name        : # [req,string]
+        - Text        : # [req,string]
+        - Doc         : # [req,unq,doc]
+          - Name        : # [req,string]
+          - Descr       : # [null,string]
+          - Error       : # [null,string]
+          - Url         : # [null,string]
 ****************************************************************************************************
 > Reading schema and validating syntax ...
-> 'Schema', syntax OK (multiplicity)
-| - 'Name': 'Author', value syntax OK (constraint)
-| > 'Doc', syntax OK (multiplicity)
-| | - 'Name': 'AuthorSchema', value syntax OK (constraint)
-| | - 'Descr': 'Schema for author entities', value syntax OK (constraint)
+> 'Schema      ', syntax OK (multiplicity)
+| - 'Name        ': 'Author', value syntax OK (constraint)
+| > 'Doc         ', syntax OK (multiplicity)
+| | - 'Name        ': 'AuthorSchema', value syntax OK (constraint)
+| | - 'Descr       ': 'Schema for author entities', value syntax OK (constraint)
 | > 'SchemaVersion', syntax OK (multiplicity)
-| | - 'Name': 'Aldo', value syntax OK (constraint)
-| | - 'Config': 'Aleph', value syntax OK (constraint)
-| | > 'Doc', syntax OK (multiplicity)
-| | | - 'Name': 'Aldo (first version)', value syntax OK (constraint)
-| | | - 'Descr': 'Basic Author schema', value syntax OK (constraint)
-| | > 'Component', syntax OK (multiplicity)
-| | | - 'Name': 'Posit', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Position', value syntax OK (constraint)
-| | | | - 'Descr': 'Gps Position', value syntax OK (constraint)
+| | - 'Name        ': 'Aldo', value syntax OK (constraint)
+| | - 'Config      ': 'Aleph', value syntax OK (constraint)
+| | > 'Doc         ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Aldo (first version)', value syntax OK (constraint)
+| | | - 'Descr       ': 'Basic Author schema', value syntax OK (constraint)
+| | > 'Component   ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Posit', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Position', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Gps Position', value syntax OK (constraint)
 | | | > 'ComponentVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Alacran', value syntax OK (constraint)
-| | | | - 'Auth': 'Group/Archie', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'Alacran (First version)', value syntax OK (constraint)
-| | | | | - 'Descr': '1st version of gps postion', value syntax OK (constraint)
-| | | | > 'Primitive', syntax OK (multiplicity)
-| | | | | - 'Name': 'Coords', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'Coords/America', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'GPS Coordinates', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Position coordinates', value syntax OK (constraint)
-| | | - 'Name': 'Desig', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Designation', value syntax OK (constraint)
-| | | | - 'Descr': 'Author designation', value syntax OK (constraint)
+| | | | - 'Name        ': 'Alacran', value syntax OK (constraint)
+| | | | - 'AuthComp    ': 'Posit/Arla', value syntax OK (constraint)
+| | | | - 'ValidComp   ': 'Noop/Aries', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Alacran (First version)', value syntax OK (constraint)
+| | | | | - 'Descr       ': '1st version of gps postion', value syntax OK (constraint)
+| | | | > 'Primitive   ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Coords', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Coords/America', value syntax OK (constraint)
+| | | | | - 'Format      ': 'CoordsPad/Ali', value syntax OK (constraint)
+| | | | | - 'Unit        ': 'Meter/Alex', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'GPS Coordinates', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Position coordinates', value syntax OK (constraint)
+| | | - 'Name        ': 'Desig', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Designation', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Author designation', value syntax OK (constraint)
 | | | > 'ComponentVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Albania', value syntax OK (constraint)
-| | | | - 'Auth': 'Group/Balalaika', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'Albania (first version)', value syntax OK (constraint)
-| | | | | - 'Descr': '1st version', value syntax OK (constraint)
-| | | | > 'Primitive', syntax OK (multiplicity)
-| | | | | - 'Name': 'Title', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'Name/Alice', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Designation Title', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Author title', value syntax OK (constraint)
-| | | - 'Name': 'Author', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Author', value syntax OK (constraint)
-| | | | - 'Descr': 'Author component', value syntax OK (constraint)
+| | | | - 'Name        ': 'Albania', value syntax OK (constraint)
+| | | | - 'AuthComp    ': 'Author/Bali', value syntax OK (constraint)
+| | | | - 'ValidComp   ': 'Noop/Aries', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Albania (first version)', value syntax OK (constraint)
+| | | | | - 'Descr       ': '1st version', value syntax OK (constraint)
+| | | | > 'Primitive   ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Title', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Name/Alice', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Designation Title', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Author title', value syntax OK (constraint)
+| | | - 'Name        ': 'Author', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Author', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Author component', value syntax OK (constraint)
 | | | > 'ComponentVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Arthur', value syntax OK (constraint)
-| | | | - 'Auth': 'Group/Archie', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'Arthur (first version)', value syntax OK (constraint)
-| | | | | - 'Descr': '1st version', value syntax OK (constraint)
-| | | | > 'Primitive', syntax OK (multiplicity)
-| | | | | - 'Name': 'Alias', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'Alias/Alba', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author alias', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Alias for login', value syntax OK (constraint)
-| | | | | - 'Name': 'Name', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'Name/Alice', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author name', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Name and surname', value syntax OK (constraint)
-| | | | | - 'Name': 'Pass', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'PassAlp/Aurora, PassNum/Atena, PassHyp/Amin', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author password', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Encrypted password using salt', value syntax OK (constraint)
-| | | | | - 'Name': 'Image', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'true', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'Url/Andrew', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author image', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Url user image', value syntax OK (constraint)
-| | | | | - 'Name': 'Status', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | - 'Valid': 'Noop/Noop', value syntax OK (constraint)
-| | | | | - 'Enum': 'Status/Ambar', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author status', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Status in the system', value syntax OK (constraint)
-| | | | | - 'Name': 'Tags', value syntax OK (constraint)
-| | | | | - 'Class': 'string', value syntax OK (constraint)
-| | | | | - 'Version': 'alpha', value syntax OK (constraint)
-| | | | | - 'Nullable': 'true', value syntax OK (constraint)
-| | | | | - 'Array': 'true', value syntax OK (constraint)
-| | | | | - 'Valid': 'Tags/Ava', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author tags', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Tags used for categorization of the author', value syntax OK (constraint)
-| | | | > 'Child', syntax OK (multiplicity)
-| | | | | - 'Name': 'Locat', value syntax OK (constraint)
-| | | | | - 'Component': 'Posit/Alacran', value syntax OK (constraint)
-| | | | | - 'Nullable': 'false', value syntax OK (constraint)
-| | | | | - 'Array': 'false', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author location', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Current author location', value syntax OK (constraint)
-| | | | | - 'Name': 'Denom', value syntax OK (constraint)
-| | | | | - 'Component': 'Desig/Albania', value syntax OK (constraint)
-| | | | | - 'Nullable': 'true', value syntax OK (constraint)
-| | | | | - 'Array': 'true', value syntax OK (constraint)
-| | | | | > 'Doc', syntax OK (multiplicity)
-| | | | | | - 'Name': 'Author denomination', value syntax OK (constraint)
-| | | | | | - 'Descr': 'Possible author denominations', value syntax OK (constraint)
-| | > 'Auth', syntax OK (multiplicity)
-| | | - 'Name': 'Group', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Group', value syntax OK (constraint)
-| | | | - 'Descr': 'Group authorization', value syntax OK (constraint)
-| | | > 'AuthVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Archie', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-27', value syntax OK (constraint)
-| | | | | - 'Descr': 'Authors in same group', value syntax OK (constraint)
-| | | | - 'Name': 'Balalaika', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'Second version, 2017-10-28', value syntax OK (constraint)
-| | | | | - 'Descr': 'Authors in same group', value syntax OK (constraint)
-| | > 'Valid', syntax OK (multiplicity)
-| | | - 'Name': 'Noop', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'No operation', value syntax OK (constraint)
-| | | | - 'Descr': 'Just to accept any value as valid, used in combination with enumeration', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Noop', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'No operation, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Does not check anything at all', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'No operation problem', value syntax OK (constraint)
-| | | | | - 'Descr': 'This should never happen since is a no-operation check, i.e., always true!', value syntax OK (constraint)
-| | | - 'Name': 'Coords', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Coordinates', value syntax OK (constraint)
-| | | | - 'Descr': 'Coordinates format validation', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'America', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'two integers separated by a comma', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Coordinates format', value syntax OK (constraint)
-| | | | | - 'Descr': 'The coordinates should be two integers separated by a comma, no spaces', value syntax OK (constraint)
-| | | - 'Name': 'Alias', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Alias', value syntax OK (constraint)
-| | | | - 'Descr': 'Author aliases', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Alba', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Alphanum aliases', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Alias format', value syntax OK (constraint)
-| | | | | - 'Descr': 'The alias should contain alphabetic or numeric characters only', value syntax OK (constraint)
-| | | - 'Name': 'Name', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Name', value syntax OK (constraint)
-| | | | - 'Descr': 'Author and group names', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Alice', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Alpha and spaces in names', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Name format', value syntax OK (constraint)
-| | | | | - 'Descr': 'The name should contain alphabetic characters or spaces only', value syntax OK (constraint)
-| | | - 'Name': 'PassAlp', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Password Alphabetic', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Aurora', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Basic security, checking for alphabetic characters', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Password alpha chars', value syntax OK (constraint)
-| | | | | - 'Descr': 'The password should contain at least one alphabetic character', value syntax OK (constraint)
-| | | - 'Name': 'PassNum', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Password numeric', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Atena', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-21', value syntax OK (constraint)
-| | | | | - 'Descr': 'Basic security, checking for numeric characters', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Password num chars', value syntax OK (constraint)
-| | | | | - 'Descr': 'The password should contain at least one numeric character', value syntax OK (constraint)
-| | | - 'Name': 'PassHyp', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Password hyphen', value syntax OK (constraint)
-| | | | - 'Descr': 'Validation for a 'strong' password', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Amin', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-27', value syntax OK (constraint)
-| | | | | - 'Descr': 'Hyphen check', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Password hyphen char', value syntax OK (constraint)
-| | | | | - 'Descr': 'The password should contain at least one hyphen', value syntax OK (constraint)
-| | | - 'Name': 'Url', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Url', value syntax OK (constraint)
-| | | | - 'Descr': 'Images url', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Andrew', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Simple url', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Url format', value syntax OK (constraint)
-| | | | | - 'Descr': 'The url should have format 'http://<domain>:<port>/<image_name>'', value syntax OK (constraint)
-| | | - 'Name': 'Tags', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Tags', value syntax OK (constraint)
-| | | | - 'Descr': 'Tags', value syntax OK (constraint)
-| | | > 'ValidVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Ava', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Alphanum and commas', value syntax OK (constraint)
-| | | | > 'Error', syntax OK (multiplicity)
-| | | | | - 'Name': 'Tags format', value syntax OK (constraint)
-| | | | | - 'Descr': 'The tags should only contain alphabetic characters and commas', value syntax OK (constraint)
-| | > 'Enum', syntax OK (multiplicity)
-| | | - 'Name': 'Status', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Status', value syntax OK (constraint)
-| | | | - 'Descr': 'Author and group status in the system', value syntax OK (constraint)
-| | | > 'EnumVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Ambar', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-20', value syntax OK (constraint)
-| | | | | - 'Descr': 'Only three values are possible', value syntax OK (constraint)
-| | | | > 'Entry', syntax OK (multiplicity)
-| | | | | - 'Name': 'Active', value syntax OK (constraint)
-| | | | | - 'Descr': 'Can use the system', value syntax OK (constraint)
-| | | | | - 'Name': 'Inactive', value syntax OK (constraint)
-| | | | | - 'Descr': 'Cannot use the system temporarily', value syntax OK (constraint)
-| | | | | - 'Name': 'Deleted', value syntax OK (constraint)
-| | | | | - 'Descr': 'Not available anymore', value syntax OK (constraint)
-| | > 'Unit', syntax OK (multiplicity)
-| | | - 'Name': 'Hour', value syntax OK (constraint)
-| | | > 'Doc', syntax OK (multiplicity)
-| | | | - 'Name': 'Hour', value syntax OK (constraint)
-| | | | - 'Descr': 'Unit for time spans', value syntax OK (constraint)
-| | | > 'UnitVersion', syntax OK (multiplicity)
-| | | | - 'Name': 'Alex', value syntax OK (constraint)
-| | | | > 'Doc', syntax OK (multiplicity)
-| | | | | - 'Name': 'First version, 2017-10-10', value syntax OK (constraint)
-| | | | | - 'Descr': 'Hour time unit', value syntax OK (constraint)
+| | | | - 'Name        ': 'Arthur', value syntax OK (constraint)
+| | | | - 'AuthComp    ': 'Author/Archie', value syntax OK (constraint)
+| | | | - 'ValidComp   ': 'Noop/Aries', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Arthur (first version)', value syntax OK (constraint)
+| | | | | - 'Descr       ': '1st version', value syntax OK (constraint)
+| | | | > 'Primitive   ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Alias', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Alias/Alba', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author alias', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Alias for login', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Name', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Name/Alice', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author name', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Name and surname', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Pass', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'PassAlp/Aurora, PassNum/Atena, PassHyp/Amin', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author password', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Encrypted password using salt', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Image', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'true', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Url/Andrew', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author image', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Url user image', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Status', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Noop/Arial', value syntax OK (constraint)
+| | | | | - 'Enum        ': 'Status/Ambar', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author status', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Status in the system', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Tags', value syntax OK (constraint)
+| | | | | - 'Class       ': 'string', value syntax OK (constraint)
+| | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'true', value syntax OK (constraint)
+| | | | | - 'Array       ': 'true', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Tags/Ava', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author tags', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Tags used for categorization of the author', value syntax OK (constraint)
+| | | | > 'Child       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Locat', value syntax OK (constraint)
+| | | | | - 'Component   ': 'Posit/Alacran', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
+| | | | | - 'Array       ': 'false', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author location', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Current author location', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Denom', value syntax OK (constraint)
+| | | | | - 'Component   ': 'Desig/Albania', value syntax OK (constraint)
+| | | | | - 'Nullable    ': 'true', value syntax OK (constraint)
+| | | | | - 'Array       ': 'true', value syntax OK (constraint)
+| | | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | | - 'Name        ': 'Author denomination', value syntax OK (constraint)
+| | | | | | - 'Descr       ': 'Possible author denominations', value syntax OK (constraint)
+| | > 'AuthComp    ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Author', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Author', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Author authorization', value syntax OK (constraint)
+| | | > 'AuthCompVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Archie', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-27', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Authors with permission to create authors', value syntax OK (constraint)
+| | | | - 'Name        ': 'Bali', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Second version, 2017-10-28', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Authors with permission to create authors', value syntax OK (constraint)
+| | | - 'Name        ': 'Desig', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Designation', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Designation authorization', value syntax OK (constraint)
+| | | > 'AuthCompVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Arnold', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'first version, 2017-10-28', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Authors with designation change permission', value syntax OK (constraint)
+| | | - 'Name        ': 'Posit', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Position', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Position authorization', value syntax OK (constraint)
+| | | > 'AuthCompVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Arla', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-27', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'User can add and update position', value syntax OK (constraint)
+| | > 'ValidComp   ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Noop', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'No operation', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Just to accept any component as valid', value syntax OK (constraint)
+| | | > 'ValidCompVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Aries', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'No operation, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Does not check anything at all', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'No operation problem', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'This should never happen since is a no-operation check, i.e., always true!', value syntax OK (constraint)
+| | > 'ValidPrim   ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Noop', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'No operation', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Just to accept any value as valid, used in combination with enumeration', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Arial', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'No operation, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Does not check anything at all', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'No operation problem', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'This should never happen since is a no-operation check, i.e., always true!', value syntax OK (constraint)
+| | | - 'Name        ': 'Coords', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Coordinates', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Coordinates format validation', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'America', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'two integers separated by a comma', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Coordinates format', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The coordinates should be two integers separated by a comma, no spaces', value syntax OK (constraint)
+| | | - 'Name        ': 'Alias', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Alias', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Author aliases', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Alba', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Alphanum aliases', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Alias format', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The alias should contain alphabetic or numeric characters only', value syntax OK (constraint)
+| | | - 'Name        ': 'Name', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Name', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Author and group names', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Alice', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Alpha and spaces in names', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Name format', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The name should contain alphabetic characters or spaces only', value syntax OK (constraint)
+| | | - 'Name        ': 'PassAlp', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Password Alphabetic', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Aurora', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Basic security, checking for alphabetic characters', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Password alpha chars', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The password should contain at least one alphabetic character', value syntax OK (constraint)
+| | | - 'Name        ': 'PassNum', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Password numeric', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Atena', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-21', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Basic security, checking for numeric characters', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Password num chars', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The password should contain at least one numeric character', value syntax OK (constraint)
+| | | - 'Name        ': 'PassHyp', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Password hyphen', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Validation for a 'strong' password', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Amin', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-27', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Hyphen check', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Password hyphen char', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The password should contain at least one hyphen', value syntax OK (constraint)
+| | | - 'Name        ': 'Url', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Url', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Images url', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Andrew', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Simple url', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Url format', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The url should have format 'http://<domain>:<port>/<image_name>'', value syntax OK (constraint)
+| | | - 'Name        ': 'Tags', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Tags', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Tags', value syntax OK (constraint)
+| | | > 'ValidPrimVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Ava', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Alphanum and commas', value syntax OK (constraint)
+| | | | > 'Error       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Tags format', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'The tags should only contain alphabetic characters and commas', value syntax OK (constraint)
+| | > 'Enum        ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Status', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Status', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Author and group status in the system', value syntax OK (constraint)
+| | | > 'EnumVersion ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Ambar', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Only three values are possible', value syntax OK (constraint)
+| | | | > 'Entry       ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'Active', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Can use the system', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Inactive', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Cannot use the system temporarily', value syntax OK (constraint)
+| | | | | - 'Name        ': 'Deleted', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Not available anymore', value syntax OK (constraint)
+| | > 'Format      ', syntax OK (multiplicity)
+| | | - 'Name        ': 'CoordsPad', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Pad coordinates', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Convert coordinates to decimal', value syntax OK (constraint)
+| | | > 'FormatVersion', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Ali', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2018-10-20', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Pad coordinates with zeros for four positions coordinates', value syntax OK (constraint)
+| | > 'Unit        ', syntax OK (multiplicity)
+| | | - 'Name        ': 'Meter', value syntax OK (constraint)
+| | | > 'Doc         ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Meter', value syntax OK (constraint)
+| | | | - 'Descr       ': 'Unit for coordinates', value syntax OK (constraint)
+| | | > 'UnitVersion ', syntax OK (multiplicity)
+| | | | - 'Name        ': 'Alex', value syntax OK (constraint)
+| | | | - 'Text        ': 'm', value syntax OK (constraint)
+| | | | > 'Doc         ', syntax OK (multiplicity)
+| | | | | - 'Name        ': 'First version, 2017-10-10', value syntax OK (constraint)
+| | | | | - 'Descr       ': 'Meter units', value syntax OK (constraint)
 ****************************************************************************************************
 > Validating semantics ...
-> [string] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/Name' = 'Alacran': ok
-> [filter] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/Auth' = 'Group/Archie': ok [error: The author does not belong to the same group]
-> [string] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[.]/Doc[.]/Name' = 'Alacran (First version)': ok
-> [string] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[.]/Doc[.]/Descr' = '1st version of gps postion': ok
-> [string] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Name' = 'Coords': ok
-> [enum] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Valid' = 'Coords/America': ok [error: The coordinates should be two integers separated by a comma, no spaces]
-> [string] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]:[.]/Doc[.]/Name' = 'GPS Coordinates': ok
-> [string] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]:[.]/Doc[.]/Descr' = 'Position coordinates': ok
-> [string] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Name' = 'Albania': ok
-> [filter] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Auth' = 'Group/Balalaika': ok [error: The author does not belong to the same group]
-> [string] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Name' = 'Albania (first version)': ok
-> [string] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Descr' = '1st version': ok
-> [string] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Name' = 'Title': ok
-> [enum] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Valid' = 'Name/Alice': ok [error: The name should contain alphabetic characters or spaces only]
-> [string] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]:[.]/Doc[.]/Name' = 'Designation Title': ok
-> [string] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]:[.]/Doc[.]/Descr' = 'Author title': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/Name' = 'Arthur': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/Auth' = 'Group/Archie': ok [error: The author does not belong to the same group]
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[.]/Doc[.]/Name' = 'Arthur (first version)': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[.]/Doc[.]/Descr' = '1st version': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Name' = 'Alias': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Valid' = 'Alias/Alba': ok [error: The alias should contain alphabetic or numeric characters only]
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]:[.]/Doc[.]/Name' = 'Author alias': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]:[.]/Doc[.]/Descr' = 'Alias for login': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Name' = 'Name': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Valid' = 'Name/Alice': ok [error: The name should contain alphabetic characters or spaces only]
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]:[.]/Doc[.]/Name' = 'Author name': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]:[.]/Doc[.]/Descr' = 'Name and surname': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Name' = 'Pass': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Valid' = 'PassAlp/Aurora': ok [error: The password should contain at least one alphabetic character]
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Valid' = 'PassNum/Atena': ok [error: The password should contain at least one numeric character]
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Valid' = 'PassHyp/Amin': ok [error: The password should contain at least one hyphen]
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Name' = 'Author password': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Descr' = 'Encrypted password using salt': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Name' = 'Image': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Nullable' = 'true': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Valid' = 'Url/Andrew': ok [error: The url should have format 'http://<domain>:<port>/<image_name>']
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]:[.]/Doc[.]/Name' = 'Author image': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]:[.]/Doc[.]/Descr' = 'Url user image': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Name' = 'Status': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Array' = 'false': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Valid' = 'Noop/Noop': ok [error: This should never happen since is a no-operation check, i.e., always true!]
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Enum' = 'Status/Ambar': ok [error: Invalid value for constraint Enum:Status/Ambar, valid values: Active, Inactive, Deleted]
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]:[.]/Doc[.]/Name' = 'Author status': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]:[.]/Doc[.]/Descr' = 'Status in the system': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Name' = 'Tags': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Class' = 'string': ok
-> [enum] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Version' = 'alpha': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Nullable' = 'true': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Array' = 'true': ok
-> [filter] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Valid' = 'Tags/Ava': ok [error: The tags should only contain alphabetic characters and commas]
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]:[.]/Doc[.]/Name' = 'Author tags': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]:[.]/Doc[.]/Descr' = 'Tags used for categorization of the author': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Name' = 'Locat': ok
-> [refer] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Component' = 'Posit/Alacran': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Nullable' = 'false': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Array' = 'false': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]:[.]/Doc[.]/Name' = 'Author location': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]:[.]/Doc[.]/Descr' = 'Current author location': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Name' = 'Denom': ok
-> [refer] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Component' = 'Desig/Albania': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Nullable' = 'true': ok
-> [valid] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Array' = 'true': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]:[.]/Doc[.]/Name' = 'Author denomination': ok
-> [string] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]:[.]/Doc[.]/Descr' = 'Possible author denominations': ok
+> [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/Name' = 'Alacran': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/AuthComp' = 'Posit/Arla': ok [error: The author does not have permissions to change author position]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/ValidComp' = 'Noop/Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[.]/Doc[.]/Name' = 'Alacran (First version)': ok
+> [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[.]/Doc[.]/Descr' = '1st version of gps postion': ok
+> [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Name' = 'Coords': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/ValidPrim' = 'Coords/America': ok [error: The coordinates should be two integers separated by a comma, no spaces]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Format' = 'CoordsPad/Ali': ok [error: This should never happen!]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Unit' = 'Meter/Alex': ok [error: Should never occurr an error while presenting the units]
+> [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]:[.]/Doc[.]/Name' = 'GPS Coordinates': ok
+> [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]:[.]/Doc[.]/Descr' = 'Position coordinates': ok
+> [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Name' = 'Albania': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/AuthComp' = 'Author/Bali': ok [error: The author cannot create authors and the name is not root]
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/ValidComp' = 'Noop/Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Name' = 'Albania (first version)': ok
+> [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Descr' = '1st version': ok
+> [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Name' = 'Title': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/ValidPrim' = 'Name/Alice': ok [error: The name should contain alphabetic characters or spaces only]
+> [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]:[.]/Doc[.]/Name' = 'Designation Title': ok
+> [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]:[.]/Doc[.]/Descr' = 'Author title': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/Name' = 'Arthur': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/AuthComp' = 'Author/Archie': ok [error: The author cannot create authors]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/ValidComp' = 'Noop/Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[.]/Doc[.]/Name' = 'Arthur (first version)': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[.]/Doc[.]/Descr' = '1st version': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Name' = 'Alias': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/ValidPrim' = 'Alias/Alba': ok [error: The alias should contain alphabetic or numeric characters only]
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]:[.]/Doc[.]/Name' = 'Author alias': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]:[.]/Doc[.]/Descr' = 'Alias for login': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Name' = 'Name': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/ValidPrim' = 'Name/Alice': ok [error: The name should contain alphabetic characters or spaces only]
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]:[.]/Doc[.]/Name' = 'Author name': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]:[.]/Doc[.]/Descr' = 'Name and surname': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Name' = 'Pass': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassAlp/Aurora': ok [error: The password should contain at least one alphabetic character]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassNum/Atena': ok [error: The password should contain at least one numeric character]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassHyp/Amin': ok [error: The password should contain at least one hyphen]
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Name' = 'Author password': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Descr' = 'Encrypted password using salt': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Name' = 'Image': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Nullable' = 'true': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/ValidPrim' = 'Url/Andrew': ok [error: The url should have format 'http://<domain>:<port>/<image_name>']
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]:[.]/Doc[.]/Name' = 'Author image': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]:[.]/Doc[.]/Descr' = 'Url user image': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Name' = 'Status': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Array' = 'false': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/ValidPrim' = 'Noop/Arial': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Enum' = 'Status/Ambar': ok [error: Invalid value for constraint Enum:Status/Ambar, valid values: Active, Inactive, Deleted]
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]:[.]/Doc[.]/Name' = 'Author status': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]:[.]/Doc[.]/Descr' = 'Status in the system': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Name' = 'Tags': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Class' = 'string': ok
+> [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Version' = 'alpha': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Nullable' = 'true': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Array' = 'true': ok
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/ValidPrim' = 'Tags/Ava': ok [error: The tags should only contain alphabetic characters and commas]
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]:[.]/Doc[.]/Name' = 'Author tags': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]:[.]/Doc[.]/Descr' = 'Tags used for categorization of the author': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Name' = 'Locat': ok
+> [refer       ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Component' = 'Posit/Alacran': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Nullable' = 'false': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Array' = 'false': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]:[.]/Doc[.]/Name' = 'Author location': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]:[.]/Doc[.]/Descr' = 'Current author location': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Name' = 'Denom': ok
+> [refer       ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Component' = 'Desig/Albania': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Nullable' = 'true': ok
+> [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Array' = 'true': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]:[.]/Doc[.]/Name' = 'Author denomination': ok
+> [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]:[.]/Doc[.]/Descr' = 'Possible author denominations': ok
 Filters: ----------------
- > Group/Archie: pre/Auth [proc]
- > Group/Balalaika: pre/Auth [proc]
- > Noop/Noop: pre/Valid [proc]
- > Coords/America: pre/Valid [proc]
- > Alias/Alba: pre/Valid [proc]
- > Name/Alice: pre/Valid [proc]
- > PassAlp/Aurora: pre/Valid [proc]
- > PassNum/Atena: pre/Valid [proc]
- > PassHyp/Amin: pre/Valid [proc]
- > Url/Andrew: pre/Valid [proc]
- > Tags/Ava: pre/Valid [proc]
- > Status/Ambar: pre/Enum [child]
- > Hour/Alex: pres/Unit [proc]
+ > Author/Archie  : prestorage/AuthComp [process]
+ > Author/Bali    : prestorage/AuthComp [process]
+ > Desig/Arnold   : prestorage/AuthComp [process]
+ > Posit/Arla     : prestorage/AuthComp [process]
+ > Noop/Aries     : prestorage/ValidComp [process]
+ > Noop/Arial     : prestorage/ValidPrim [process]
+ > Coords/America : prestorage/ValidPrim [process]
+ > Alias/Alba     : prestorage/ValidPrim [process]
+ > Name/Alice     : prestorage/ValidPrim [process]
+ > PassAlp/Aurora : prestorage/ValidPrim [process]
+ > PassNum/Atena  : prestorage/ValidPrim [process]
+ > PassHyp/Amin   : prestorage/ValidPrim [process]
+ > Url/Andrew     : prestorage/ValidPrim [process]
+ > Tags/Ava       : prestorage/ValidPrim [process]
+ > Status/Ambar   : prestorage/Enum [children]
+ > CoordsPad/Ali  : storage/Format [process]
+ > Meter/Alex     : presentation/Unit [process]
 Containers: ----------------
 > ComponentVersion: Posit/Alacran
   - Name = 'Alacran'
-  - Auth:Group/Archie = 'Group/Archie'
+  - AuthComp:Posit/Arla = 'Posit/Arla'
+  - ValidComp:Noop/Aries = 'Noop/Aries'
   > Primitive: Coords/-
     - Name = 'Coords'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - Valid:Coords/America = 'Coords/America'
+    - ValidPrim:Coords/America = 'Coords/America'
+    - Format:CoordsPad/Ali = 'CoordsPad/Ali'
+    - Unit:Meter/Alex = 'Meter/Alex'
 > ComponentVersion: Desig/Albania
   - Name = 'Albania'
-  - Auth:Group/Balalaika = 'Group/Balalaika'
+  - AuthComp:Author/Bali = 'Author/Bali'
+  - ValidComp:Noop/Aries = 'Noop/Aries'
   > Primitive: Title/-
     - Name = 'Title'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - Valid:Name/Alice = 'Name/Alice'
+    - ValidPrim:Name/Alice = 'Name/Alice'
 > ComponentVersion: Author/Arthur
   - Name = 'Arthur'
-  - Auth:Group/Archie = 'Group/Archie'
+  - AuthComp:Author/Archie = 'Author/Archie'
+  - ValidComp:Noop/Aries = 'Noop/Aries'
   > Primitive: Alias/-
     - Name = 'Alias'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - Valid:Alias/Alba = 'Alias/Alba'
+    - ValidPrim:Alias/Alba = 'Alias/Alba'
   > Primitive: Name/-
     - Name = 'Name'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - Valid:Name/Alice = 'Name/Alice'
+    - ValidPrim:Name/Alice = 'Name/Alice'
   > Primitive: Pass/-
     - Name = 'Pass'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - Valid:PassAlp/Aurora = 'PassAlp/Aurora'
-    - Valid:PassNum/Atena = 'PassNum/Atena'
-    - Valid:PassHyp/Amin = 'PassHyp/Amin'
+    - ValidPrim:PassAlp/Aurora = 'PassAlp/Aurora'
+    - ValidPrim:PassNum/Atena = 'PassNum/Atena'
+    - ValidPrim:PassHyp/Amin = 'PassHyp/Amin'
   > Primitive: Image/-
     - Name = 'Image'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'true'
     - Array = 'false'
-    - Valid:Url/Andrew = 'Url/Andrew'
+    - ValidPrim:Url/Andrew = 'Url/Andrew'
   > Primitive: Status/-
     - Name = 'Status'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - Valid:Noop/Noop = 'Noop/Noop'
+    - ValidPrim:Noop/Arial = 'Noop/Arial'
     - Enum:Status/Ambar = 'Status/Ambar'
   > Primitive: Tags/-
     - Name = 'Tags'
@@ -654,7 +794,7 @@ Containers: ----------------
     - Version = 'alpha'
     - Nullable = 'true'
     - Array = 'true'
-    - Valid:Tags/Ava = 'Tags/Ava'
+    - ValidPrim:Tags/Ava = 'Tags/Ava'
   > Child: Locat/-
     - Name = 'Locat'
     - Component = 'Posit/Alacran'
@@ -665,6 +805,16 @@ Containers: ----------------
     - Component = 'Desig/Albania'
     - Nullable = 'true'
     - Array = 'true'
+>>> prestorage: AuthComp:Posit/Arla
+>>> prestorage: ValidComp:Noop/Aries
+>>> prestorage: AuthComp:Author/Bali
+>>> prestorage: ValidComp:Noop/Aries
+>>> prestorage: AuthComp:Author/Archie
+>>> prestorage: ValidComp:Noop/Aries
+>>> prestorage: AuthComp:Author/Bali
+>>> prestorage: ValidComp:Noop/Aries
+>>> prestorage: AuthComp:Author/Archie
+>>> prestorage: ValidComp:Noop/Aries
 > [Root/Alien] :
   > [Author/Arthur] Main:
     > [string/alpha] Alias: AndyW
@@ -682,6 +832,7 @@ Containers: ----------------
     > [Desig/Albania] Denom:
       > [string/alpha] Title: Developer
 > Creating tables in db ...
+>>>2 applying storage filters
 ! Error: UNIQUE constraint failed: Primitives.Id
   Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
 > Dumping tables for store 'store_02.db' ...
@@ -715,18 +866,20 @@ Containers: ----------------
  - c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1 | 0 | prim | string | alpha | Title | 3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b
 --------------------------------------------------
 > Commits:
- - 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | Bob | 2019-11-03T17:01:16.981 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | Bob | 2019-11-08T08:20:24.188 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - c527d4212d251015f9764f7ed08a85d139db44621665ab433e6023dc3e89ab8e | master | Bob | 2019-11-03T17:01:16.982 | GUI | Master version | 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c
+ - 982d8a0491a22a3a360f230afca6d7872ec8c0f68f5b7f9b71ce6cd37d894505 | master | Bob | 2019-11-08T08:20:24.217 | GUI | Master version | 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 6f2ca163930a5240fd3079b0289640c93677fbaa0cbf05eec499077a7fceb341
+ - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 83694bdbe48b5cbc085ff4d5e639ce85088401e2d7106bc57ec86f56d6bd934a
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob modifies location through integration and saves a new commit ...
+>>> prestorage: AuthComp:Posit/Arla
+>>> prestorage: ValidComp:Noop/Aries
 > [Root/Alien] :
   > [Author/Arthur] Main:
     > [string/alpha] Alias: AndyW
@@ -743,6 +896,7 @@ Containers: ----------------
       > [string/alpha] Title: Manager
     > [Desig/Albania] Denom:
       > [string/alpha] Title: Developer
+>>>2 applying storage filters
 ! Error: UNIQUE constraint failed: Primitives.Id
   Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
 ! Error: UNIQUE constraint failed: Primitives.Id
@@ -808,19 +962,21 @@ Containers: ----------------
  - ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742 | 0 | prim | string | alpha | Coords | 9b1cf1e3acc00ff21cd15978c90b7396c816fbea04a67cb08209cfafd3aacdbd
 --------------------------------------------------
 > Commits:
- - 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | Bob | 2019-11-03T17:01:16.981 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - 19ebba40bfa260668c39572212794a4b22d22f95e21dd35b30adc24a71ed6015 | Bob | 2019-11-03T17:01:16.989 | I-1 | Corrected status | 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | Bob | 2019-11-08T08:20:24.188 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - e6743b328c732447833a9dcf0540b8d151643674868bcda62f4ec309bc91ef76 | Bob | 2019-11-08T08:20:24.346 | I-1 | Corrected location | 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - c527d4212d251015f9764f7ed08a85d139db44621665ab433e6023dc3e89ab8e | master | Bob | 2019-11-03T17:01:16.982 | GUI | Master version | 19ebba40bfa260668c39572212794a4b22d22f95e21dd35b30adc24a71ed6015
+ - 982d8a0491a22a3a360f230afca6d7872ec8c0f68f5b7f9b71ce6cd37d894505 | master | Bob | 2019-11-08T08:20:24.217 | GUI | Master version | e6743b328c732447833a9dcf0540b8d151643674868bcda62f4ec309bc91ef76
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 2d7de661a99c40654ff4ddd493ac7293c468fa44d5407d88c889af2ceac747f6
+ - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 26799a9fee10dd63d0ef0252b14f9520d359fc852d6523a5511b637e5fabd2d0
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob modifies specific tag through GUI and saves a new commit and a snapshot ...
+>>> prestorage: AuthComp:Author/Archie
+>>> prestorage: ValidComp:Noop/Aries
 > [Root/Alien] :
   > [Author/Arthur] Main:
     > [string/alpha] Alias: AndyW
@@ -837,6 +993,7 @@ Containers: ----------------
       > [string/alpha] Title: Manager
     > [Desig/Albania] Denom:
       > [string/alpha] Title: Developer
+>>>2 applying storage filters
 ! Error: UNIQUE constraint failed: Primitives.Id
   Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
 ! Error: UNIQUE constraint failed: Primitives.Id
@@ -915,17 +1072,17 @@ Containers: ----------------
  - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
 --------------------------------------------------
 > Commits:
- - 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | Bob | 2019-11-03T17:01:16.981 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - 19ebba40bfa260668c39572212794a4b22d22f95e21dd35b30adc24a71ed6015 | Bob | 2019-11-03T17:01:16.989 | I-1 | Corrected status | 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
- - 1b39b0767ce1f373da69d628d21e3ef2efc3da98f09389ddd8967b45d789e2f3 | Bob | 2019-11-03T17:01:16.995 | GUI | Corrected location | 19ebba40bfa260668c39572212794a4b22d22f95e21dd35b30adc24a71ed6015 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | Bob | 2019-11-08T08:20:24.188 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - e6743b328c732447833a9dcf0540b8d151643674868bcda62f4ec309bc91ef76 | Bob | 2019-11-08T08:20:24.346 | I-1 | Corrected location | 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 3d008e040a9b60d47278abf2729b4ac398746bad5572dc8988052290a817ed01 | Bob | 2019-11-08T08:20:24.576 | GUI | Corrected tags | e6743b328c732447833a9dcf0540b8d151643674868bcda62f4ec309bc91ef76 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - c527d4212d251015f9764f7ed08a85d139db44621665ab433e6023dc3e89ab8e | master | Bob | 2019-11-03T17:01:16.982 | GUI | Master version | 1b39b0767ce1f373da69d628d21e3ef2efc3da98f09389ddd8967b45d789e2f3
+ - 982d8a0491a22a3a360f230afca6d7872ec8c0f68f5b7f9b71ce6cd37d894505 | master | Bob | 2019-11-08T08:20:24.217 | GUI | Master version | 3d008e040a9b60d47278abf2729b4ac398746bad5572dc8988052290a817ed01
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 8555359a5739cd633d3c68c9b15216c2f97f20783e7e681d8d6929a9324d8d8f
+ - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | fd9513eb8d55a80b1c6e001dfb67c54e76dba8cbdcb1d6a93b243a386fa60034
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob creates a snapshot before inviting user Sue ...
@@ -987,17 +1144,17 @@ Containers: ----------------
  - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
 --------------------------------------------------
 > Commits:
- - 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | Bob | 2019-11-03T17:01:16.981 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - 19ebba40bfa260668c39572212794a4b22d22f95e21dd35b30adc24a71ed6015 | Bob | 2019-11-03T17:01:16.989 | I-1 | Corrected status | 108fe8162634fe07b9c46eaf9af92b529903e36db0155293940141f9e1979f8c | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
- - 1b39b0767ce1f373da69d628d21e3ef2efc3da98f09389ddd8967b45d789e2f3 | Bob | 2019-11-03T17:01:16.995 | GUI | Corrected location | 19ebba40bfa260668c39572212794a4b22d22f95e21dd35b30adc24a71ed6015 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | Bob | 2019-11-08T08:20:24.188 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - e6743b328c732447833a9dcf0540b8d151643674868bcda62f4ec309bc91ef76 | Bob | 2019-11-08T08:20:24.346 | I-1 | Corrected location | 88a6ccf018cb4d03a69280f7a75e1f9d09d8510bd7b7e0c4edaedcc9dec363f7 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 3d008e040a9b60d47278abf2729b4ac398746bad5572dc8988052290a817ed01 | Bob | 2019-11-08T08:20:24.576 | GUI | Corrected tags | e6743b328c732447833a9dcf0540b8d151643674868bcda62f4ec309bc91ef76 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
 --------------------------------------------------
 > Snapshots:
- - 6ffe2b6fdcd263cabae001c0464ea645e93a71dc8ac6bd7e3f615f79c869cc82 | Invitation snapshot | Bob | 2019-11-03T17:01:16.999 | GUI | Snapshot before inviting user Sue | 1b39b0767ce1f373da69d628d21e3ef2efc3da98f09389ddd8967b45d789e2f3
+ - 6e7bcd08e946ce016974551441c1942fbd9845b10bb5d8cd3ad1b018b52fe9c7 | Invitation snapshot | Bob | 2019-11-08T08:20:24.668 | GUI | Snapshot before inviting user Sue | 3d008e040a9b60d47278abf2729b4ac398746bad5572dc8988052290a817ed01
 --------------------------------------------------
 > Versions:
- - c527d4212d251015f9764f7ed08a85d139db44621665ab433e6023dc3e89ab8e | master | Bob | 2019-11-03T17:01:16.982 | GUI | Master version | 1b39b0767ce1f373da69d628d21e3ef2efc3da98f09389ddd8967b45d789e2f3
+ - 982d8a0491a22a3a360f230afca6d7872ec8c0f68f5b7f9b71ce6cd37d894505 | master | Bob | 2019-11-08T08:20:24.217 | GUI | Master version | 3d008e040a9b60d47278abf2729b4ac398746bad5572dc8988052290a817ed01
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 57f94dc8e558c2a4ed1382b0ef9b493f9ee88ca4e2aa9970cf8009d05ccaf29e
+ - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | ea28c21f0e91111d2efca47d2afe55f7859c6fd58997d42ecccd19d0ef3afa96
 --------------------------------------------------
 > Done!
