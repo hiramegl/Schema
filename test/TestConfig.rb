@@ -1,31 +1,46 @@
 require "#{__dir__}/../frontend/lib/Aspicere/ruby/Aspicere";
 include Aspicere;
+# - prestorage
+#   - AuthPrim, ValidPrim, AuthChild, ValidChild, AuthComp, ValidComp
+#     - hAuth, oObj [Merklet|Primitive], sValue [oObj.oValue.to_s]
+#   - Enum
+#     - sValue
+# - storage
+#   - FormatPrim, FormatChild, FormatComp, Compression, Encryption
+#     - oObj [Merklet|Primitive]
+# - poststorage
+#   - Index, Publish
+#     - sRepoId, sVersionId, sCommitId, oObj, sObjectId, sObjectPath
+# - presentation
+#   - Display, Unit
+#     - hAuth, oObj[Merklet], sValue [oObj.oValue.to_s]
 
 hFilters = {
+    'prestorage/AuthPrim/Alias/Allan'     => lambda { |hParams| puts(">>> pre_prim: #{hParams.keys}, #{hParams[:oObj]}"); hParams[:hAuth][:hAlias][:bCreate] },
     'prestorage/ValidPrim/Noop/Arial'     => lambda { |hParams| true },
     'prestorage/ValidPrim/Coords/America' => lambda { |hParams| (hParams[:sValue] =~ /^\d+,\d+$/) != nil; },
-    'prestorage/ValidPrim/Alias/Alba'     => lambda { |hParams| (hParams[:sValue] =~ /^[A-Z]\w*$/) != nil; },
+    'prestorage/ValidPrim/Alias/Alba'     => lambda { |hParams| puts(">>> pre_prim: #{hParams.keys}, #{hParams[:oObj]}"); (hParams[:sValue] =~ /^[A-Z]\w*$/) != nil; },
     'prestorage/ValidPrim/Name/Alice'     => lambda { |hParams| (hParams[:sValue] =~ /^[A-Z][a-zA-Z\s]*$/) != nil; },
     'prestorage/ValidPrim/PassAlp/Aurora' => lambda { |hParams| (hParams[:sValue] =~ /[A-Za-z]/) != nil; },
     'prestorage/ValidPrim/PassNum/Atena'  => lambda { |hParams| (hParams[:sValue] =~ /\d/) != nil; },
     'prestorage/ValidPrim/PassHyp/Amin'   => lambda { |hParams| (hParams[:sValue] =~ /-/) != nil; },
     'prestorage/ValidPrim/Url/Andrew'     => lambda { |hParams| (hParams[:sValue] =~ /^http:\/\/\w+:\d+\/\w+$/) != nil; },
     'prestorage/ValidPrim/Tags/Ava'       => lambda { |hParams| (hParams[:sValue] =~ /^[\w,]+$/) != nil; },
-
-    'prestorage/AuthComp/Author/Archie'   => lambda { |hParams| hParams[:hAuth][:bCanCreateAuthors] },
-    'prestorage/AuthComp/Author/Bali'     => lambda { |hParams| hParams[:hAuth][:bCanCreateAuthors] && hParams[:hAuth][:sName] == 'root' },
+    'prestorage/AuthChild/Denom/Angus'    => lambda { |hParams| puts ">>> pre_child:#{hParams.keys}, #{hParams[:oObj]}"; true },
+    'prestorage/ValidChild/Denom/Asia'    => lambda { |hParams| puts ">>> pre_child:#{hParams.keys}, #{hParams[:oObj]}"; true },
+    'prestorage/AuthComp/Author/Archie'   => lambda { |hParams| puts ">>> pre_comp: #{hParams.keys}, #{hParams[:oObj]}"; hParams[:hAuth][:bCanCreateAuthors] },
+    'prestorage/AuthComp/Author/Bali'     => lambda { |hParams| puts ">>> pre_comp: #{hParams.keys}, #{hParams[:oObj]}"; hParams[:hAuth][:bCanCreateAuthors] && hParams[:hAuth][:sName] == 'root' },
     'prestorage/AuthComp/Desig/Arnold'    => lambda { |hParams| hParams[:hAuth][:bCanAddDesignation] },
     'prestorage/AuthComp/Posit/Arla'      => lambda { |hParams| hParams[:hAuth][:bCanAddLocation] },
+    'prestorage/ValidComp/Noop/Aries'     => lambda { |hParams| puts ">>> pre_comp: #{hParams.keys}, #{hParams[:sValue]}"; true },
 
-    'prestorage/ValidChild/Denom/Asia'    => lambda { |hParams| puts "about to validate denominations"; true },
-    'prestorage/ValidComp/Noop/Aries'     => lambda { |hParams| true },
-
-    'storage/FormatPrim/CoordsPad/Ali'    => lambda { |hParams| puts "about to format coords: " + hParams.to_yaml },
-    'storage/FormatChild/Denom/Anti'      => lambda { |hParams| puts "about to format denom: " + hParams.to_yaml },
-
-    'poststorage/Publish/Author/Arpa'     => lambda { |hParams| puts "about to publish event for author: " + hParams.to_yaml },
+    'storage/FormatPrim/CoordsPad/Ali'    => lambda { |hParams| puts ">>> sto_prim: #{hParams.keys}, #{hParams[:oObj]}" },
+    'storage/FormatChild/Denom/Anti'      => lambda { |hParams| puts ">>> sto_child:#{hParams.keys}, #{hParams[:oObj]}" },
+    'storage/FormatComp/Denom/Anti'       => lambda { |hParams| puts ">>> sto_comp: #{hParams.keys}, #{hParams[:oObj]}" },
 
     'presentation/Unit/Meter/Alex'        => lambda { |hParams| true },
+
+    'poststorage/Publish/Author/Arpa'     => lambda { |hParams| hParams[:oObj] = hParams[:oObj].to_obj; puts ">>> post_comp:#{hParams.keys}, #{hParams}" },
 };
 bDebug = true;
 
@@ -38,6 +53,7 @@ oRepo.auth_init(
     bCanCreateAuthors: true,
     bCanAddLocation: true,
     bCanAddDesignation: true,
+    hAlias: {bCreate: true}
 );
 oRepo.factory_init('Schema_Aleph_Config.yaml', 'Author_Aldo.yaml', hFilters, bDebug);
 oRepo.factory_dump if bDebug;
@@ -55,6 +71,7 @@ oAuthor1 = oRepo.add_data(oAuthor1, [{
     Image: 'http://localhost:2345/Warhol',
     Status: 'Deleted',
     Tags: 'painter,wellknown'}]); exit unless oAuthor1;
+
 oAuthor1 = oRepo.add_data(oAuthor1, [{
     Locat: oLocat1,
     Tags: 'AndyW',

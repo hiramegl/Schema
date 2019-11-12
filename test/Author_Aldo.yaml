@@ -61,6 +61,19 @@
         - Error:
           - Name: Position authorization
           - Descr: The author does not have permissions to change author position
+    - AuthPrim:
+      - Name: Alias
+      - Doc:
+        - Name: Alias
+        - Descr: Alias authorization
+      - AuthPrimVersion:
+        - Name: Allan
+        - Doc:
+          - Name: First version, 2017-10-27
+          - Descr: User can add and update alias
+        - Error:
+          - Name: Alias authorization
+          - Descr: The author does not have permissions to change author alias
     - ValidComp:
       - Name: Noop
       - Doc:
@@ -238,6 +251,19 @@
         - Error:
           - Name: Meter error
           - Descr: Should never occurr an error while presenting the units
+    - AuthChild:
+      - Name: Denom
+      - Doc:
+        - Name: Denomination child auth
+        - Descr: Denomination child auth
+      - AuthChildVersion:
+        - Name: Angus
+        - Doc:
+          - Name: First version, 2018-10-20
+          - Descr: denomination child auth
+        - Error:
+          - Name: Denomination child auth
+          - Descr: Denomination child auth
     - ValidChild:
       - Name: Denom
       - Doc:
@@ -313,6 +339,7 @@
           - Descr: 1st version
         - AuthComp: Author/Bali
         - ValidComp: Noop/Aries
+        - Publish: Author/Arpa
         - Primitive:
           - Name: Title
           - Doc:
@@ -345,6 +372,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
+          - AuthPrim: Alias/Allan
           - ValidPrim: Alias/Alba
         - Primitive:
           - Name: Name
@@ -413,5 +441,6 @@
           - Component: Desig/Albania
           - Nullable: true
           - Array: true
+          - AuthChild: Denom/Angus
           - ValidChild: Denom/Asia 
           - FormatChild: Denom/Anti

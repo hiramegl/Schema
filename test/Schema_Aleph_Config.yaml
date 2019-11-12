@@ -41,8 +41,8 @@ aConfigTypes:
   - nullable:filter:Enum
   - nullable:filter:FormatPrim
   - nullable:filter:Compression
-  - nullable:filter:Encryp
-  - nullable:filter:Present
+  - nullable:filter:Encryption
+  - nullable:filter:Display
   - nullable:filter:Unit
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: Child
@@ -79,20 +79,21 @@ aConfigTypes:
   aContainers:
   - required:array:Component
   aFilters:
-  - prestorage:AuthComp:process
   - prestorage:AuthPrim:process
-  - prestorage:AuthChild:process
-  - prestorage:ValidComp:process
   - prestorage:ValidPrim:process
+  - prestorage:AuthChild:process
   - prestorage:ValidChild:process
+  - prestorage:AuthComp:process
+  - prestorage:ValidComp:process
   - prestorage:Enum:children
   - storage:FormatPrim:process
   - storage:FormatChild:process
+  - storage:FormatComp:process
   - storage:Compression:process
-  - storage:Encryp:process
+  - storage:Encryption:process
   - poststorage:Index:process
   - poststorage:Publish:process
-  - presentation:Present:process
+  - presentation:Display:process
   - presentation:Unit:process
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: ValidComp
