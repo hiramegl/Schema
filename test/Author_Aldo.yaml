@@ -1,7 +1,7 @@
 ---
 - Doc:
   - First schema for an author
-  - The validation primiitive is '/Schema/SchemaVersion/Config'
+  - The validation primitive is '/Schema/SchemaVersion/Config'
   - These documentation nodes will never be read, but they do not cause an error
 - Schema:
   - Name: Author
@@ -313,8 +313,8 @@
         - Doc:
           - Name: Alacran (First version)
           - Descr: 1st version of gps postion
-        - AuthComp: Posit/Arla
-        - ValidComp: Noop/Aries
+        - AuthComp: Posit.Arla
+        - ValidComp: Noop.Aries
         - Primitive:
           - Name: Coords
           - Doc:
@@ -324,9 +324,9 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - ValidPrim: Coords/America
-          - FormatPrim: CoordsPad/Ali
-          - Unit: Meter/Alex
+          - ValidPrim: Coords.America
+          - FormatPrim: CoordsPad.Ali
+          - Unit: Meter.Alex
     - Component:
       - Name: Desig
       - Doc:
@@ -337,9 +337,9 @@
         - Doc:
           - Name: Albania (first version)
           - Descr: 1st version
-        - AuthComp: Author/Bali
-        - ValidComp: Noop/Aries
-        - Publish: Author/Arpa
+        - AuthComp: Author.Bali
+        - ValidComp: Noop.Aries
+        - Publish: Author.Arpa
         - Primitive:
           - Name: Title
           - Doc:
@@ -349,7 +349,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - ValidPrim: Name/Alice
+          - ValidPrim: Name.Alice
     - Component:
       - Name: Author # will never change
       - Doc:
@@ -360,9 +360,9 @@
         - Doc:
           - Name: Arthur (first version)
           - Descr: 1st version
-        - AuthComp: Author/Archie
-        - ValidComp: Noop/Aries
-        - Publish: Author/Arpa
+        - AuthComp: Author.Archie
+        - ValidComp: Noop.Aries
+        - Publish: Author.Arpa
         - Primitive:
           - Name: Alias
           - Doc:
@@ -372,8 +372,8 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - AuthPrim: Alias/Allan
-          - ValidPrim: Alias/Alba
+          - AuthPrim: Alias.Allan
+          - ValidPrim: Alias.Alba
         - Primitive:
           - Name: Name
           - Doc:
@@ -383,7 +383,7 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - ValidPrim: Name/Alice
+          - ValidPrim: Name.Alice
         - Primitive:
           - Name: Pass
           - Doc:
@@ -393,7 +393,8 @@
           - Version: alpha
           - Nullable: false
           - Array: false
-          - ValidPrim: PassAlp/Aurora, PassNum/Atena, PassHyp/Amin
+          - ValidPrim: PassAlp.Aurora, PassNum.Atena, PassHyp.Amin
+          - Publish: Author.Arpa
         - Primitive:
           - Name: Image
           - Doc:
@@ -403,7 +404,7 @@
           - Version: alpha
           - Nullable: true
           - Array: false
-          - ValidPrim: Url/Andrew
+          - ValidPrim: Url.Andrew
         - Primitive:
           - Name: Status
           - Doc:
@@ -412,9 +413,9 @@
           - Class: string
           - Version: alpha
           - Nullable: false
-          - Enum: Status/Ambar
+          - Enum: Status.Ambar
           - Array: false
-          - ValidPrim: Noop/Arial
+          - ValidPrim: Noop.Arial
         - Primitive:
           - Name: Tags
           - Doc:
@@ -424,13 +425,13 @@
           - Version: alpha
           - Nullable: true
           - Array: true
-          - ValidPrim: Tags/Ava
+          - ValidPrim: Tags.Ava
         - Child:
           - Name: Locat
           - Doc:
             - Name: Author location
             - Descr: Current author location
-          - Component: Posit/Alacran
+          - Component: Posit.Alacran
           - Nullable: false
           - Array: false
         - Child:
@@ -438,9 +439,9 @@
           - Doc:
             - Name: Author denomination
             - Descr: Possible author denominations
-          - Component: Desig/Albania
+          - Component: Desig.Albania
           - Nullable: true
           - Array: true
-          - AuthChild: Denom/Angus
-          - ValidChild: Denom/Asia 
-          - FormatChild: Denom/Anti
+          - AuthChild: Denom.Angus
+          - ValidChild: Denom.Asia 
+          - FormatChild: Denom.Anti

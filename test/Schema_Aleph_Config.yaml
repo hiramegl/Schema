@@ -42,6 +42,7 @@ aConfigTypes:
   - nullable:filter:FormatPrim
   - nullable:filter:Compression
   - nullable:filter:Encryption
+  - nullable:filter:Publish
   - nullable:filter:Display
   - nullable:filter:Unit
 - !ruby/object:Aspicere::SchemaConfigType

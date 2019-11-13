@@ -47,6 +47,7 @@
           - FormatPrim  : # [null,filter]
           - Compression : # [null,filter]
           - Encryption  : # [null,filter]
+          - Publish     : # [null,filter]
           - Display     : # [null,filter]
           - Unit        : # [null,filter]
           - Doc         : # [req,unq,doc]
@@ -324,8 +325,8 @@
 | | | | - 'Descr       ': 'Gps Position', value syntax OK (constraint)
 | | | > 'ComponentVersion', syntax OK (multiplicity)
 | | | | - 'Name        ': 'Alacran', value syntax OK (constraint)
-| | | | - 'AuthComp    ': 'Posit/Arla', value syntax OK (constraint)
-| | | | - 'ValidComp   ': 'Noop/Aries', value syntax OK (constraint)
+| | | | - 'AuthComp    ': 'Posit.Arla', value syntax OK (constraint)
+| | | | - 'ValidComp   ': 'Noop.Aries', value syntax OK (constraint)
 | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | - 'Name        ': 'Alacran (First version)', value syntax OK (constraint)
 | | | | | - 'Descr       ': '1st version of gps postion', value syntax OK (constraint)
@@ -335,9 +336,9 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Coords/America', value syntax OK (constraint)
-| | | | | - 'FormatPrim  ': 'CoordsPad/Ali', value syntax OK (constraint)
-| | | | | - 'Unit        ': 'Meter/Alex', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Coords.America', value syntax OK (constraint)
+| | | | | - 'FormatPrim  ': 'CoordsPad.Ali', value syntax OK (constraint)
+| | | | | - 'Unit        ': 'Meter.Alex', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'GPS Coordinates', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Position coordinates', value syntax OK (constraint)
@@ -347,9 +348,9 @@
 | | | | - 'Descr       ': 'Author designation', value syntax OK (constraint)
 | | | > 'ComponentVersion', syntax OK (multiplicity)
 | | | | - 'Name        ': 'Albania', value syntax OK (constraint)
-| | | | - 'AuthComp    ': 'Author/Bali', value syntax OK (constraint)
-| | | | - 'ValidComp   ': 'Noop/Aries', value syntax OK (constraint)
-| | | | - 'Publish     ': 'Author/Arpa', value syntax OK (constraint)
+| | | | - 'AuthComp    ': 'Author.Bali', value syntax OK (constraint)
+| | | | - 'ValidComp   ': 'Noop.Aries', value syntax OK (constraint)
+| | | | - 'Publish     ': 'Author.Arpa', value syntax OK (constraint)
 | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | - 'Name        ': 'Albania (first version)', value syntax OK (constraint)
 | | | | | - 'Descr       ': '1st version', value syntax OK (constraint)
@@ -359,7 +360,7 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Name/Alice', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Name.Alice', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Designation Title', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Author title', value syntax OK (constraint)
@@ -369,9 +370,9 @@
 | | | | - 'Descr       ': 'Author component', value syntax OK (constraint)
 | | | > 'ComponentVersion', syntax OK (multiplicity)
 | | | | - 'Name        ': 'Arthur', value syntax OK (constraint)
-| | | | - 'AuthComp    ': 'Author/Archie', value syntax OK (constraint)
-| | | | - 'ValidComp   ': 'Noop/Aries', value syntax OK (constraint)
-| | | | - 'Publish     ': 'Author/Arpa', value syntax OK (constraint)
+| | | | - 'AuthComp    ': 'Author.Archie', value syntax OK (constraint)
+| | | | - 'ValidComp   ': 'Noop.Aries', value syntax OK (constraint)
+| | | | - 'Publish     ': 'Author.Arpa', value syntax OK (constraint)
 | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | - 'Name        ': 'Arthur (first version)', value syntax OK (constraint)
 | | | | | - 'Descr       ': '1st version', value syntax OK (constraint)
@@ -381,8 +382,8 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'AuthPrim    ': 'Alias/Allan', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Alias/Alba', value syntax OK (constraint)
+| | | | | - 'AuthPrim    ': 'Alias.Allan', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Alias.Alba', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author alias', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Alias for login', value syntax OK (constraint)
@@ -391,7 +392,7 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Name/Alice', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Name.Alice', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author name', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Name and surname', value syntax OK (constraint)
@@ -400,7 +401,8 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'PassAlp/Aurora, PassNum/Atena, PassHyp/Amin', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'PassAlp.Aurora, PassNum.Atena, PassHyp.Amin', value syntax OK (constraint)
+| | | | | - 'Publish     ': 'Author.Arpa', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author password', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Encrypted password using salt', value syntax OK (constraint)
@@ -409,7 +411,7 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'true', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Url/Andrew', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Url.Andrew', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author image', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Url user image', value syntax OK (constraint)
@@ -418,8 +420,8 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Noop/Arial', value syntax OK (constraint)
-| | | | | - 'Enum        ': 'Status/Ambar', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Noop.Arial', value syntax OK (constraint)
+| | | | | - 'Enum        ': 'Status.Ambar', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author status', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Status in the system', value syntax OK (constraint)
@@ -428,25 +430,25 @@
 | | | | | - 'Version     ': 'alpha', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'true', value syntax OK (constraint)
 | | | | | - 'Array       ': 'true', value syntax OK (constraint)
-| | | | | - 'ValidPrim   ': 'Tags/Ava', value syntax OK (constraint)
+| | | | | - 'ValidPrim   ': 'Tags.Ava', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author tags', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Tags used for categorization of the author', value syntax OK (constraint)
 | | | | > 'Child       ', syntax OK (multiplicity)
 | | | | | - 'Name        ': 'Locat', value syntax OK (constraint)
-| | | | | - 'Component   ': 'Posit/Alacran', value syntax OK (constraint)
+| | | | | - 'Component   ': 'Posit.Alacran', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author location', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Current author location', value syntax OK (constraint)
 | | | | | - 'Name        ': 'Denom', value syntax OK (constraint)
-| | | | | - 'Component   ': 'Desig/Albania', value syntax OK (constraint)
+| | | | | - 'Component   ': 'Desig.Albania', value syntax OK (constraint)
 | | | | | - 'Nullable    ': 'true', value syntax OK (constraint)
 | | | | | - 'Array       ': 'true', value syntax OK (constraint)
-| | | | | - 'AuthChild   ': 'Denom/Angus', value syntax OK (constraint)
-| | | | | - 'ValidChild  ': 'Denom/Asia', value syntax OK (constraint)
-| | | | | - 'FormatChild ': 'Denom/Anti', value syntax OK (constraint)
+| | | | | - 'AuthChild   ': 'Denom.Angus', value syntax OK (constraint)
+| | | | | - 'ValidChild  ': 'Denom.Asia', value syntax OK (constraint)
+| | | | | - 'FormatChild ': 'Denom.Anti', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author denomination', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Possible author denominations', value syntax OK (constraint)
@@ -696,8 +698,8 @@
 ****************************************************************************************************
 > Validating semantics ...
 > [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/Name' = 'Alacran': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/AuthComp' = 'Posit/Arla': ok [error: The author does not have permissions to change author position]
-> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/ValidComp' = 'Noop/Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/AuthComp' = 'Posit.Arla': ok [error: The author does not have permissions to change author position]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]/ValidComp' = 'Noop.Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
 > [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[.]/Doc[.]/Name' = 'Alacran (First version)': ok
 > [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[.]/Doc[.]/Descr' = '1st version of gps postion': ok
 > [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Name' = 'Coords': ok
@@ -705,15 +707,15 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/ValidPrim' = 'Coords/America': ok [error: The coordinates should be two integers separated by a comma, no spaces]
-> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/FormatPrim' = 'CoordsPad/Ali': ok [error: This should never happen!]
-> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Unit' = 'Meter/Alex': ok [error: Should never occurr an error while presenting the units]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/ValidPrim' = 'Coords.America': ok [error: The coordinates should be two integers separated by a comma, no spaces]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/FormatPrim' = 'CoordsPad.Ali': ok [error: This should never happen!]
+> [filter      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]/Unit' = 'Meter.Alex': ok [error: Should never occurr an error while presenting the units]
 > [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]:[.]/Doc[.]/Name' = 'GPS Coordinates': ok
 > [string      ] '/Schema/SchemaVersion/Component[Posit]/ComponentVersion[Alacran]:[Coords]/Primitive[-]:[.]/Doc[.]/Descr' = 'Position coordinates': ok
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Name' = 'Albania': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/AuthComp' = 'Author/Bali': ok [error: The author cannot create authors and the name is not root]
-> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/ValidComp' = 'Noop/Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
-> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Publish' = 'Author/Arpa': ok [error: This should never happen!]
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/AuthComp' = 'Author.Bali': ok [error: The author cannot create authors and the name is not root]
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/ValidComp' = 'Noop.Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Publish' = 'Author.Arpa': ok [error: This should never happen!]
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Name' = 'Albania (first version)': ok
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Descr' = '1st version': ok
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Name' = 'Title': ok
@@ -721,13 +723,13 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/ValidPrim' = 'Name/Alice': ok [error: The name should contain alphabetic characters or spaces only]
+> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/ValidPrim' = 'Name.Alice': ok [error: The name should contain alphabetic characters or spaces only]
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]:[.]/Doc[.]/Name' = 'Designation Title': ok
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]:[.]/Doc[.]/Descr' = 'Author title': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/Name' = 'Arthur': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/AuthComp' = 'Author/Archie': ok [error: The author cannot create authors]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/ValidComp' = 'Noop/Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/Publish' = 'Author/Arpa': ok [error: This should never happen!]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/AuthComp' = 'Author.Archie': ok [error: The author cannot create authors]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/ValidComp' = 'Noop.Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]/Publish' = 'Author.Arpa': ok [error: This should never happen!]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[.]/Doc[.]/Name' = 'Arthur (first version)': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[.]/Doc[.]/Descr' = '1st version': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Name' = 'Alias': ok
@@ -735,8 +737,8 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/AuthPrim' = 'Alias/Allan': ok [error: The author does not have permissions to change author alias]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/ValidPrim' = 'Alias/Alba': ok [error: The alias should contain alphabetic or numeric characters only]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/AuthPrim' = 'Alias.Allan': ok [error: The author does not have permissions to change author alias]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]/ValidPrim' = 'Alias.Alba': ok [error: The alias should contain alphabetic or numeric characters only]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]:[.]/Doc[.]/Name' = 'Author alias': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Alias]/Primitive[-]:[.]/Doc[.]/Descr' = 'Alias for login': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Name' = 'Name': ok
@@ -744,7 +746,7 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/ValidPrim' = 'Name/Alice': ok [error: The name should contain alphabetic characters or spaces only]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]/ValidPrim' = 'Name.Alice': ok [error: The name should contain alphabetic characters or spaces only]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]:[.]/Doc[.]/Name' = 'Author name': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Name]/Primitive[-]:[.]/Doc[.]/Descr' = 'Name and surname': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Name' = 'Pass': ok
@@ -752,9 +754,10 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassAlp/Aurora': ok [error: The password should contain at least one alphabetic character]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassNum/Atena': ok [error: The password should contain at least one numeric character]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassHyp/Amin': ok [error: The password should contain at least one hyphen]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassAlp.Aurora': ok [error: The password should contain at least one alphabetic character]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassNum.Atena': ok [error: The password should contain at least one numeric character]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassHyp.Amin': ok [error: The password should contain at least one hyphen]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Publish' = 'Author.Arpa': ok [error: This should never happen!]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Name' = 'Author password': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Descr' = 'Encrypted password using salt': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Name' = 'Image': ok
@@ -762,7 +765,7 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Nullable' = 'true': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/ValidPrim' = 'Url/Andrew': ok [error: The url should have format 'http://<domain>:<port>/<image_name>']
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/ValidPrim' = 'Url.Andrew': ok [error: The url should have format 'http://<domain>:<port>/<image_name>']
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]:[.]/Doc[.]/Name' = 'Author image': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]:[.]/Doc[.]/Descr' = 'Url user image': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Name' = 'Status': ok
@@ -770,8 +773,8 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Array' = 'false': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/ValidPrim' = 'Noop/Arial': ok [error: This should never happen since is a no-operation check, i.e., always true!]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Enum' = 'Status/Ambar': ok [error: Invalid value for constraint Enum:Status/Ambar, valid values: Active, Inactive, Deleted]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/ValidPrim' = 'Noop.Arial': ok [error: This should never happen since is a no-operation check, i.e., always true!]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]/Enum' = 'Status.Ambar': ok [error: Invalid value for constraint Enum:Status.Ambar, valid values: Active, Inactive, Deleted]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]:[.]/Doc[.]/Name' = 'Author status': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Status]/Primitive[-]:[.]/Doc[.]/Descr' = 'Status in the system': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Name' = 'Tags': ok
@@ -779,183 +782,185 @@
 > [enumeration ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Version' = 'alpha': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Nullable' = 'true': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/Array' = 'true': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/ValidPrim' = 'Tags/Ava': ok [error: The tags should only contain alphabetic characters and commas]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]/ValidPrim' = 'Tags.Ava': ok [error: The tags should only contain alphabetic characters and commas]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]:[.]/Doc[.]/Name' = 'Author tags': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Tags]/Primitive[-]:[.]/Doc[.]/Descr' = 'Tags used for categorization of the author': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Name' = 'Locat': ok
-> [reference   ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Component' = 'Posit/Alacran': ok
+> [reference   ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Component' = 'Posit.Alacran': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Nullable' = 'false': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]/Array' = 'false': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]:[.]/Doc[.]/Name' = 'Author location': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Locat]/Child[-]:[.]/Doc[.]/Descr' = 'Current author location': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Name' = 'Denom': ok
-> [reference   ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Component' = 'Desig/Albania': ok
+> [reference   ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Component' = 'Desig.Albania': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Nullable' = 'true': ok
 > [verification] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/Array' = 'true': ok
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/AuthChild' = 'Denom/Angus': ok [error: Denomination child auth]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/ValidChild' = 'Denom/Asia': ok [error: There should not be duplicates in the denominations]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/FormatChild' = 'Denom/Anti': ok [error: This should never happen!]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/AuthChild' = 'Denom.Angus': ok [error: Denomination child auth]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/ValidChild' = 'Denom.Asia': ok [error: There should not be duplicates in the denominations]
+> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]/FormatChild' = 'Denom.Anti': ok [error: This should never happen!]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]:[.]/Doc[.]/Name' = 'Author denomination': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Denom]/Child[-]:[.]/Doc[.]/Descr' = 'Possible author denominations': ok
 Filters: ----------------
- > Alias/Allan    : prestorage/AuthPrim [process]
- > Noop/Arial     : prestorage/ValidPrim [process]
- > Coords/America : prestorage/ValidPrim [process]
- > Alias/Alba     : prestorage/ValidPrim [process]
- > Name/Alice     : prestorage/ValidPrim [process]
- > PassAlp/Aurora : prestorage/ValidPrim [process]
- > PassNum/Atena  : prestorage/ValidPrim [process]
- > PassHyp/Amin   : prestorage/ValidPrim [process]
- > Url/Andrew     : prestorage/ValidPrim [process]
- > Tags/Ava       : prestorage/ValidPrim [process]
- > Denom/Angus    : prestorage/AuthChild [process]
- > Denom/Asia     : prestorage/ValidChild [process]
- > Author/Archie  : prestorage/AuthComp [process]
- > Author/Bali    : prestorage/AuthComp [process]
- > Desig/Arnold   : prestorage/AuthComp [process]
- > Posit/Arla     : prestorage/AuthComp [process]
- > Noop/Aries     : prestorage/ValidComp [process]
- > Status/Ambar   : prestorage/Enum [children]
- > CoordsPad/Ali  : storage/FormatPrim [process]
- > Denom/Anti     : storage/FormatChild [process]
- > Author/Arpa    : poststorage/Publish [process]
- > Meter/Alex     : presentation/Unit [process]
+ > Alias.Allan    : prestorage.AuthPrim [process]
+ > Noop.Arial     : prestorage.ValidPrim [process]
+ > Coords.America : prestorage.ValidPrim [process]
+ > Alias.Alba     : prestorage.ValidPrim [process]
+ > Name.Alice     : prestorage.ValidPrim [process]
+ > PassAlp.Aurora : prestorage.ValidPrim [process]
+ > PassNum.Atena  : prestorage.ValidPrim [process]
+ > PassHyp.Amin   : prestorage.ValidPrim [process]
+ > Url.Andrew     : prestorage.ValidPrim [process]
+ > Tags.Ava       : prestorage.ValidPrim [process]
+ > Denom.Angus    : prestorage.AuthChild [process]
+ > Denom.Asia     : prestorage.ValidChild [process]
+ > Author.Archie  : prestorage.AuthComp [process]
+ > Author.Bali    : prestorage.AuthComp [process]
+ > Desig.Arnold   : prestorage.AuthComp [process]
+ > Posit.Arla     : prestorage.AuthComp [process]
+ > Noop.Aries     : prestorage.ValidComp [process]
+ > Status.Ambar   : prestorage.Enum [children]
+ > CoordsPad.Ali  : storage.FormatPrim [process]
+ > Denom.Anti     : storage.FormatChild [process]
+ > Author.Arpa    : poststorage.Publish [process]
+ > Meter.Alex     : presentation.Unit [process]
 Containers: ----------------
-> ComponentVersion: Posit/Alacran
+> ComponentVersion:Posit.Alacran
   - Name = 'Alacran'
-  - AuthComp:Posit/Arla = 'Posit/Arla'
-  - ValidComp:Noop/Aries = 'Noop/Aries'
-  > Primitive: Coords/-
+  - AuthComp:Posit.Arla = 'Posit.Arla'
+  - ValidComp:Noop.Aries = 'Noop.Aries'
+  > Primitive:Coords.-
     - Name = 'Coords'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - ValidPrim:Coords/America = 'Coords/America'
-    - FormatPrim:CoordsPad/Ali = 'CoordsPad/Ali'
-    - Unit:Meter/Alex = 'Meter/Alex'
-> ComponentVersion: Desig/Albania
+    - ValidPrim:Coords.America = 'Coords.America'
+    - FormatPrim:CoordsPad.Ali = 'CoordsPad.Ali'
+    - Unit:Meter.Alex = 'Meter.Alex'
+> ComponentVersion:Desig.Albania
   - Name = 'Albania'
-  - AuthComp:Author/Bali = 'Author/Bali'
-  - ValidComp:Noop/Aries = 'Noop/Aries'
-  - Publish:Author/Arpa = 'Author/Arpa'
-  > Primitive: Title/-
+  - AuthComp:Author.Bali = 'Author.Bali'
+  - ValidComp:Noop.Aries = 'Noop.Aries'
+  - Publish:Author.Arpa = 'Author.Arpa'
+  > Primitive:Title.-
     - Name = 'Title'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - ValidPrim:Name/Alice = 'Name/Alice'
-> ComponentVersion: Author/Arthur
+    - ValidPrim:Name.Alice = 'Name.Alice'
+> ComponentVersion:Author.Arthur
   - Name = 'Arthur'
-  - AuthComp:Author/Archie = 'Author/Archie'
-  - ValidComp:Noop/Aries = 'Noop/Aries'
-  - Publish:Author/Arpa = 'Author/Arpa'
-  > Primitive: Alias/-
+  - AuthComp:Author.Archie = 'Author.Archie'
+  - ValidComp:Noop.Aries = 'Noop.Aries'
+  - Publish:Author.Arpa = 'Author.Arpa'
+  > Primitive:Alias.-
     - Name = 'Alias'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - AuthPrim:Alias/Allan = 'Alias/Allan'
-    - ValidPrim:Alias/Alba = 'Alias/Alba'
-  > Primitive: Name/-
+    - AuthPrim:Alias.Allan = 'Alias.Allan'
+    - ValidPrim:Alias.Alba = 'Alias.Alba'
+  > Primitive:Name.-
     - Name = 'Name'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - ValidPrim:Name/Alice = 'Name/Alice'
-  > Primitive: Pass/-
+    - ValidPrim:Name.Alice = 'Name.Alice'
+  > Primitive:Pass.-
     - Name = 'Pass'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - ValidPrim:PassAlp/Aurora = 'PassAlp/Aurora'
-    - ValidPrim:PassNum/Atena = 'PassNum/Atena'
-    - ValidPrim:PassHyp/Amin = 'PassHyp/Amin'
-  > Primitive: Image/-
+    - ValidPrim:PassAlp.Aurora = 'PassAlp.Aurora'
+    - ValidPrim:PassNum.Atena = 'PassNum.Atena'
+    - ValidPrim:PassHyp.Amin = 'PassHyp.Amin'
+    - Publish:Author.Arpa = 'Author.Arpa'
+  > Primitive:Image.-
     - Name = 'Image'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'true'
     - Array = 'false'
-    - ValidPrim:Url/Andrew = 'Url/Andrew'
-  > Primitive: Status/-
+    - ValidPrim:Url.Andrew = 'Url.Andrew'
+  > Primitive:Status.-
     - Name = 'Status'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'false'
     - Array = 'false'
-    - ValidPrim:Noop/Arial = 'Noop/Arial'
-    - Enum:Status/Ambar = 'Status/Ambar'
-  > Primitive: Tags/-
+    - ValidPrim:Noop.Arial = 'Noop.Arial'
+    - Enum:Status.Ambar = 'Status.Ambar'
+  > Primitive:Tags.-
     - Name = 'Tags'
     - Class = 'string'
     - Version = 'alpha'
     - Nullable = 'true'
     - Array = 'true'
-    - ValidPrim:Tags/Ava = 'Tags/Ava'
-  > Child: Locat/-
+    - ValidPrim:Tags.Ava = 'Tags.Ava'
+  > Child:Locat.-
     - Name = 'Locat'
-    - Component = 'Posit/Alacran'
+    - Component = 'Posit.Alacran'
     - Nullable = 'false'
     - Array = 'false'
-  > Child: Denom/-
+  > Child:Denom.-
     - Name = 'Denom'
-    - Component = 'Desig/Albania'
+    - Component = 'Desig.Albania'
     - Nullable = 'true'
     - Array = 'true'
-    - AuthChild:Denom/Angus = 'Denom/Angus'
-    - ValidChild:Denom/Asia = 'Denom/Asia'
-    - FormatChild:Denom/Anti = 'Denom/Anti'
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Posit/Alacran] {"*"=>{"Coords"=>"123,456"}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"*"=>{"Title"=>"Manager"}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"*"=>{"Title"=>"Manager"}}
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Author/Arthur] {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>"painter,wellknown"}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Author/Arthur] {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>"painter,wellknown"}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"*"=>{"Title"=>"Developer"}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"*"=>{"Title"=>"Developer"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Author/Arthur] {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"123,456"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Author/Arthur] {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"123,456"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
-> [Root/Alien] :
-  > [Author/Arthur] Main:
-    > [string/alpha] Alias: AndyW
-    > [string/alpha] Name: Andy Warhol
-    > [string/alpha] Pass: a-1sdf
-    > [string/alpha] Image: http://localhost:2345/Warhol
-    > [string/alpha] Status: Deleted
-    > [string/alpha] Tags: painter,wellknown
-    > [Posit/Alacran] Locat:
-      > [string/alpha] Coords: 123,456
-    > [string/alpha] Tags: AndyW
-    > [string/alpha] Tags: excentric,american
-    > [Desig/Albania] Denom:
-      > [string/alpha] Title: Manager
-    > [Desig/Albania] Denom:
-      > [string/alpha] Title: Developer
+    - AuthChild:Denom.Angus = 'Denom.Angus'
+    - ValidChild:Denom.Asia = 'Denom.Asia'
+    - FormatChild:Denom.Anti = 'Denom.Anti'
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Posit.Alacran): {"*"=>{"Coords"=>"123,456"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Desig.Albania): {"*"=>{"Title"=>"Manager"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Desig.Albania): {"*"=>{"Title"=>"Manager"}}
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Author.Arthur)Main: {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>"painter,wellknown"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Author.Arthur)Main: {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>"painter,wellknown"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Desig.Albania): {"*"=>{"Title"=>"Developer"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Desig.Albania): {"*"=>{"Title"=>"Developer"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Author.Arthur)Main: {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"123,456"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Author.Arthur)Main: {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"123,456"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
++ (Root.Alien):
+  + (Author.Arthur)Main:
+    - (string.alpha)Alias: AndyW
+    - (string.alpha)Name: Andy Warhol
+    - (string.alpha)Pass: a-1sdf
+    - (string.alpha)Image: http://localhost:2345/Warhol
+    - (string.alpha)Status: Deleted
+    - (string.alpha)Tags: painter,wellknown
+    + (Posit.Alacran)Locat:
+      - (string.alpha)Coords: 123,456
+    - (string.alpha)Tags: AndyW
+    - (string.alpha)Tags: excentric,american
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Manager
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Developer
 > Creating tables in db ...
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> sto_prim: [:oObj, :sObjId, :sObjQPath, :sObjPath], [Prim: string/alpha] 'Coords' = 123,456
->>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> sto_prim: [:oObj, :sObjId, :sObjQPath, :sObjPath], [Prim](string.alpha)Coords = 123,456
+>>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
 ! Error: UNIQUE constraint failed: Primitives.Id
   Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb", :oObj=>{"Denom"=>{"Title"=>"Manager"}}, :sObjId=>"27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e", :sObjQPath=>"/[Author/Arthur]Main/[Desig/Albania]Denom", :sObjPath=>"/Main/Denom"}
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb", :oObj=>{"Denom"=>{"Title"=>"Developer"}}, :sObjId=>"c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1", :sObjQPath=>"/[Author/Arthur]Main/[Desig/Albania]Denom", :sObjPath=>"/Main/Denom"}
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb", :oObj=>{"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"123,456"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}, :sObjId=>"56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261", :sObjQPath=>"/[Author/Arthur]Main", :sObjPath=>"/Main"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50", :oObj=>"a-1sdf", :sObjId=>"21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9", :sObjQPath=>"/(Author.Arthur)Main/(string.alpha)Pass", :sObjPath=>"/Main/Pass"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50", :oObj=>{"Denom"=>{"Title"=>"Manager"}}, :sObjId=>"27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e", :sObjQPath=>"/(Author.Arthur)Main/(Desig.Albania)Denom", :sObjPath=>"/Main/Denom"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50", :oObj=>{"Denom"=>{"Title"=>"Developer"}}, :sObjId=>"c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1", :sObjQPath=>"/(Author.Arthur)Main/(Desig.Albania)Denom", :sObjPath=>"/Main/Denom"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50", :oObj=>{"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"123,456"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}, :sObjId=>"56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261", :sObjQPath=>"/(Author.Arthur)Main", :sObjPath=>"/Main"}
 > Dumping tables for store 'store_02.db' ...
 > Primitives:
  - 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69 | AndyW
@@ -987,44 +992,44 @@ Containers: ----------------
  - c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1 | 0 | prim | string | alpha | Title | 3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b
 --------------------------------------------------
 > Commits:
- - 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | Bob | 2019-11-12T17:19:30.966 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | Bob | 2019-11-13T13:08:57.262 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - 740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17 | master | Bob | 2019-11-12T17:19:30.996 | GUI | Master version | 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb
+ - 71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d | master | Bob | 2019-11-13T13:08:57.263 | GUI | Master version | 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 6869a80b84d5578efdf217273a3cf4b0331c5fcade9856e94b9d99e1e0fa7dd8
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 19e92d6c8ede31c31d8c612268d1108d6baeb71600afdc7a85340965c29eb1df
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob modifies location through integration and saves a new commit ...
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Posit/Alacran] {"Locat"=>{"Coords"=>"111,222"}}
-> [Root/Alien] :
-  > [Author/Arthur] Main:
-    > [string/alpha] Alias: AndyW
-    > [string/alpha] Name: Andy Warhol
-    > [string/alpha] Pass: a-1sdf
-    > [string/alpha] Image: http://localhost:2345/Warhol
-    > [string/alpha] Status: Deleted
-    > [string/alpha] Tags: painter,wellknown
-    > [Posit/Alacran] Locat:
-      > [string/alpha] Coords: 111,222
-    > [string/alpha] Tags: AndyW
-    > [string/alpha] Tags: excentric,american
-    > [Desig/Albania] Denom:
-      > [string/alpha] Title: Manager
-    > [Desig/Albania] Denom:
-      > [string/alpha] Title: Developer
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> sto_prim: [:oObj, :sObjId, :sObjQPath, :sObjPath], [Prim: string/alpha] 'Coords' = 111,222
->>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Posit.Alacran)Locat: {"Locat"=>{"Coords"=>"111,222"}}
++ (Root.Alien):
+  + (Author.Arthur)Main:
+    - (string.alpha)Alias: AndyW
+    - (string.alpha)Name: Andy Warhol
+    - (string.alpha)Pass: a-1sdf
+    - (string.alpha)Image: http://localhost:2345/Warhol
+    - (string.alpha)Status: Deleted
+    - (string.alpha)Tags: painter,wellknown
+    + (Posit.Alacran)Locat:
+      - (string.alpha)Coords: 111,222
+    - (string.alpha)Tags: AndyW
+    - (string.alpha)Tags: excentric,american
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Manager
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Developer
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> sto_prim: [:oObj, :sObjId, :sObjQPath, :sObjPath], [Prim](string.alpha)Coords = 111,222
+>>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
 ! Error: UNIQUE constraint failed: Primitives.Id
   Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
 ! Error: UNIQUE constraint failed: Primitives.Id
@@ -1045,9 +1050,10 @@ Containers: ----------------
   Query: INSERT INTO Merklets VALUES ('27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e',0,'prim','string','alpha','Title','8b2085f74dfa9c78a23b7d573c23d27d6d0b0e50c82a9b13138b193325be3814')
 ! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
   Query: INSERT INTO Merklets VALUES ('c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1',0,'prim','string','alpha','Title','3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b')
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa", :oObj=>{"Denom"=>{"Title"=>"Manager"}}, :sObjId=>"27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e", :sObjQPath=>"/[Author/Arthur]Main/[Desig/Albania]Denom", :sObjPath=>"/Main/Denom"}
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa", :oObj=>{"Denom"=>{"Title"=>"Developer"}}, :sObjId=>"c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1", :sObjQPath=>"/[Author/Arthur]Main/[Desig/Albania]Denom", :sObjPath=>"/Main/Denom"}
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa", :oObj=>{"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}, :sObjId=>"ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3", :sObjQPath=>"/[Author/Arthur]Main", :sObjPath=>"/Main"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2", :oObj=>"a-1sdf", :sObjId=>"21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9", :sObjQPath=>"/(Author.Arthur)Main/(string.alpha)Pass", :sObjPath=>"/Main/Pass"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2", :oObj=>{"Denom"=>{"Title"=>"Manager"}}, :sObjId=>"27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e", :sObjQPath=>"/(Author.Arthur)Main/(Desig.Albania)Denom", :sObjPath=>"/Main/Denom"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2", :oObj=>{"Denom"=>{"Title"=>"Developer"}}, :sObjId=>"c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1", :sObjQPath=>"/(Author.Arthur)Main/(Desig.Albania)Denom", :sObjPath=>"/Main/Denom"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2", :oObj=>{"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "AndyW", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}, :sObjId=>"ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3", :sObjQPath=>"/(Author.Arthur)Main", :sObjPath=>"/Main"}
 > Dumping tables for store 'store_02.db' ...
 > Primitives:
  - 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69 | AndyW
@@ -1093,46 +1099,46 @@ Containers: ----------------
  - ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742 | 0 | prim | string | alpha | Coords | 9b1cf1e3acc00ff21cd15978c90b7396c816fbea04a67cb08209cfafd3aacdbd
 --------------------------------------------------
 > Commits:
- - 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | Bob | 2019-11-12T17:19:30.966 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa | Bob | 2019-11-12T17:19:31.246 | I-1 | Corrected location | 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | Bob | 2019-11-13T13:08:57.262 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2 | Bob | 2019-11-13T13:08:57.271 | I-1 | Corrected location | 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - 740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17 | master | Bob | 2019-11-12T17:19:30.996 | GUI | Master version | d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa
+ - 71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d | master | Bob | 2019-11-13T13:08:57.263 | GUI | Master version | d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 141575eea373ffa3ee5e159ec0c9bc015eae8574cee056329c0ed7bb4e7e478a
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | ee15e3f0c489a3728e675e84c9f529dbc50b05c4516fd20741d418d967209351
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob modifies specific tag through GUI and saves a new commit and a snapshot ...
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Author/Arthur] {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "NotAlive", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
->>> pre_comp: [:hAuth, :oObj, :sValue], [Merk: Author/Arthur] {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "NotAlive", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
-> [Root/Alien] :
-  > [Author/Arthur] Main:
-    > [string/alpha] Alias: AndyW
-    > [string/alpha] Name: Andy Warhol
-    > [string/alpha] Pass: a-1sdf
-    > [string/alpha] Image: http://localhost:2345/Warhol
-    > [string/alpha] Status: Deleted
-    > [string/alpha] Tags: painter,wellknown
-    > [Posit/Alacran] Locat:
-      > [string/alpha] Coords: 111,222
-    > [string/alpha] Tags: NotAlive
-    > [string/alpha] Tags: excentric,american
-    > [Desig/Albania] Denom:
-      > [string/alpha] Title: Manager
-    > [Desig/Albania] Denom:
-      > [string/alpha] Title: Developer
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_prim: [:hAuth, :oObj, :sValue], [Prim: string/alpha] 'Alias' = AndyW
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> pre_child:[:hAuth, :oObj, :sValue], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
->>> sto_prim: [:oObj, :sObjId, :sObjQPath, :sObjPath], [Prim: string/alpha] 'Coords' = 111,222
->>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Manager"}}
->>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk: Desig/Albania] {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Author.Arthur)Main: {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "NotAlive", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
+>>> pre_comp: [:hAuth, :oObj, :sValue], [Merk](Author.Arthur)Main: {"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "NotAlive", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}
++ (Root.Alien):
+  + (Author.Arthur)Main:
+    - (string.alpha)Alias: AndyW
+    - (string.alpha)Name: Andy Warhol
+    - (string.alpha)Pass: a-1sdf
+    - (string.alpha)Image: http://localhost:2345/Warhol
+    - (string.alpha)Status: Deleted
+    - (string.alpha)Tags: painter,wellknown
+    + (Posit.Alacran)Locat:
+      - (string.alpha)Coords: 111,222
+    - (string.alpha)Tags: NotAlive
+    - (string.alpha)Tags: excentric,american
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Manager
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Developer
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_prim: [:hAuth, :oObj, :sValue], [Prim](string.alpha)Alias = AndyW
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> pre_child:[:hAuth, :oObj, :sValue], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
+>>> sto_prim: [:oObj, :sObjId, :sObjQPath, :sObjPath], [Prim](string.alpha)Coords = 111,222
+>>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Manager"}}
+>>> sto_child:[:oObj, :sObjId, :sObjQPath, :sObjPath], [Merk](Desig.Albania)Denom: {"Denom"=>{"Title"=>"Developer"}}
 ! Error: UNIQUE constraint failed: Primitives.Id
   Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
 ! Error: UNIQUE constraint failed: Primitives.Id
@@ -1153,9 +1159,10 @@ Containers: ----------------
   Query: INSERT INTO Merklets VALUES ('27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e',0,'prim','string','alpha','Title','8b2085f74dfa9c78a23b7d573c23d27d6d0b0e50c82a9b13138b193325be3814')
 ! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
   Query: INSERT INTO Merklets VALUES ('c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1',0,'prim','string','alpha','Title','3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b')
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7", :oObj=>{"Denom"=>{"Title"=>"Manager"}}, :sObjId=>"27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e", :sObjQPath=>"/[Author/Arthur]Main/[Desig/Albania]Denom", :sObjPath=>"/Main/Denom"}
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7", :oObj=>{"Denom"=>{"Title"=>"Developer"}}, :sObjId=>"c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1", :sObjQPath=>"/[Author/Arthur]Main/[Desig/Albania]Denom", :sObjPath=>"/Main/Denom"}
->>> post_comp:[:sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sRepoId=>"d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c", :sVersionId=>"740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17", :sCommitId=>"01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7", :oObj=>{"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "NotAlive", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}, :sObjId=>"d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164", :sObjQPath=>"/[Author/Arthur]Main", :sObjPath=>"/Main"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e", :oObj=>"a-1sdf", :sObjId=>"21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9", :sObjQPath=>"/(Author.Arthur)Main/(string.alpha)Pass", :sObjPath=>"/Main/Pass"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e", :oObj=>{"Denom"=>{"Title"=>"Manager"}}, :sObjId=>"27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e", :sObjQPath=>"/(Author.Arthur)Main/(Desig.Albania)Denom", :sObjPath=>"/Main/Denom"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e", :oObj=>{"Denom"=>{"Title"=>"Developer"}}, :sObjId=>"c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1", :sObjQPath=>"/(Author.Arthur)Main/(Desig.Albania)Denom", :sObjPath=>"/Main/Denom"}
+>>> post_comp:[:sClusterId, :sRepoId, :sVersionId, :sCommitId, :oObj, :sObjId, :sObjQPath, :sObjPath], {:sClusterId=>"/Sweden/Stockholm/2019-11", :sRepoId=>"d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43", :sVersionId=>"71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d", :sCommitId=>"5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e", :oObj=>{"Main"=>{"Alias"=>"AndyW", "Name"=>"Andy Warhol", "Pass"=>"a-1sdf", "Image"=>"http://localhost:2345/Warhol", "Status"=>"Deleted", "Tags"=>["painter,wellknown", "NotAlive", "excentric,american"], "Locat"=>{"Locat"=>{"Coords"=>"111,222"}}, "Denom"=>[{"Denom"=>{"Title"=>"Manager"}}, {"Denom"=>{"Title"=>"Developer"}}]}}, :sObjId=>"d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164", :sObjQPath=>"/(Author.Arthur)Main", :sObjPath=>"/Main"}
 > Dumping tables for store 'store_02.db' ...
 > Primitives:
  - 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69 | AndyW
@@ -1214,17 +1221,17 @@ Containers: ----------------
  - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
 --------------------------------------------------
 > Commits:
- - 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | Bob | 2019-11-12T17:19:30.966 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa | Bob | 2019-11-12T17:19:31.246 | I-1 | Corrected location | 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
- - 01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7 | Bob | 2019-11-12T17:19:31.436 | GUI | Corrected tags | d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | Bob | 2019-11-13T13:08:57.262 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2 | Bob | 2019-11-13T13:08:57.271 | I-1 | Corrected location | 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e | Bob | 2019-11-13T13:08:57.279 | GUI | Corrected tags | d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - 740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17 | master | Bob | 2019-11-12T17:19:30.996 | GUI | Master version | 01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7
+ - 71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d | master | Bob | 2019-11-13T13:08:57.263 | GUI | Master version | 5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | d004672e1010e9a6bbc340db138eedb860b58f2dc00e854b1322d13fd0f4977e
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 63aad73314816912e56d7389ed30316cdd4fc1244d40060f5e0baff635ee21d2
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob creates a snapshot before inviting user Sue ...
@@ -1286,17 +1293,17 @@ Containers: ----------------
  - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
 --------------------------------------------------
 > Commits:
- - 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | Bob | 2019-11-12T17:19:30.966 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa | Bob | 2019-11-12T17:19:31.246 | I-1 | Corrected location | 231cc670c29a93f2cccff059ff0c128335da6a1e6412bbd7c80e8e67ccb11edb | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
- - 01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7 | Bob | 2019-11-12T17:19:31.436 | GUI | Corrected tags | d3134f3398dfb92106d8409f80b06f955544e520726749ea8b5a90bb925f7efa | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | Bob | 2019-11-13T13:08:57.262 | GUI | Creation commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2 | Bob | 2019-11-13T13:08:57.271 | I-1 | Corrected location | 277b905fc27e8eadb5f72335c117dca087ebe26c31ac88b8b7dc4240962ecb50 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e | Bob | 2019-11-13T13:08:57.279 | GUI | Corrected tags | d54e89f78cb76c5cb5513a0e174c340b9be21fccee62c43f7682731f103d63c2 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
 --------------------------------------------------
 > Snapshots:
- - d5a4b8fd2c002b1d1792fdf181d760fa5a577c6c0422082eb13e557c052bdd09 | Invitation snapshot | Bob | 2019-11-12T17:19:31.549 | GUI | Snapshot before inviting user Sue | 01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7
+ - f346cb9c8955e2b397122600b8e504991e5ba578f4909ad3cfd4e693c5b9652f | Invitation snapshot | Bob | 2019-11-13T13:08:57.283 | GUI | Snapshot before inviting user Sue | 5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e
 --------------------------------------------------
 > Versions:
- - 740d945119a5197759db2ccc109fda20b524f4529cc7c318399283c00ae3fc17 | master | Bob | 2019-11-12T17:19:30.996 | GUI | Master version | 01b362ede02502c11bec443343c104d621bc970b140755660b60fb6c0a7a7ee7
+ - 71d39943ecf952c822beb3090968fa3e898986485efa0d8f12d3ec5044f8901d | master | Bob | 2019-11-13T13:08:57.263 | GUI | Master version | 5a0e05be1650e1477628e595b840f03c47cbab881b37f586f025207d812c671e
 --------------------------------------------------
 > Repository:
- - d35e33750abb4eaf28ad9c129f3e8de75d96e8362497c2b75953fa409927b51c | Bob | 2018-01-01T12:00:01.123 | GUI | active | 19f52332428ef7c85c184b4a9ef31b9550f5110805369c45b9715a95327c384f
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 70c9affb2d501017a0d322b5d0a31501fe8ed479e70b2bf71be7d59f0de26b9e
 --------------------------------------------------
 > Done!
