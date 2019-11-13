@@ -1,19 +1,13 @@
 require "#{__dir__}/../frontend/lib/Aspicere/ruby/Aspicere";
 include Aspicere;
-# - prestorage
-#   - AuthPrim, ValidPrim, AuthChild, ValidChild, AuthComp, ValidComp
+# - prestorage: AuthPrim, ValidPrim, AuthChild, ValidChild, AuthComp, ValidComp, ...
 #     - hAuth, oObj [Merklet|Primitive], sValue [oObj.oValue.to_s]
-#   - Enum
-#     - sValue
-# - storage
-#   - FormatPrim, FormatChild, FormatComp, Compression, Encryption
+# - storage: FormatPrim, FormatChild, FormatComp, Compression, Encryption
 #     - oObj [Merklet|Primitive]
-# - poststorage
-#   - Index, Publish
-#     - sRepoId, sVersionId, sCommitId, oObj, sObjectId, sObjectPath
-# - presentation
-#   - Display, Unit
-#     - hAuth, oObj[Merklet], sValue [oObj.oValue.to_s]
+# - poststorage: Index, Publish, ...
+#     - sClusterId, sRepoId, sVersionId, sCommitId, oObj, sObjId, sObjQPath, sObjPath
+# - presentation: Display, Unit, ...
+#     - hAuth, oObj [Merklet|Primitive], sValue [oObj.oValue.to_s]
 
 hFilters = {
     'prestorage.AuthPrim.Alias.Allan'     => lambda { |hParams| puts(">>> pre_prim: #{hParams.keys}, #{hParams[:oObj]}"); hParams[:hAuth][:hAlias][:bCreate] },
@@ -33,14 +27,11 @@ hFilters = {
     'prestorage.AuthComp.Desig.Arnold'    => lambda { |hParams| hParams[:hAuth][:bCanAddDesignation] },
     'prestorage.AuthComp.Posit.Arla'      => lambda { |hParams| hParams[:hAuth][:bCanAddLocation] },
     'prestorage.ValidComp.Noop.Aries'     => lambda { |hParams| puts ">>> pre_comp: #{hParams.keys}, #{hParams[:sValue]}"; true },
-
     'storage.FormatPrim.CoordsPad.Ali'    => lambda { |hParams| puts ">>> sto_prim: #{hParams.keys}, #{hParams[:oObj]}" },
     'storage.FormatChild.Denom.Anti'      => lambda { |hParams| puts ">>> sto_child:#{hParams.keys}, #{hParams[:oObj]}" },
     'storage.FormatComp.Denom.Anti'       => lambda { |hParams| puts ">>> sto_comp: #{hParams.keys}, #{hParams[:oObj]}" },
-
-    'presentation.Unit.Meter.Alex'        => lambda { |hParams| true },
-
     'poststorage.Publish.Author.Arpa'     => lambda { |hParams| hParams[:oObj] = hParams[:oObj].to_obj; puts ">>> post_comp:#{hParams.keys}, #{hParams}" },
+    'presentation.Unit.Meter.Alex'        => lambda { |hParams| true },
 };
 bDebug = true;
 
