@@ -1,0 +1,9 @@
+--- #!ruby/object:Aspicere::SchemaConfig
+sConfigName: Aleph
+sRootType: Schema
+sSubSuffix: Version
+sPrimValidtn: Config
+sNameConstr: Name
+sChildFilterPath: Entry/Name
+sErrorPath: Error/Descr
+bDebug: false
