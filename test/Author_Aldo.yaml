@@ -340,7 +340,6 @@
           - Descr: 1st version
         - AuthComp: Author.Bali
         - ValidComp: Noop.Aries
-        - Publish: Author.Arpa
         - Primitive:
           - Name: Title
           - Doc:
@@ -395,7 +394,6 @@
           - Nullable: false
           - Array: false
           - ValidPrim: PassAlp.Aurora, PassNum.Atena, PassHyp.Amin
-          - Publish: Author.Arpa
         - Primitive:
           - Name: Image
           - Doc:

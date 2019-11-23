@@ -351,7 +351,6 @@
 | | | | - 'Name        ': 'Albania', value syntax OK (constraint)
 | | | | - 'AuthComp    ': 'Author.Bali', value syntax OK (constraint)
 | | | | - 'ValidComp   ': 'Noop.Aries', value syntax OK (constraint)
-| | | | - 'Publish     ': 'Author.Arpa', value syntax OK (constraint)
 | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | - 'Name        ': 'Albania (first version)', value syntax OK (constraint)
 | | | | | - 'Descr       ': '1st version', value syntax OK (constraint)
@@ -403,7 +402,6 @@
 | | | | | - 'Nullable    ': 'false', value syntax OK (constraint)
 | | | | | - 'Array       ': 'false', value syntax OK (constraint)
 | | | | | - 'ValidPrim   ': 'PassAlp.Aurora, PassNum.Atena, PassHyp.Amin', value syntax OK (constraint)
-| | | | | - 'Publish     ': 'Author.Arpa', value syntax OK (constraint)
 | | | | | > 'Doc         ', syntax OK (multiplicity)
 | | | | | | - 'Name        ': 'Author password', value syntax OK (constraint)
 | | | | | | - 'Descr       ': 'Encrypted password using salt', value syntax OK (constraint)
@@ -716,7 +714,6 @@
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Name' = 'Albania': ok
 > [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/AuthComp' = 'Author.Bali': ok [error: The author cannot create authors and the name is not root]
 > [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/ValidComp' = 'Noop.Aries': ok [error: This should never happen since is a no-operation check, i.e., always true!]
-> [filter      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]/Publish' = 'Author.Arpa': ok [error: This should never happen!]
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Name' = 'Albania (first version)': ok
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[.]/Doc[.]/Descr' = '1st version': ok
 > [string      ] '/Schema/SchemaVersion/Component[Desig]/ComponentVersion[Albania]:[Title]/Primitive[-]/Name' = 'Title': ok
@@ -758,7 +755,6 @@
 > [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassAlp.Aurora': ok [error: The password should contain at least one alphabetic character]
 > [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassNum.Atena': ok [error: The password should contain at least one numeric character]
 > [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/ValidPrim' = 'PassHyp.Amin': ok [error: The password should contain at least one hyphen]
-> [filter      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]/Publish' = 'Author.Arpa': ok [error: This should never happen!]
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Name' = 'Author password': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Pass]/Primitive[-]:[.]/Doc[.]/Descr' = 'Encrypted password using salt': ok
 > [string      ] '/Schema/SchemaVersion/Component[Author]/ComponentVersion[Arthur]:[Image]/Primitive[-]/Name' = 'Image': ok
@@ -842,7 +838,6 @@ Containers: ----------------
   - Name = 'Albania'
   - AuthComp:Author.Bali = 'Author.Bali'
   - ValidComp:Noop.Aries = 'Noop.Aries'
-  - Publish:Author.Arpa = 'Author.Arpa'
   > Primitive:Title.-
     - Name = 'Title'
     - Class = 'string'
@@ -879,7 +874,6 @@ Containers: ----------------
     - ValidPrim:PassAlp.Aurora = 'PassAlp.Aurora'
     - ValidPrim:PassNum.Atena = 'PassNum.Atena'
     - ValidPrim:PassHyp.Amin = 'PassHyp.Amin'
-    - Publish:Author.Arpa = 'Author.Arpa'
   > Primitive:Image.-
     - Name = 'Image'
     - Class = 'string'
@@ -966,15 +960,15 @@ Containers: ----------------
  - c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1 | 0 | prim | string | alpha | Title | 3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b
 --------------------------------------------------
 > Commits:
- - 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | Bob | 2019-11-23T15:12:38.463 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | Bob | 2019-11-23T18:08:02.963 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - f9c4232788612da5a870f5216365a30b64029eba3b13f3e2248aee00b57108a9 | master | Bob | 2019-11-23T15:12:38.464 | GUI | Master version | 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010
+ - 33ac5812b4afd7d5ecacd54742a06b95399216e894648d2eba3a91881f168861 | master | Bob | 2019-11-23T18:08:02.964 | GUI | Master version | 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc
 --------------------------------------------------
 > Repository:
- - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | b49ecfe745b4893aab2eeece15c6b5ee79e79b4f023e76c337f5eceece5680b6
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 01a40c2a723b76b48ff22931063355c5a9c6818fbd1461142f254c0081a27f09
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob modifies location through integration and saves a new commit ...
@@ -1059,16 +1053,16 @@ Containers: ----------------
  - ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742 | 0 | prim | string | alpha | Coords | 9b1cf1e3acc00ff21cd15978c90b7396c816fbea04a67cb08209cfafd3aacdbd
 --------------------------------------------------
 > Commits:
- - 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | Bob | 2019-11-23T15:12:38.463 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - ccb09f7749eb3d338c4ffab0e96a61396a97e9ef9c12cc5ee2e46226411d14c6 | Bob | 2019-11-23T15:12:38.471 | I-1 | Corrected location | 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | Bob | 2019-11-23T18:08:02.963 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | Bob | 2019-11-23T18:08:02.972 | I-1 | Corrected location | 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - f9c4232788612da5a870f5216365a30b64029eba3b13f3e2248aee00b57108a9 | master | Bob | 2019-11-23T15:12:38.464 | GUI | Master version | ccb09f7749eb3d338c4ffab0e96a61396a97e9ef9c12cc5ee2e46226411d14c6
+ - 33ac5812b4afd7d5ecacd54742a06b95399216e894648d2eba3a91881f168861 | master | Bob | 2019-11-23T18:08:02.964 | GUI | Master version | 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533
 --------------------------------------------------
 > Repository:
- - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 5e0cce383963cc390828fc23e9d12e72ebdcd63df0ac73638eecbe43746f3b05
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 3edff6d512b433d42856f37a3e3fb5acc7a09fc5f65286de7cc0f28daf6b3b7b
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob modifies specific tag through GUI and saves a new commit and a snapshot ...
@@ -1166,17 +1160,17 @@ Containers: ----------------
  - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
 --------------------------------------------------
 > Commits:
- - 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | Bob | 2019-11-23T15:12:38.463 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - ccb09f7749eb3d338c4ffab0e96a61396a97e9ef9c12cc5ee2e46226411d14c6 | Bob | 2019-11-23T15:12:38.471 | I-1 | Corrected location | 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
- - 2167038d5d5a007aa2c9ecae9f035272178503c6dcad708760b9fea683efe313 | Bob | 2019-11-23T15:12:38.479 | GUI | Corrected tags | ccb09f7749eb3d338c4ffab0e96a61396a97e9ef9c12cc5ee2e46226411d14c6 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | Bob | 2019-11-23T18:08:02.963 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | Bob | 2019-11-23T18:08:02.972 | I-1 | Corrected location | 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4 | Bob | 2019-11-23T18:08:02.984 | GUI | Corrected tags | 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
 --------------------------------------------------
 > Snapshots:
 --------------------------------------------------
 > Versions:
- - f9c4232788612da5a870f5216365a30b64029eba3b13f3e2248aee00b57108a9 | master | Bob | 2019-11-23T15:12:38.464 | GUI | Master version | 2167038d5d5a007aa2c9ecae9f035272178503c6dcad708760b9fea683efe313
+ - 33ac5812b4afd7d5ecacd54742a06b95399216e894648d2eba3a91881f168861 | master | Bob | 2019-11-23T18:08:02.964 | GUI | Master version | 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4
 --------------------------------------------------
 > Repository:
- - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 7d473c221ab20f0934dcb39dd9080c0178da7e375fdb14cab63f48122220c88f
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 65aaec11719d0e1c8d1f8b5e2dd6a2d547c009153395be3b72dc89d13bd1c46c
 --------------------------------------------------
 ****************************************************************************************************
 > User Bob creates a snapshot before inviting user Sue ...
@@ -1238,17 +1232,130 @@ Containers: ----------------
  - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
 --------------------------------------------------
 > Commits:
- - 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | Bob | 2019-11-23T15:12:38.463 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
- - ccb09f7749eb3d338c4ffab0e96a61396a97e9ef9c12cc5ee2e46226411d14c6 | Bob | 2019-11-23T15:12:38.471 | I-1 | Corrected location | 529e1640dbcb7b537aa2299aa968473a83d05f63e63ae4f6972bb9776c70f010 | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
- - 2167038d5d5a007aa2c9ecae9f035272178503c6dcad708760b9fea683efe313 | Bob | 2019-11-23T15:12:38.479 | GUI | Corrected tags | ccb09f7749eb3d338c4ffab0e96a61396a97e9ef9c12cc5ee2e46226411d14c6 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | Bob | 2019-11-23T18:08:02.963 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | Bob | 2019-11-23T18:08:02.972 | I-1 | Corrected location | 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4 | Bob | 2019-11-23T18:08:02.984 | GUI | Corrected tags | 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
 --------------------------------------------------
 > Snapshots:
- - d546ace2c57ad084dcc752c5c7f72abaa082b6c371d6cd5605a1d5b0eabb9065 | Invitation snapshot | Bob | 2019-11-23T15:12:38.482 | GUI | Snapshot before inviting user Sue | 2167038d5d5a007aa2c9ecae9f035272178503c6dcad708760b9fea683efe313
+ - 449a574672818ad4da70fac8e86892fd282bd649f4aa4cf06fc9a648147d5711 | Invitation snapshot | Bob | 2019-11-23T18:08:02.989 | GUI | Snapshot before inviting user Sue | 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4
 --------------------------------------------------
 > Versions:
- - f9c4232788612da5a870f5216365a30b64029eba3b13f3e2248aee00b57108a9 | master | Bob | 2019-11-23T15:12:38.464 | GUI | Master version | 2167038d5d5a007aa2c9ecae9f035272178503c6dcad708760b9fea683efe313
+ - 33ac5812b4afd7d5ecacd54742a06b95399216e894648d2eba3a91881f168861 | master | Bob | 2019-11-23T18:08:02.964 | GUI | Master version | 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4
 --------------------------------------------------
 > Repository:
- - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | a72d91c030bd1e27776520b31ce12c421f7e181f05520d9c41091fd0806977bf
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | a327b8d0082bc84453783d39272ce7c53e4e3610e48461c8b63f874528bbfba9
+--------------------------------------------------
+****************************************************************************************************
+> User Sue creates a version and deletes tags ...
++ (Binder.Alien):
+  + (Author.Arthur)Doc:
+    - (string.alpha)Alias: AndyW
+    - (string.alpha)Name: Andy Warhol
+    - (string.alpha)Pass: a-1sdf
+    - (string.alpha)Image: http://localhost:2345/Warhol
+    - (string.alpha)Status: Deleted
+    + (Posit.Alacran)Locat:
+      - (string.alpha)Coords: 111,222
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Manager
+    + (Desig.Albania)Denom:
+      - (string.alpha)Title: Developer
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69','AndyW')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('710263d304ca18a136ef79fddf5047eafcdb1137c4a081bdb5883128690db4a6','Andy Warhol')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9','a-1sdf')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('e6039e226f424b3ddba0ade41abe15d5e7f8bd9b405e4513705b4880f29642ad','http://localhost:2345/Warhol')
+! Error: UNIQUE constraint failed: Primitives.Id
+  Query: INSERT INTO Primitives VALUES ('b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d','Deleted')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742',0,'prim','string','alpha','Coords','9b1cf1e3acc00ff21cd15978c90b7396c816fbea04a67cb08209cfafd3aacdbd')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e',0,'prim','string','alpha','Title','8b2085f74dfa9c78a23b7d573c23d27d6d0b0e50c82a9b13138b193325be3814')
+! Error: UNIQUE constraint failed: Merklets.Id, Merklets.Idx
+  Query: INSERT INTO Merklets VALUES ('c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1',0,'prim','string','alpha','Title','3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b')
+> Dumping tables for store 'store_02.db' ...
+> Primitives:
+ - 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69 | AndyW
+ - 710263d304ca18a136ef79fddf5047eafcdb1137c4a081bdb5883128690db4a6 | Andy Warhol
+ - 21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9 | a-1sdf
+ - e6039e226f424b3ddba0ade41abe15d5e7f8bd9b405e4513705b4880f29642ad | http://localhost:2345/Warhol
+ - b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d | Deleted
+ - a659495e587c7fafd7d68e6ad1c51a378656f4eaf73f85c421c9620301bbbc71 | painter,wellknown
+ - f8339a2baa293b3902b3b3d9d561938a4385c262148193013b776be4e15e6f3a | 123,456
+ - 6cb6d924542d45bd336706e335994e0d6b15c5e71ac7669fa22ecc52f1d0842c | excentric,american
+ - 8b2085f74dfa9c78a23b7d573c23d27d6d0b0e50c82a9b13138b193325be3814 | Manager
+ - 3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b | Developer
+ - 9b1cf1e3acc00ff21cd15978c90b7396c816fbea04a67cb08209cfafd3aacdbd | 111,222
+ - c5510fce30570be46e27ccb3ca5582801499867e4416b89737f69e1a72393ea5 | NotAlive
+--------------------------------------------------
+> Merklets:
+ - e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484 | 0 | tree | Author | Arthur | Doc | 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 0 | prim | string | alpha | Alias | 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 1 | prim | string | alpha | Name | 710263d304ca18a136ef79fddf5047eafcdb1137c4a081bdb5883128690db4a6
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 2 | prim | string | alpha | Pass | 21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 3 | prim | string | alpha | Image | e6039e226f424b3ddba0ade41abe15d5e7f8bd9b405e4513705b4880f29642ad
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 4 | prim | string | alpha | Status | b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 5 | prim | string | alpha | Tags | a659495e587c7fafd7d68e6ad1c51a378656f4eaf73f85c421c9620301bbbc71
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 6 | tree | Posit | Alacran | Locat | 5cf39d87575ce6e228565c2cea3f5cba9fcf32244e6fa4ca151b755bfa6e0237
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 7 | prim | string | alpha | Tags | 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 8 | prim | string | alpha | Tags | 6cb6d924542d45bd336706e335994e0d6b15c5e71ac7669fa22ecc52f1d0842c
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 9 | tree | Desig | Albania | Denom | 27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e
+ - 56b3236f12028ec555852e80e5f19ed64d26f25596dd547b6235095b15838261 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
+ - 5cf39d87575ce6e228565c2cea3f5cba9fcf32244e6fa4ca151b755bfa6e0237 | 0 | prim | string | alpha | Coords | f8339a2baa293b3902b3b3d9d561938a4385c262148193013b776be4e15e6f3a
+ - 27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e | 0 | prim | string | alpha | Title | 8b2085f74dfa9c78a23b7d573c23d27d6d0b0e50c82a9b13138b193325be3814
+ - c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1 | 0 | prim | string | alpha | Title | 3fb7b39416f1d067268747fc214494d759d2609f863ace1a8a76705618d5c80b
+ - ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3 | 0 | tree | Author | Arthur | Doc | ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 0 | prim | string | alpha | Alias | 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 1 | prim | string | alpha | Name | 710263d304ca18a136ef79fddf5047eafcdb1137c4a081bdb5883128690db4a6
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 2 | prim | string | alpha | Pass | 21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 3 | prim | string | alpha | Image | e6039e226f424b3ddba0ade41abe15d5e7f8bd9b405e4513705b4880f29642ad
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 4 | prim | string | alpha | Status | b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 5 | prim | string | alpha | Tags | a659495e587c7fafd7d68e6ad1c51a378656f4eaf73f85c421c9620301bbbc71
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 6 | tree | Posit | Alacran | Locat | ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 7 | prim | string | alpha | Tags | 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 8 | prim | string | alpha | Tags | 6cb6d924542d45bd336706e335994e0d6b15c5e71ac7669fa22ecc52f1d0842c
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 9 | tree | Desig | Albania | Denom | 27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e
+ - ca11b7a14b0c832fe18c68873716c294dd2b8a92553a3d815105a8a4bedd6db3 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
+ - ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742 | 0 | prim | string | alpha | Coords | 9b1cf1e3acc00ff21cd15978c90b7396c816fbea04a67cb08209cfafd3aacdbd
+ - 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60 | 0 | tree | Author | Arthur | Doc | d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 0 | prim | string | alpha | Alias | 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 1 | prim | string | alpha | Name | 710263d304ca18a136ef79fddf5047eafcdb1137c4a081bdb5883128690db4a6
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 2 | prim | string | alpha | Pass | 21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 3 | prim | string | alpha | Image | e6039e226f424b3ddba0ade41abe15d5e7f8bd9b405e4513705b4880f29642ad
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 4 | prim | string | alpha | Status | b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 5 | prim | string | alpha | Tags | a659495e587c7fafd7d68e6ad1c51a378656f4eaf73f85c421c9620301bbbc71
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 6 | tree | Posit | Alacran | Locat | ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 7 | prim | string | alpha | Tags | c5510fce30570be46e27ccb3ca5582801499867e4416b89737f69e1a72393ea5
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 8 | prim | string | alpha | Tags | 6cb6d924542d45bd336706e335994e0d6b15c5e71ac7669fa22ecc52f1d0842c
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 9 | tree | Desig | Albania | Denom | 27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e
+ - d95f201e56034a944a3516ed4ab9472e8d468cbcb75ee7ca11ee077b6c015164 | 10 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
+ - c135615a38ec18130ddd09a7dc9920cb21fd99a9f24b0a8c53c58e7ad8d70d4e | 0 | tree | Author | Arthur | Doc | d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 0 | prim | string | alpha | Alias | 1ca558e477b166dc9a40aed8219ceedfb9812a9c064ccf531430f22754bd8f69
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 1 | prim | string | alpha | Name | 710263d304ca18a136ef79fddf5047eafcdb1137c4a081bdb5883128690db4a6
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 2 | prim | string | alpha | Pass | 21ebcce9d1f3d62e7ecadd920997e01c58b8e5b9422ef0c4f2a23a739daf61b9
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 3 | prim | string | alpha | Image | e6039e226f424b3ddba0ade41abe15d5e7f8bd9b405e4513705b4880f29642ad
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 4 | prim | string | alpha | Status | b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 5 | tree | Posit | Alacran | Locat | ffee35f3e3f7decc3e6f49f12ff9df7094d78765d06be373fec5cc93db041742
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 6 | tree | Desig | Albania | Denom | 27cd2ff61d3eba212f7b544cf9a01416b51bec0db0071b69e29e26a5fa3cdb7e
+ - d849ff6e767eaa512cfa03b85db3986fa75a571e0bd56fb7c2fd261593647464 | 7 | tree | Desig | Albania | Denom | c133c9d52a701e2ade9e7dd48af2e2d991afc134902411c0bab35f5aa9c0cbb1
+--------------------------------------------------
+> Commits:
+ - 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | Bob | 2019-11-23T18:08:02.963 | GUI | First edition commit |  | e8a2fc775bd7dac5d63d94739fabf2f8688a16fb325d533a8b4f68757591c484
+ - 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | Bob | 2019-11-23T18:08:02.972 | I-1 | Corrected location | 17e769d51ffc6b80c8ffbaa02d2b822eeb1b8d7a3c593d3d231515bbab256fdc | ef2bd1fe50c893b8d2ce9d7247f1534a0a87002852387ef37555bcb005a55ed3
+ - 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4 | Bob | 2019-11-23T18:08:02.984 | GUI | Corrected tags | 8462b0f682e31b9b04fdd44d7b8f28288c17eae2934970741666c7c37dcb4533 | 1fae0c043193da43ead1d871dc385e80be221b3e5fc580543a65789adcf35c60
+ - ecc40f5104812311233dc11b8c89852cec4c18b3cd9727d753ee73f84faa2afd | Sue | 2019-11-23T18:08:02.998 | GUI | Removed tags | 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4 | c135615a38ec18130ddd09a7dc9920cb21fd99a9f24b0a8c53c58e7ad8d70d4e
+--------------------------------------------------
+> Snapshots:
+ - 449a574672818ad4da70fac8e86892fd282bd649f4aa4cf06fc9a648147d5711 | Invitation snapshot | Bob | 2019-11-23T18:08:02.989 | GUI | Snapshot before inviting user Sue | 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4
+--------------------------------------------------
+> Versions:
+ - 33ac5812b4afd7d5ecacd54742a06b95399216e894648d2eba3a91881f168861 | master | Bob | 2019-11-23T18:08:02.964 | GUI | Master version | 418d69ce27c1f5e7d45fed476f77e80ab56bd46faa578126cf3db05f6bf83dd4
+ - cc357760f6bb570516c490ac54dc1bc6b61e9a13666844def28ae8cfa4ecd76b | Sue_draft | Sue | 2019-11-23T18:08:02.993 | GUI | My sandbox playground! | ecc40f5104812311233dc11b8c89852cec4c18b3cd9727d753ee73f84faa2afd
+--------------------------------------------------
+> Repository:
+ - d18d1581a82422fca54a98f7e2b2badfc118f9a01ad2e65efa3d65b32361fc43 | /Sweden/Stockholm/2019-11 | Bob | 2018-01-01T12:00:01.123 | GUI | active | 6c2766882d2b7c4a85baf85ad1aea0a07a1d4f593b972f6f0f3a79b2488992c6
 --------------------------------------------------
 > Done!

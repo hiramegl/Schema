@@ -99,7 +99,17 @@ oFolder.store_dump if bDebug;
 puts('*' * 100); # ******************************************************************************************
 puts('> User Bob creates a snapshot before inviting user Sue ...');
 oSnapshot = oEditor.add_snapshot(oMaster, 'Invitation snapshot', 'Snapshot before inviting user Sue'); exit unless oSnapshot;
+oFolder.store_dump if bDebug;
 
-oFolder.store_dump;
+puts('*' * 100); # ******************************************************************************************
+puts('> User Sue creates a version and deletes tags ...');
+oDraft = oEditor.add_version('Sue_draft', oMaster.sCommitId, 'Sue', 'GUI', 'My sandbox playground!'); exit unless oDraft;
+#oAuthorDoc = oEditor.get_doc(oDraft);
+oAuthorDoc = oEditor.delete_data(oAuthorDoc, [{Tags: 'NotAlive'}]); exit unless oAuthorDoc;
+oAuthorDoc = oEditor.delete_data(oAuthorDoc, [{Tags: nil}]); exit unless oAuthorDoc;
+oFolder.binder_dump if bDebug;
+oDraft = oEditor.add_commit('Removed tags', oDraft, 'Sue', 'GUI'); exit unless oDraft;
+oFolder.store_dump if bDebug;
+
 oFolder.store_close;
 puts('> Done!');
