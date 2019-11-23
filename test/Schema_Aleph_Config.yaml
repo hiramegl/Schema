@@ -1,12 +1,13 @@
 --- !ruby/object:Aspicere::SchemaConfig
-bDebug: false
 sConfigName: Aleph
 sRootType: Schema
 sSubSuffix: Version
-sPrimValidtn: Config
+sVersionConstr: Config
+sRootDocConstr: RootDoc
 sNameConstr: Name
 sChildFilterPath: Entry/Name
 sErrorPath: Error/Descr
+bDebug: false
 aConfigTypes:
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: Doc
@@ -38,7 +39,7 @@ aConfigTypes:
   - required:verification:Array
   - nullable:filter:AuthPrim
   - required:filter:ValidPrim
-  - nullable:filter:Enum
+  - nullable:filter:EnumPrim
   - nullable:filter:FormatPrim
   - nullable:filter:Compression
   - nullable:filter:Encryption
@@ -77,18 +78,19 @@ aConfigTypes:
   bVersioned: true
   aConstraints:
   - required:string:Config
+  - required:string:RootDoc
   aContainers:
   - required:array:Component
   aFilters:
   - prestorage:AuthPrim:process
   - prestorage:ValidPrim:process
+  - prestorage:EnumPrim:children
+  - storage:FormatPrim:process
   - prestorage:AuthChild:process
   - prestorage:ValidChild:process
+  - storage:FormatChild:process
   - prestorage:AuthComp:process
   - prestorage:ValidComp:process
-  - prestorage:Enum:children
-  - storage:FormatPrim:process
-  - storage:FormatChild:process
   - storage:FormatComp:process
   - storage:Compression:process
   - storage:Encryption:process
@@ -118,7 +120,7 @@ aConfigTypes:
   aContainers:
   - required:unique:Error
 - !ruby/object:Aspicere::SchemaConfigType
-  sTypeName: Enum
+  sTypeName: EnumPrim
   aDocs:
   - required:unique:Doc
   bVersioned: true

@@ -11,6 +11,7 @@
   - SchemaVersion:
     - Name: Aldo
     - Config: Aleph
+    - RootDoc: Author.Arthur
     - Doc:
       - Name: Aldo (first version)
       - Descr: Basic Author schema
@@ -202,12 +203,12 @@
         - Error:
           - Name: Tags format
           - Descr: The tags should only contain alphabetic characters and commas
-    - Enum:
+    - EnumPrim:
       - Name: Status
       - Doc:
         - Name: Status
         - Descr: Author and group status in the system
-      - EnumVersion:
+      - EnumPrimVersion:
         - Name: Ambar
         - Doc:
           - Name: First version, 2017-10-20
@@ -358,7 +359,7 @@
       - ComponentVersion:
         - Name: Arthur
         - Doc:
-          - Name: Arthur (first version)
+          - Name: first version
           - Descr: 1st version
         - AuthComp: Author.Archie
         - ValidComp: Noop.Aries
@@ -413,7 +414,7 @@
           - Class: string
           - Version: alpha
           - Nullable: false
-          - Enum: Status.Ambar
+          - EnumPrim: Status.Ambar
           - Array: false
           - ValidPrim: Noop.Arial
         - Primitive:
