@@ -37,7 +37,7 @@ bDebug = true;
 
 oFolder = Folder.new;
 oFolder.store_init('store_02.db', true);
-oFolder.repo_init('/Sweden/Stockholm/2019-11', 'Bob', '2018-01-01T12:00:01.123', 'GUI');
+oFolder.repo_init('/Sweden/Stockholm/2019-11', 'Bob', 'GUI');
 
 oEditor = Editor.new;
 oEditor.folder_init(oFolder);
@@ -53,7 +53,7 @@ oEditor.factory_dump if bDebug;
 
 puts('*' * 100); # ******************************************************************************************
 # create the document in the RAM of the application
-puts('> A) User Bob creates the event with two places and stores it ...');
+puts('> A) User Bob creates the author and stores it ...');
 # create the author merklet (root) and add data to it
 oAuthorDoc = oEditor.init_doc;  exit unless oAuthorDoc;
 oLocatDoc1 = oEditor.merklet('Posit.Alacran'); exit unless oLocatDoc1;
@@ -104,12 +104,14 @@ oFolder.store_dump if bDebug;
 puts('*' * 100); # ******************************************************************************************
 puts('> User Sue creates a version and deletes tags ...');
 oDraft = oEditor.add_version('Sue_draft', oMaster.sCommitId, 'Sue', 'GUI', 'My sandbox playground!'); exit unless oDraft;
-#oAuthorDoc = oEditor.get_doc(oDraft);
-oAuthorDoc = oEditor.delete_data(oAuthorDoc, [{Tags: 'NotAlive'}]); exit unless oAuthorDoc;
-oAuthorDoc = oEditor.delete_data(oAuthorDoc, [{Tags: nil}]); exit unless oAuthorDoc;
-oFolder.binder_dump if bDebug;
+oAuthorCopy = oEditor.checkout_doc(oDraft);
+oAuthorCopy = oEditor.delete_data(oAuthorCopy, [{Tags: 'NotAlive'}]); exit unless oAuthorCopy;
+oAuthorCopy = oEditor.delete_data(oAuthorCopy, [{Tags: nil}]); exit unless oAuthorCopy;
 oDraft = oEditor.add_commit('Removed tags', oDraft, 'Sue', 'GUI'); exit unless oDraft;
 oFolder.store_dump if bDebug;
+
+oAuthorDoc.dump
+oAuthorCopy.dump
 
 oFolder.store_close;
 puts('> Done!');

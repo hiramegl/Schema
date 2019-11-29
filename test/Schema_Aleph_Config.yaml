@@ -96,7 +96,7 @@ aConfigTypes:
   - storage:Encryption:process
   - poststorage:Index:process
   - poststorage:Publish:process
-  - presentation:Display:process
+  - postread:Display:process
   - presentation:Unit:process
 - !ruby/object:Aspicere::SchemaConfigType
   sTypeName: ValidComp
